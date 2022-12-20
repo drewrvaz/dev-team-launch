@@ -5,6 +5,13 @@
   #FCF7F8
 }
 
+:root {
+  --blue: #00a5e0;
+  --black: #04080F;
+  --green:   #71B48D;
+  --white: #FCF7F8;
+}
+
 body {
   font-family: 'Lusitana', serif;
   -webkit-font-smoothing: antialiased;
@@ -21,5 +28,10 @@ h6 {
 }
 
 .navbar {
-  background-color: #00A5E0;
+  background-color: var(--blue);
+}
+
+.search {
+  color: var(--white);
+  background-color: var(--blue);
 }
