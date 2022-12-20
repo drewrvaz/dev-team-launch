@@ -2,8 +2,8 @@
 // import './App.css';
 import React from 'react';
 import Navbar from './components/Navbar';
-import SearchBooks from './pages/SearchBooks';
-import SavedBooks from './pages/SavedBooks';
+import StudentDashboard from './pages/StudentDashboard';
+import InstructorDashboard from './pages/InstructorDashboard';
 
 import {
   ApolloClient,
@@ -40,8 +40,8 @@ function App() {
         <>
           <Navbar />
             <Routes>
-              <Route path='/' element={<SearchBooks />} />
-              <Route path='/saved' element={<SavedBooks />} />
+              <Route path='/' element={<StudentDashboard />} />
+              <Route path='/instructor' element={<InstructorDashboard />} />
               <Route path='*' element={<h1>Wrong page!</h1>} />
             </Routes>
         </>
