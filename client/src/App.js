@@ -1,9 +1,9 @@
 // import logo from './logo.svg';
 // import './App.css';
 import React from 'react';
-import Navbar from './components/Navbar';
-import SearchBooks from './pages/SearchBooks';
-import SavedBooks from './pages/SavedBooks';
+import Navbar from './components/Navbar.js';
+import SearchBooks from './pages/SearchBooks.js';
+import SavedBooks from './pages/SavedBooks.js';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 
