@@ -1,7 +1,6 @@
 const { Schema, model } = require('mongoose');
 
 const teamSchema = new Schema({
-    id: ID,
     name: {
     type: String,
     required: true,
@@ -9,13 +8,15 @@ const teamSchema = new Schema({
     trim: true,
   },
   class: {
-    ID: ID,
     type: String,
+    required: true,
   },
-  teamMates: {
-    ID: (user_id),
+  teamMates: [
+    {
     type: String,
-  },
+    required: true,
+    }
+  ],
   
 });
 

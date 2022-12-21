@@ -1,7 +1,11 @@
 const { Schema, model } = require('mongoose');
 
 const inviteSchema = new Schema({
-  id: ID,
+  accept: {
+    type: Boolean,
+    required: true,
+    default: false,
+  }
 });
 
   
