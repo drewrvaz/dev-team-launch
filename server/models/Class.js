@@ -8,21 +8,24 @@ const classSchema = new Schema({
     trim: true,
   },
   lead: {
-    ID: (user_id),
     type: String,
+    required: true,
   },
-  members: {
-    ID: (user_id),
+  members: [
+    {
     type: String,
-  },
+    }
+  ],
   teams: {
-    ID: (user_id),
+    type: String,
   },
-  invites: {
-    ID: (invites_id)
-  },
+  invites: [
+    {
+    type: String,
+    }
+  ],
   avatar: {
-    ID: (classAvatar_id)
+    type: String,
   },
   
 });

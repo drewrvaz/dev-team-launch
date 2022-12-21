@@ -5,16 +5,16 @@ const requestSchema = new Schema({
     type: String,
     required: true,
   },
-  users: [
-    {
+  requestor: {
       type: String,
-    },
-  ],
-  classes: [
-    {
+      required: true,
+  },
+
+  class: {
       type: String,
-    },
-  ],
+      required: true,
+  },
+  
 });
 
   

@@ -10,13 +10,58 @@ type User {
 
   type Class {
     _id: ID
-    Class: String
+    name: String!
+    lead: String!
+    members: [String]
+    teams: String
+    invites: [String!]
+    avatar: String
+  }
+
+  type Invite {
+    _id: ID
+    accept: Boolean
+  }
+
+  type Team {
+    _id: ID
+    name: String!
+    class: String!
+    teamMates: [String]
   }
 
   type Auth {
     token: ID!
     user: User
   }
+
+  type Request {
+    _id: ID
+    issue: String!
+    requestor: String!
+    class: String!
+  }
+
+  type Feedback {
+    _id: ID
+    description: String!
+    user: String!
+    team: String!
+  }
+
+  type UserAvatar {
+    _id: ID
+    name: String!
+    icon: String!
+  }
+
+  type ClassAvatar {
+    _id: ID
+    name: String!
+    icon: String!
+  }
+
+
   type Query {
     users: [User]
     user(username: String!): User

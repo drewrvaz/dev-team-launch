@@ -16,6 +16,6 @@ const feedbackSchema = new Schema({
 });
 
   
-  const Feedback = model('Feedback', requestSchema);
+  const Feedback = model('Feedback', feedbackSchema);
   
   module.exports = Feedback;
