@@ -4,6 +4,8 @@ import React from 'react';
 import Navbar from './components/Navbar';
 import SearchBooks from './pages/SearchBooks';
 import SavedBooks from './pages/SavedBooks';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 
 import {
   ApolloClient,
