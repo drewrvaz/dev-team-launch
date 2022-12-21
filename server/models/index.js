@@ -1,4 +1,7 @@
 const User = require('./User');
-const Class = require('./Class');
+const ChangeRequest = require('./ChangeRequest');
+const Feedback = require('./Feedback');
+const ClassAvatar = require('./ClassAvatar');
+const UserAvatar = require('./UserAvatar');
 
-module.exports = { User, Class };
+module.exports = { User, ChangeRequest, Feedback, ClassAvatar, UserAvatar };
