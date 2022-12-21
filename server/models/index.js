@@ -3,4 +3,4 @@ const Class = require('./Class');
 const Invite = require('./Invite');
 const Team = require('./Team');
 
-module.exports = { User, Class };
+module.exports = { User, Class, Invite, Team };
