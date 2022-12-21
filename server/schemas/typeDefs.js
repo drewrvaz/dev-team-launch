@@ -6,9 +6,13 @@ type User {
     username: String
     email: String
     password: String
-    
-    
   }
+
+  type Class {
+    _id: ID
+    Class: String
+  }
+
   type Auth {
     token: ID!
     user: User
@@ -16,12 +20,15 @@ type User {
   type Query {
     users: [User]
     user(username: String!): User
-    
+    classes(username: String): [Class]
+    class(classId: ID!): Class
     me: User
   }
+
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
+    addClass(class: String!): Class
   }
 `
 
