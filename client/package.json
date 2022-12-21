@@ -9,7 +9,7 @@
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^4.4.1",
     "graphql": "^15.4.0",
-    "jwt_decode": "^3.1.2",
+    "jwt-decode": "^3.1.2",
     "react": "^18.2.0",
     "react-bootstrap": "^1.0.1",
     "react-dom": "^18.2.0",
@@ -23,7 +23,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "type": "module",
+ 
   "eslintConfig": {
     "extends": [
       "react-app",
