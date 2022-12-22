@@ -2,7 +2,7 @@
     {
       "classID": "01",
       "teams": "Lions",
-      "name":"Lions",
+      "name":"Computer Science",
       "members": "Leonard, Lucy, Lexi, Lucille",
       "lead": "Larry",
       "invites": "",
@@ -12,7 +12,7 @@
     {
         "classID": "02",
         "teams": "Tigers",
-        "name":"Tigers",
+        "name":"Data Science",
         "members": "Tim, Tommy, Tammy, Tabitha",
         "lead": "Tonya",
         "invites": "",
@@ -22,7 +22,7 @@
     {
         "classID": "03",
         "teams": "Bears",
-        "name":"Bears",
+        "name":"Botany",
         "members": "Barry, Benjamin, Burt, Betty",
         "lead": "Beth",
         "invites": "",

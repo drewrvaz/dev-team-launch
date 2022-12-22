@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Lions",
+        "class": "Computer Science",
+        "teamMates": ["Leonard, Lucy, Lexi, Lucille"]
+    },
+    {
+        "name": "Tigers",
+        "class": "Data Science",
+        "teamMates": ["Tim, Tommy, Tammy, Tabitha"]
+    },
+    {
+        "name": "Tigers",
+        "class": "Botany",
+        "teamMates": ["Barry, Benjamin, Burt, Betty"]
+    }
+]
