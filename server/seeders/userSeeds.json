@@ -1,0 +1,52 @@
+[
+    {
+      "username": "Atticus Finch",
+      "email": "afinch@techfriends.dev",
+      "password": "password01"
+    },
+    {
+      "username": "Sherlock Holmes",
+      "email": "sholmes@techfriends.dev",
+      "password": "password02"
+    },
+    {
+      "username": "Emma Bovary",
+      "email": "ebovary@techfriends.dev",
+      "password": "password03"
+    },
+    {
+      "username": "Elizabeth Bennet",
+      "email": "ebennet@techfriends.dev",
+      "password": "password04"
+    },
+    {
+      "username": "Jane Eyre",
+      "email": "jeyre@techfriends.dev",
+      "password": "password05"
+    },
+    {
+      "username": "Holden Caulfield",
+      "email": "hcaulfield@techfriends.dev",
+      "password": "password06"
+    },
+    {
+      "username": "Don Quixote",
+      "email": "dquixote@techfriends.dev",
+      "password": "password07"
+    },
+    {
+      "username": "Captain Ahab",
+      "email": "cahab@techfriends.dev",
+      "password": "password08"
+    },
+    {
+      "username": "Clarissa Dalloway",
+      "email": "cdalloway@techfriends.dev",
+      "password": "password09"
+    },
+    {
+      "username": "Scarlett O'Hara",
+      "email": "sohara@techfriends.dev",
+      "password": "password10"
+    }
+  ]
