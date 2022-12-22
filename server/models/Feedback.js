@@ -1,15 +1,21 @@
 const { Schema, model } = require('mongoose');
 
 const feedbackSchema = new Schema({
-  description: {
-    type: String,
+  rating: {
+    type: Number,
     required: true,
+    min: 1,
+    max: 5,
+    validate : {
+      validator : Number.isInteger,
+      message   : '{VALUE} is not an integer value'
+    }
   },
-  user: {
+  userId: {
       type: String,
       required: true,
   },
-  team: {
+  teamId: {
       type: String,
       required: true,
   },

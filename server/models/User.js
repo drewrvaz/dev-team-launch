@@ -17,20 +17,24 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true,
-    minlength: 5,
+    minlength: 12,
   },
-  skills: {
-    type: [String],
-     
-  },
+  skills: [{
+    type: String,
+  }],
   availability: {
     type: String,
   },
   experience: {
     type: String,
   },
-  //avatar: {}
-  //invites: {}
+  userAvatarId: {
+    type: String,
+  },
+  inviteIds: [{
+    type: String,
+  }]
+
 });
 
 userSchema.pre('save', async function (next) {

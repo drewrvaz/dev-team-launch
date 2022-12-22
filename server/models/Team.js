@@ -1,22 +1,19 @@
 const { Schema, model } = require('mongoose');
 
 const teamSchema = new Schema({
-    name: {
+  name: {
     type: String,
     required: true,
     unique: true,
     trim: true,
   },
-  class: {
+  classId: {
     type: String,
     required: true,
   },
-  teamMates: [
-    {
+  userIds: [{
     type: String,
-    required: true,
-    }
-  ],
+  }],
   
 });
 
