@@ -61,6 +61,11 @@ type User {
     icon: String!
   }
 
+  type TeamAvatar {
+    _id: ID
+    name: String!
+    icon: String!
+  }
 
   type Query {
     users: [User]
