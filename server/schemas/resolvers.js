@@ -5,10 +5,10 @@ const { signToken } = require('../utils/auth');
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find().populate('classes');
+      return User.find();
     },
     user: async (parent, { username }) => {
-      return User.findOne({ username }).populate('classes');
+      return User.findOne({ username });
     },
     classes: async (parent, { username }) => {
       const params = username ? { username } : {};
@@ -28,6 +28,11 @@ const resolvers = {
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
       const user = await User.create({ username, email, password });
+      const token = signToken(user);
+      return { token, user };
+    },
+    addClass: async (parent, { name, lead}) => {
+      const user = await User.create({ name, lead });
       const token = signToken(user);
       return { token, user };
     },

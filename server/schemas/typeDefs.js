@@ -18,6 +18,12 @@ type User {
     avatar: String
   }
 
+  type Classes {
+    _id: ID
+    name: String!
+    lead: String!
+  }
+
   type Invite {
     _id: ID
     accept: Boolean
