@@ -1,92 +1,32 @@
 [
     {
       "classID": "01",
-      "teams": "Tigers",
-      "name":"Tigers",
-      "members": "Tim, Tommy, Tammy, Tabitha",
-      "lead": "Tonya",
+      "teams": "Lions",
+      "name":"Lions",
+      "members": "Leonard, Lucy, Lexi, Lucille",
+      "lead": "Larry",
       "invites": "",
       "avatar": "",
       "_id": "1" 
     },
     {
-      "teams": "Everyone knows that debugging is twice as hard as writing a program in the first place. So if you're as clever as you can be when you write it, how will you ever debug it?",
-      "name":"",
-      "members": "",
-      "lead": "",
-      "invites": "",
-      "avatar": "",
-      "_id": "" 
+        "classID": "02",
+        "teams": "Tigers",
+        "name":"Tigers",
+        "members": "Tim, Tommy, Tammy, Tabitha",
+        "lead": "Tonya",
+        "invites": "",
+        "avatar": "",
+        "_id": "2" 
     },
     {
-      "teams": "Everyone knows that debugging is twice as hard as writing a program in the first place. So if you're as clever as you can be when you write it, how will you ever debug it?",
-      "name":"",
-      "members": "",
-      "lead": "",
-      "invites": "",
-      "avatar": "",
-      "_id": "" 
-    },
-    {
-      "teams": "Everyone knows that debugging is twice as hard as writing a program in the first place. So if you're as clever as you can be when you write it, how will you ever debug it?",
-      "name":"",
-      "members": "",
-      "lead": "",
-      "invites": "",
-      "avatar": "",
-      "_id": "" 
-    },
-    {
-      "teams": "Everyone knows that debugging is twice as hard as writing a program in the first place. So if you're as clever as you can be when you write it, how will you ever debug it?",
-      "name":"",
-      "members": "",
-      "lead": "",
-      "invites": "",
-      "avatar": "",
-      "_id": "" 
-    },
-    {
-      "teams": "Everyone knows that debugging is twice as hard as writing a program in the first place. So if you're as clever as you can be when you write it, how will you ever debug it?",
-      "name":"",
-      "members": "",
-      "lead": "",
-      "invites": "",
-      "avatar": "",
-      "_id": "" 
-    },
-    {
-      "teams": "Everyone knows that debugging is twice as hard as writing a program in the first place. So if you're as clever as you can be when you write it, how will you ever debug it?",
-      "name":"",
-      "members": "",
-      "lead": "",
-      "invites": "",
-      "avatar": "",
-      "_id": "" 
-    },
-    {
-      "teams": "Everyone knows that debugging is twice as hard as writing a program in the first place. So if you're as clever as you can be when you write it, how will you ever debug it?",
-      "name":"",
-      "members": "",
-      "lead": "",
-      "invites": "",
-      "avatar": "",
-      "_id": "" 
-    },
-    {"teams": "Everyone knows that debugging is twice as hard as writing a program in the first place. So if you're as clever as you can be when you write it, how will you ever debug it?",
-    "name":"",
-    "members": "",
-    "lead": "",
-    "invites": "",
-    "avatar": "",
-    "_id": "" 
-    },
-    {
-      "teams": "Everyone knows that debugging is twice as hard as writing a program in the first place. So if you're as clever as you can be when you write it, how will you ever debug it?",
-      "name":"",
-      "members": "",
-      "lead": "",
-      "invites": "",
-      "avatar": "",
-      "_id": "" 
+        "classID": "03",
+        "teams": "Bears",
+        "name":"Bears",
+        "members": "Barry, Benjamin, Burt, Betty",
+        "lead": "Beth",
+        "invites": "",
+        "avatar": "",
+        "_id": "3" 
     }
   ]
