@@ -3,16 +3,18 @@
         "name": "Lions",
         "class": "Computer Science",
         "teamMates": ["Leonard, Lucy, Lexi, Lucille"],
-        "avatar" : ""
+        "avatar" : "../images/lion.png"
     },
     {
         "name": "Tigers",
         "class": "Data Science",
-        "teamMates": ["Tim, Tommy, Tammy, Tabitha"]
+        "teamMates": ["Tim, Tommy, Tammy, Tabitha"],
+        "avatar" : "../images/whiteTiger.png"
     },
     {
         "name": "Bears",
         "class": "Botany",
-        "teamMates": ["Barry, Benjamin, Burt, Betty"]
+        "teamMates": ["Barry, Benjamin, Burt, Betty"],
+        "avatar" : "../images/bear.png"
     }
 ]
