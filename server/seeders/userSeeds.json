@@ -1,62 +1,62 @@
 [
     {
-      "_id": "1",
+      
       "username": "Atticus Finch",
       "email": "afinch@techfriends.dev",
-      "password": "password01"
+      "password": "password1234"
     },
     {
-      "_id": "2",
+      
       "username": "Sherlock Holmes",
       "email": "sholmes@techfriends.dev",
-      "password": "password02"
+      "password": "password1234"
     },
     {
-      "_id": "3",
+      
       "username": "Emma Bovary",
       "email": "ebovary@techfriends.dev",
-      "password": "password03"
+      "password": "password1234"
     },
     {
-      "_id": "4",
+      
       "username": "Elizabeth Bennet",
       "email": "ebennet@techfriends.dev",
-      "password": "password04"
+      "password": "password1234"
     },
     {
-      "_id": "5",
+      
       "username": "Jane Eyre",
       "email": "jeyre@techfriends.dev",
-      "password": "password05"
+      "password": "password1234"
     },
     {
-      "_id": "6",
+      
       "username": "Holden Caulfield",
       "email": "hcaulfield@techfriends.dev",
-      "password": "password06"
+      "password": "password1234"
     },
     {
-      "_id": "7",
+      
       "username": "Don Quixote",
       "email": "dquixote@techfriends.dev",
-      "password": "password07"
+      "password": "password1234"
     },
     {
-      "_id": "8",
+      
       "username": "Captain Ahab",
       "email": "cahab@techfriends.dev",
-      "password": "password08"
+      "password": "password1234"
     },
     {
-      "_id": "9",
+      
       "username": "Clarissa Dalloway",
       "email": "cdalloway@techfriends.dev",
-      "password": "password09"
+      "password": "password1234"
     },
     {
-      "_id": "10",
+      
       "username": "Scarlett O'Hara",
       "email": "sohara@techfriends.dev",
-      "password": "password10"
+      "password": "password1234"
     }
   ]
