@@ -1,23 +1,21 @@
 [
     {
-      "classID": "01",
-      "teams": "Lions, Tigers",
+      "classId": "01",
+      "teams": "[]",
       "name":"Computer Science",
       "members": "Leonard, Lucy, Lexi, Lucille",
       "lead": "Larry",
       "invites": "",
-      "avatar": "../images/computerSci.png",
-      "_id": "1" 
+      "avatar": "../images/computerSci.png"
     },
     {
-        "classID": "02",
+        "classId": "02",
         "teams": "Tigers, Bears",
         "name":"Data Science",
         "members": "Tim, Tommy, Tammy, Tabitha",
         "lead": "Tonya",
         "invites": "",
-        "avatar": "../images/dataSci.png",
-        "_id": "2" 
+        "avatar": "../images/dataSci.png"
     },
     {
         "classID": "03",
@@ -26,7 +24,6 @@
         "members": "Barry, Benjamin, Burt, Betty",
         "lead": "Beth",
         "invites": "",
-        "avatar": "../images/botany.png",
-        "_id": "3" 
+        "avatar": "../images/botany.png"
     }
   ]

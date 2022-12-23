@@ -10,9 +10,9 @@ const resolvers = {
     user: async (parent, { username }) => {
       return User.findOne({ username });
     },
-    classes: async (parent, { username }) => {
-      const params = username ? { username } : {};
-      return Class.find(params).sort({ createdAt: -1 });
+    classes: async (parent, { classId }) => {
+      const params = classId ? { classId } : {};
+      return Class.find( params).sort({ createdAt: -1 });
     },
     class: async (parent, { classId }) => {
       return Class.findOne({ _id: classId });
