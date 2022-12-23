@@ -2,7 +2,8 @@
     {
         "name": "Lions",
         "class": "Computer Science",
-        "teamMates": ["Leonard, Lucy, Lexi, Lucille"]
+        "teamMates": ["Leonard, Lucy, Lexi, Lucille"],
+        "avatar" : ""
     },
     {
         "name": "Tigers",
@@ -10,7 +11,7 @@
         "teamMates": ["Tim, Tommy, Tammy, Tabitha"]
     },
     {
-        "name": "Tigers",
+        "name": "Bears",
         "class": "Botany",
         "teamMates": ["Barry, Benjamin, Burt, Betty"]
     }
