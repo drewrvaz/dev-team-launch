@@ -1,20 +1,20 @@
 [
     {
         "name": "Lions",
-        "class": "Computer Science",
-        "teamMates": ["Leonard, Lucy, Lexi, Lucille"],
+        "classId": "63a50be87f424ad8db1ca8ab",
+        "userIds": "[63a48f8355057de172ce6ba6, 63a48f8355057de172ce6ba7, 63a48f8355057de17…]",
         "avatar" : "../images/lion.png"
     },
     {
         "name": "Tigers",
-        "class": "Data Science",
-        "teamMates": ["Tim, Tommy, Tammy, Tabitha"],
+        "classId": "63a50c587f424ad8db1ca8af",
+        "userIds": "[63a48f8355057de172ce6bab,63a48f8355057de172ce6bad, 63a48f8355057de172…]",
         "avatar" : "../images/whiteTiger.png"
     },
     {
         "name": "Bears",
-        "class": "Botany",
-        "teamMates": ["Barry, Benjamin, Burt, Betty"],
+        "classId": "63a50c587f424ad8db1ca8b0",
+        "userIds": "[[63a48f8355057de172ce6baa, 63a48f8355057de172ce6bab, 63a48f8355057de17…]",
         "avatar" : "../images/bear.png"
     }
 ]
