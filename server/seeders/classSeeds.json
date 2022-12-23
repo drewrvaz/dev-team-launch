@@ -1,32 +1,29 @@
 [
     {
-      "classID": "01",
-      "teams": "Lions, Tigers",
-      "name":"Computer Science",
-      "members": "Leonard, Lucy, Lexi, Lucille",
-      "lead": "Larry",
-      "invites": "",
-      "avatar": "../images/computerSci.png",
-      "_id": "1" 
+      "classId": "01",
+      "name": "Computer Science",
+      "leadId": "63a48f8355057de172ce6ba5",
+      "userIds": "[63a48f8355057de172ce6ba6, 63a48f8355057de172ce6ba7, 63a48f8355057de172ce6ba8]",
+      "teamIds": "[63a4bc6c7f424ad8db1ca890]",
+      "inviteIds": "[]",
+      "classAvatarId": "../images/computerSci.png"
     },
     {
-        "classID": "02",
-        "teams": "Tigers, Bears",
-        "name":"Data Science",
-        "members": "Tim, Tommy, Tammy, Tabitha",
-        "lead": "Tonya",
-        "invites": "",
-        "avatar": "../images/dataSci.png",
-        "_id": "2" 
+      "classId": "02",
+      "name": "Data Science",
+      "leadId": "63a48f8355057de172ce6bac",
+      "userIds": "[63a48f8355057de172ce6bab,63a48f8355057de172ce6bad, 63a48f8355057de172ce6bae]",
+      "teamIds": "[63a4bc6c7f424ad8db1ca891, 63a4bc6c7f424ad8db1ca892]",
+      "inviteIds": "[]",
+      "classAvatarId": "../images/dataSci.png"
     },
     {
-        "classID": "03",
-        "teams": "Bears, Lions",
-        "name":"Botany",
-        "members": "Barry, Benjamin, Burt, Betty",
-        "lead": "Beth",
-        "invites": "",
-        "avatar": "../images/botany.png",
-        "_id": "3" 
+      "classId": "03",
+      "name": "Botany",
+      "leadId": "63a48f8355057de172ce6ba9",
+      "userIds": "[63a48f8355057de172ce6baa, 63a48f8355057de172ce6bab, 63a48f8355057de172ce6ba]",
+      "teamIds": "[63a4bc6c7f424ad8db1ca892]",
+      "inviteIds": "[]",
+      "classAvatarId": "../images/botany.png"
     }
   ]

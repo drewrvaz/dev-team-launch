@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 
 const classSchema = new Schema({
-  name: {
+    name: {
     type: String,
     required: true,
     unique: true,
