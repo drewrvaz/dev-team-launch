@@ -5,6 +5,14 @@ const inviteSchema = new Schema({
     type: Boolean,
     required: true,
     default: false,
+  },
+  userId: {
+    type: String,
+    required: true,
+  },
+  classId: {
+    type: String,
+    required: true,
   }
 });
 
