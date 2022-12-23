@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { Form, 
+  Button, 
+  Card,
+  Container} from 'react-bootstrap';
+  import '../index.css'
 
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
@@ -39,61 +44,69 @@ const Signup = () => {
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-lg-10">
-        <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
-          <div className="card-body">
-            {data ? (
-              <p>
-                Success! You may now head{' '}
-                <Link to="/">back to the homepage.</Link>
-              </p>
-            ) : (
-              <form onSubmit={handleFormSubmit}>
-                <input
-                  className="form-input"
-                  placeholder="Your username"
-                  name="username"
-                  type="text"
-                  value={formState.name}
-                  onChange={handleChange}
-                />
-                <input
-                  className="form-input"
-                  placeholder="Your email"
-                  name="email"
-                  type="email"
-                  value={formState.email}
-                  onChange={handleChange}
-                />
-                <input
-                  className="form-input"
-                  placeholder="******"
-                  name="password"
-                  type="password"
-                  value={formState.password}
-                  onChange={handleChange}
-                />
-                <button
-                  className="btn btn-block btn-primary"
-                  style={{ cursor: 'pointer' }}
-                  type="submit"
-                >
-                  Submit
-                </button>
-              </form>
-            )}
+    <>
+      <Container className='loginContainer py-5 h-100'>
+        <Card className='loginCard'>
+          <h2>Sign Up</h2>
+          <Form onSubmit={handleFormSubmit}>
+          <Form.Group>
+            <Form.Label htmlFor='email'>Username</Form.Label>
+            <Form.Control 
+              className='input'
+              type='text'
+              placeholder='Your Username'
+              name='username'
+              value={formState.name}
+              onChange={handleChange}
+              required
+            />
+            <Form.Control.Feedback type='invalid'> A username is required!</Form.Control.Feedback>
+          </Form.Group>
 
-            {error && (
+          <Form.Group>
+              <Form.Label htmlFor='email'>Email</Form.Label>
+              <Form.Control 
+                className='input'
+                type='email'
+                placeholder='Your Email'
+                name='email'
+                value={formState.email}
+                onChange={handleChange}
+                required
+              />
+              <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
+            </Form.Group>
+
+            <Form.Group>
+              <Form.Label htmlFor='password'>Password</Form.Label>
+              <Form.Control
+                className='input'
+                type='password'
+                placeholder='Your Password'
+                name='password'
+                value={formState.password}
+                onChange={handleChange}
+                required
+              />
+              <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
+            </Form.Group>
+
+            <Button className='submitBtn btn-outline-light btn-lg px-5' type='submit'>
+              Login
+            </Button>
+                
+            <Form.Group className='signUp'>
+              <p>Already have an account?<a href='/' className='loginLink'> Log in!</a></p>
+            </Form.Group>
+          </Form>
+          {error && (
               <div className="my-3 p-3 bg-danger text-white">
                 {error.message}
               </div>
             )}
-          </div>
-        </div>
-      </div>
-    </main>
+        </Card>
+      </Container>
+    </>
   );
 };
 

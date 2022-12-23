@@ -2,10 +2,11 @@
 // import './App.css';
 import React from 'react';
 import Navbar from './components/Navbar';
-import SearchBooks from './pages/SearchBooks';
-import SavedBooks from './pages/SavedBooks';
+// import Profile from './pages/Profile';
+// import Class from './pages/Class';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import { FaRocket } from 'react-icons/fa'
 
 import {
   ApolloClient,
@@ -39,14 +40,21 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <>
-          <Navbar />
+        <div className='devTeamPage'>
+          <>
+            <Navbar />
             <Routes>
-              <Route path='/' element={<SearchBooks />} />
-              <Route path='/saved' element={<SavedBooks />} />
+              <Route path='/' element={<Login />} />
+              <Route path='/signup' element={<Signup />} />
+              {/* <Route path='/profile' element={<Profile />} />
+              <Route path='class' element={<Class />} /> */}
               <Route path='*' element={<h1>Wrong page!</h1>} />
             </Routes>
-        </>
+          </>
+        </div>
+        <footer>
+          <h1>Dev Team <FaRocket /></h1>
+        </footer>
       </Router>
     </ApolloProvider>
     // <div className="App">
