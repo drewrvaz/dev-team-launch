@@ -7,24 +7,20 @@ const classSchema = new Schema({
     unique: true,
     trim: true,
   },
-  lead: {
+  leadId: {
     type: String,
     required: true,
   },
-  members: [
-    {
+  userIds: [{
+      type: String,
+  }],
+  teamIds: [{
+      type: String,
+  }],
+  inviteIds: [{
     type: String,
-    }
-  ],
-  teams: {
-    type: String,
-  },
-  invites: [
-    {
-    type: String,
-    }
-  ],
-  avatar: {
+  }],
+  classAvatarId: {
     type: String,
   },
   
