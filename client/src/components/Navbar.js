@@ -1,50 +1,55 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
-import SignUpForm from './SignupForm';
-import LoginForm from './LoginForm';
+import { Navbar, Nav, Container } from 'react-bootstrap';
+import{ FaRocket } from 'react-icons/fa';
 
 import Auth from '../utils/auth';
 
 const AppNavbar = () => {
-  const [showModal, setShowModal] = useState(false);
+
 
   return (
     <>
       <Navbar /*bg='dark' variant='dark'*/ expand='lg' className='navbar'>
         <Container fluid>
-          <Navbar.Brand as={Link} to='/'>
-            Google Books Search
+          <Navbar.Brand>
+            <h1>Dev Team <FaRocket /></h1>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar'>
             <Nav className='ml-auto'>
-              <Nav.Link as={Link} to='/'>
-                Search For Books
-              </Nav.Link>
               {/* if user is logged in show saved books and logout */}
               {Auth.loggedIn() ? (
                 <>
-                  <Nav.Link as={Link} to='/saved'>
-                    See Your Books
+                  <Nav.Link as={Link} to='/' className='navLink'>
+                    Search For Users
+                  </Nav.Link>
+                  <Nav.Link as={Link} to='/profile' className='navLink'>
+                    View Your Profile
+                  </Nav.Link>
+                  <Nav.Link as={Link} to='/class' className='navLink'>
+                    View Your Class(es)
                   </Nav.Link>
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
                 </>
               ) : (
-                <Nav.Link onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
+                <>
+                  <Nav.Link as={Link} to='/' className='navLink'>Login</Nav.Link>
+                  <Nav.Link as={Link} to='/signup' className='navLink'>Sign Up</Nav.Link>
+                </>
               )}
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
       {/* set modal data up */}
-      <Modal
+      {/* <Modal
         size='lg'
         show={showModal}
         onHide={() => setShowModal(false)}
         aria-labelledby='signup-modal'>
         {/* tab container to do either signup or login component */}
-        <Tab.Container defaultActiveKey='login'>
+        {/*<Tab.Container defaultActiveKey='login'>
           <Modal.Header closeButton>
             <Modal.Title id='signup-modal'>
               <Nav variant='pills'>
@@ -68,7 +73,7 @@ const AppNavbar = () => {
             </Tab.Content>
           </Modal.Body>
         </Tab.Container>
-      </Modal>
+      </Modal> */}
     </>
   );
 };
