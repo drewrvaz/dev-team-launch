@@ -1,0 +1,32 @@
+[
+    {
+      "classID": "01",
+      "teams": "Lions",
+      "name":"Lions",
+      "members": "Leonard, Lucy, Lexi, Lucille",
+      "lead": "Larry",
+      "invites": "",
+      "avatar": "",
+      "_id": "1" 
+    },
+    {
+        "classID": "02",
+        "teams": "Tigers",
+        "name":"Tigers",
+        "members": "Tim, Tommy, Tammy, Tabitha",
+        "lead": "Tonya",
+        "invites": "",
+        "avatar": "",
+        "_id": "2" 
+    },
+    {
+        "classID": "03",
+        "teams": "Bears",
+        "name":"Bears",
+        "members": "Barry, Benjamin, Burt, Betty",
+        "lead": "Beth",
+        "invites": "",
+        "avatar": "",
+        "_id": "3" 
+    }
+  ]
