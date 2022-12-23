@@ -23,6 +23,12 @@ type User {
     classAvatarId: String
   }
 
+  type Classes {
+    _id: ID
+    name: String!
+    lead: String!
+  }
+
   type Invite {
     _id: ID
     userId: String!

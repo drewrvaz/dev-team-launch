@@ -10,13 +10,24 @@ db.once('open', async () => {
 
     await User.create(userSeeds);
 
+
+    //for CLASS:
+    // find user by id 
+    //use id and generate a class name from a list of names
+    //add a class (create a class using user id and class name)
+
+    //FOR TEAMS:
+    // find a team by id
+    //generate team name from a list of team names
+    //add a team using class id and team name
+
     for (let i = 0; i < classSeeds.length; i++) {
       
       const user = await User.findOneAndUpdate(
         
         {
           $addToSet: {
-           
+           classId
           },
         }
       );

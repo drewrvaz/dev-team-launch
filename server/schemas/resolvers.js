@@ -47,6 +47,11 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
+    addClass: async (parent, { name, lead}) => {
+      const user = await User.create({ name, lead });
+      const token = signToken(user);
+      return { token, user };
+    },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
