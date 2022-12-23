@@ -5,18 +5,18 @@ const classSeeds = require('./classSeeds.json');
 
 db.once('open', async () => {
   try {
-    // await Thought.deleteMany({});
+    
     await User.deleteMany({});
 
     await User.create(userSeeds);
 
     for (let i = 0; i < classSeeds.length; i++) {
-      // const { _id, thoughtAuthor } = await Thought.create(thoughtSeeds[i]);
+      
       const user = await User.findOneAndUpdate(
-        // { username: thoughtAuthor },
+        
         {
           $addToSet: {
-            // thoughts: _id,
+           
           },
         }
       );
