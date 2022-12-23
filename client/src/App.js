@@ -4,6 +4,7 @@ import React from 'react';
 import Navbar from './components/Navbar';
 // import Profile from './pages/Profile';
 // import Class from './pages/Class';
+
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import { FaRocket } from 'react-icons/fa'
