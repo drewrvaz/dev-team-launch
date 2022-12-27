@@ -6,6 +6,8 @@ import SearchBooks from './pages/SearchBooks.js';
 import SavedBooks from './pages/SavedBooks.js';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import InstructorDashboard from './InstructorDashboard.js';
+import StudentDashboard from './StudentDashboard.js';
 
 import {
   ApolloClient,
@@ -42,8 +44,8 @@ function App() {
         <>
           <Navbar />
             <Routes>
-              <Route path='/' element={<SearchBooks />} />
-              <Route path='/saved' element={<SavedBooks />} />
+              <Route path='/' element={<StudentDashboard />} />
+      
               <Route path='*' element={<h1>Wrong page!</h1>} />
             </Routes>
         </>
