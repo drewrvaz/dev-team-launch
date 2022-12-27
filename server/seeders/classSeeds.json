@@ -1,0 +1,29 @@
+[
+    {
+      "classId": "01",
+      "name": "Computer Science",
+      "leadId": "63a48f8355057de172ce6ba5",
+      "userIds": "[63a48f8355057de172ce6ba6, 63a48f8355057de172ce6ba7, 63a48f8355057de172ce6ba8]",
+      "teamIds": "[63a4bc6c7f424ad8db1ca890]",
+      "inviteIds": "[]",
+      "classAvatarId": "../images/computerSci.png"
+    },
+    {
+      "classId": "02",
+      "name": "Data Science",
+      "leadId": "63a48f8355057de172ce6bac",
+      "userIds": "[63a48f8355057de172ce6bab,63a48f8355057de172ce6bad, 63a48f8355057de172ce6bae]",
+      "teamIds": "[63a4bc6c7f424ad8db1ca891, 63a4bc6c7f424ad8db1ca892]",
+      "inviteIds": "[]",
+      "classAvatarId": "../images/dataSci.png"
+    },
+    {
+      "classId": "03",
+      "name": "Botany",
+      "leadId": "63a48f8355057de172ce6ba9",
+      "userIds": "[63a48f8355057de172ce6baa, 63a48f8355057de172ce6bab, 63a48f8355057de172ce6ba]",
+      "teamIds": "[63a4bc6c7f424ad8db1ca892]",
+      "inviteIds": "[]",
+      "classAvatarId": "../images/botany.png"
+    }
+  ]

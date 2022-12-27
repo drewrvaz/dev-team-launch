@@ -1,13 +1,18 @@
 // import logo from './logo.svg';
 // import './App.css';
 import React from 'react';
-import Navbar from './components/Navbar.js';
-import SearchBooks from './pages/SearchBooks.js';
-import SavedBooks from './pages/SavedBooks.js';
+import Navbar from './components/Navbar';
+// import Profile from './pages/Profile';
+// import Class from './pages/Class';
+
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+<<<<<<< HEAD
 import InstructorDashboard from './InstructorDashboard.js';
 import StudentDashboard from './StudentDashboard.js';
+=======
+import { FaRocket } from 'react-icons/fa'
+>>>>>>> 09b904e749b64becde35f30d3e72ffaecc2583c1
 
 import {
   ApolloClient,
@@ -41,14 +46,26 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <>
-          <Navbar />
+        <div className='devTeamPage'>
+          <>
+            <Navbar />
             <Routes>
+<<<<<<< HEAD
               <Route path='/' element={<StudentDashboard />} />
       
+=======
+              <Route path='/' element={<Login />} />
+              <Route path='/signup' element={<Signup />} />
+              {/* <Route path='/profile' element={<Profile />} />
+              <Route path='class' element={<Class />} /> */}
+>>>>>>> 09b904e749b64becde35f30d3e72ffaecc2583c1
               <Route path='*' element={<h1>Wrong page!</h1>} />
             </Routes>
-        </>
+          </>
+        </div>
+        <footer>
+          <h1>Dev Team <FaRocket /></h1>
+        </footer>
       </Router>
     </ApolloProvider>
     // <div className="App">

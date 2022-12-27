@@ -7,8 +7,6 @@
 
 body {
   font-family: 'Lusitana', serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 h1,
@@ -20,11 +18,95 @@ h6 {
   font-family: 'Raleway', sans-serif;
 }
 
+h1 {
+  color: var(--black);
+}
+
+.devTeamPage {
+  background-color: var(--white);
+  height: 100vh;
+}
+
 .navbar {
-  background-color: var(--blue);
+  background-color: var(--green);
+}
+
+.navLink {
+  font-size: larger;
+  color: var(--black);
 }
 
 .search {
   color: var(--white);
-  background-color: var(--blue);
+  background-color: var(--black);
+}
+
+.searchBtn {
+  background-color: var(--green);
+  color: var(--white);
+}
+
+.searchInput {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+.loginContainer {
+  justify-content: center;
+  align-items: center;
+  border: 1px;
+  border-color: var(--green);
+}
+
+.loginCard {
+  text-align: center;
+  background-color: var(--green);
+  border-radius: 1rem;
+  height: 50vh;
+  justify-content: center;
+  align-items: center;
+  color: var(--black);
+}
+
+.input {
+  border: 1px;
+  border-color: var(--black);
+  color: var(--black);
+  background-color: var(--white);
+}
+
+.submitBtn {
+  margin-top: 1rem;
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.signUp {
+  margin-top: 3rem;
+  color: var(--black);
+}
+
+.signupLink {
+  color: var(--white);
+}
+
+.signupLink:hover {
+  text-decoration: underline;
+  color: var(--black);
+}
+
+.loginLink {
+  color: var(--white);
+}
+
+.loginLink:hover {
+  text-decoration: underline;
+  color: var(--black);
+}
+
+footer {
+  background-color: var(--green);
+  color: var(--black);
+  text-align: center;
+  bottom: 0;
 }

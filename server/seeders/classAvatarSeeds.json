@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Computer Science",
+        "icon": "https://unsplash.com/photos/LqKhnDzSF-8?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink"
+    },
+    {
+        "name": "Data Science",
+        "icon": "https://unsplash.com/photos/oyXis2kALVg?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink"
+    },
+    {
+        "name": "Botany",
+        "icon": "https://unsplash.com/photos/djXPwvbOD-Y?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink"
+    }
+]

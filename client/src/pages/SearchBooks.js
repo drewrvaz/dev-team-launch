@@ -8,7 +8,7 @@ import { saveBookIds, getSavedBookIds } from '../utils/localStorage';
 import { useMutation } from '@apollo/client';
 import { SAVE_BOOK } from '../utils/mutations';
 
-const SearchBooks = () => {
+const SearchStudents = () => {
   // create state for holding returned google api data
   const [searchedBooks, setSearchedBooks] = useState([]);
   // create state for holding our search field data
@@ -84,7 +84,7 @@ const SearchBooks = () => {
     <>
       <Jumbotron fluid className='search'/*'text-light bg-dark'*/ >
         <Container>
-          <h1>Search for Books!</h1>
+          <h1>Find your class!</h1>
           <Form onSubmit={handleFormSubmit}>
             <Form.Row>
               <Col xs={12} md={8}>
@@ -94,13 +94,13 @@ const SearchBooks = () => {
                   onChange={(e) => setSearchInput(e.target.value)}
                   type='text'
                   size='lg'
-                  placeholder='Search for a book'
-                  className=''
+                  placeholder='Search for a student'
+                  className='searchInput'
                 />
               </Col>
               <Col xs={12} md={4}>
-                <Button type='submit' variant='success' size='lg'>
-                  Submit Search
+                <Button type='submit' variant='success' size='lg' className='searchBtn'>
+                  Search
                 </Button>
               </Col>
             </Form.Row>
@@ -145,4 +145,4 @@ const SearchBooks = () => {
   );
 };
 
-export default SearchBooks;
+export default SearchStudents;

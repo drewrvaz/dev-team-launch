@@ -2,8 +2,13 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
+import { Form, 
+  Button, 
+  Card,
+  Container} from 'react-bootstrap';
 
 import Auth from '../utils/auth';
+import '../index.css'
 
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: '', password: '' });
@@ -41,53 +46,56 @@ const Login = (props) => {
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-lg-10">
-        <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Login</h4>
-          <div className="card-body">
-            {data ? (
-              <p>
-                Success! You may now head{' '}
-                <Link to="/">back to the homepage.</Link>
-              </p>
-            ) : (
-              <form onSubmit={handleFormSubmit}>
-                <input
-                  className="form-input"
-                  placeholder="Your email"
-                  name="email"
-                  type="email"
-                  value={formState.email}
-                  onChange={handleChange}
-                />
-                <input
-                  className="form-input"
-                  placeholder="******"
-                  name="password"
-                  type="password"
-                  value={formState.password}
-                  onChange={handleChange}
-                />
-                <button
-                  className="btn btn-block btn-primary"
-                  style={{ cursor: 'pointer' }}
-                  type="submit"
-                >
-                  Submit
-                </button>
-              </form>
-            )}
+    <>
+      <Container className='loginContainer py-5 h-100'>
+        <Card className='loginCard'>
+          <h2>Login</h2>
+          <p>Please enter your login and password!</p>
+          <Form onSubmit={handleFormSubmit}>
+            <Form.Group>
+              <Form.Label htmlFor='email'>Email</Form.Label>
+              <Form.Control 
+                className='input'
+                type='email'
+                placeholder='Your Email'
+                name='email'
+                value={formState.email}
+                onChange={handleChange}
+                required
+              />
+              <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
+            </Form.Group>
 
-            {error && (
+            <Form.Group>
+              <Form.Label htmlFor='password'>Password</Form.Label>
+              <Form.Control
+                className='input'
+                type='password'
+                placeholder='Your Password'
+                name='password'
+                value={formState.password}
+                onChange={handleChange}
+                required
+              />
+              <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
+            </Form.Group>
+
+            <Button className='submitBtn btn-outline-light btn-lg px-5' type='submit'>
+              Login
+            </Button>
+              
+            <Form.Group className='signUp'>
+              <p>Don't have an account?<a href='signup' className='signupLink'> Sign Up!</a></p>
+            </Form.Group>
+          </Form>
+          {error && (
               <div className="my-3 p-3 bg-danger text-white">
                 {error.message}
               </div>
             )}
-          </div>
-        </div>
-      </div>
-    </main>
+        </Card>
+      </Container>
+    </>
   );
 };
 
