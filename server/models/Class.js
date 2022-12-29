@@ -23,6 +23,13 @@ const classSchema = new Schema({
   classAvatarId: {
     type: String,
   },
+  classSize: {
+    type: Number,
+    required: true,
+  },
+  teamSize: {
+    type: Number,
+  },
   
 });
 

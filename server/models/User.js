@@ -33,7 +33,7 @@ const userSchema = new Schema({
   },
   inviteIds: [{
     type: String,
-  }]
+  }],
 
 });
 
