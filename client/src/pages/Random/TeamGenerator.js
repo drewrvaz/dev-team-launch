@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { shuffle } from "./helper";
+import "./randomStyle.css";
 
 function TeamGenerator(props) {
   const [numberOfTeams, setNumberOfTeams] = useState();
@@ -37,27 +38,30 @@ function TeamGenerator(props) {
     }
   };
   return (
-    <>
-      <input
-        type="number"
-        onChange={(event) => {
-          setNumberOfTeams(event.target.value);
-        }}
-      />
+    <div className="random-team-generator-outer-container">
+      <h3>Generate Random Team</h3>
+      <div className="random-team-generator-container">
+        <input
+          type="number"
+          onChange={(event) => {
+            setNumberOfTeams(event.target.value);
+          }}
+        />
 
-      <button onClick={handleGenerateBtnClick}>Generate Teams</button>
-      {errorMessage && <p className="error"> {errorMessage} </p>}
-      {/*displaying the teams in a list format*/}
-      {teams.map((team, index) => {
-        return (
-          <ul key={index}>
-            {team.map((member, index) => {
-              return <li key={index}>{member}</li>;
-            })}
-          </ul>
-        );
-      })}
-    </>
+        <button onClick={handleGenerateBtnClick}>Generate Teams</button>
+        {errorMessage && <p className="error"> {errorMessage} </p>}
+        {/*displaying the teams in a list format*/}
+        {teams.map((team, index) => {
+          return (
+            <ul key={index}>
+              {team.map((member, index) => {
+                return <li key={index}>{member}</li>;
+              })}
+            </ul>
+          );
+        })}
+      </div>
+    </div>
   );
 }
 

@@ -9,7 +9,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import { FaRocket } from 'react-icons/fa';
 
-import Random from './pages/Random/Random';
+import Random from './pages/random/Random';
 
 
 import {
