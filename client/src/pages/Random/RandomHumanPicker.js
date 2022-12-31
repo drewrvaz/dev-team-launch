@@ -9,7 +9,7 @@ function RandomHumanPicker(props) {
   const [errorMessage, setErrorMessage] = useState("");
 
   const handlePickBtnClick = () => {
-    setErrorMessage("Please select a number to pick!");
+    setErrorMessage("Please select a number of people");
 
     //Logic for selecting random people
     const shuffledArray = shuffle(props.list);
