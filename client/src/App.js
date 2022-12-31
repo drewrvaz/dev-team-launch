@@ -7,7 +7,10 @@ import Navbar from './components/Navbar';
 
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import { FaRocket } from 'react-icons/fa'
+import { FaRocket } from 'react-icons/fa';
+
+import Random from './pages/Random/Random';
+
 
 import {
   ApolloClient,
@@ -49,6 +52,9 @@ function App() {
               <Route path='/signup' element={<Signup />} />
               {/* <Route path='/profile' element={<Profile />} />
               <Route path='class' element={<Class />} /> */}
+
+              {<Route path='/random' element={<Random />} />
+              }
               <Route path='*' element={<h1>Wrong page!</h1>} />
             </Routes>
           </>
