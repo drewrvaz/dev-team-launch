@@ -9,7 +9,7 @@ function TeamGenerator(props) {
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleGenerateBtnClick = () => {
-    setErrorMessage("Please select the number of tems to generate");
+    setErrorMessage("Please select the number of teams to generate");
 
     //Logic for selecting random people here...
     const shuffledArray = shuffle(props.list);

@@ -22,8 +22,8 @@
 .random-team-generator-outer-container {
   border: 2px solid rgb(3, 68, 20);
   padding: 30px;
-  background-color: #71B48D;
-  border-radius:.5rem;
+  background-color: #71b48d;
+  border-radius: 0.5rem;
 }
 .random-human-picker-container,
 .random-team-generator-container {
@@ -32,14 +32,14 @@
 .random-human-picker-container input,
 .random-team-generator-container input {
   width: 80%;
-  background-color:  #FCF7F8;
-  border-radius:0.5rem;
+  background-color: #fcf7f8;
+  border-radius: 0.5rem;
 }
 .random-human-picker-container button,
 .random-team-generator-container button {
   width: 80%;
   background-color: black;
   color: white;
-  opacity: 70%;  
-  border-radius:0.5rem; 
+  opacity: 70%;
+  border-radius: 0.5rem;
 }
