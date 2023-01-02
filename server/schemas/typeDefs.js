@@ -16,7 +16,7 @@ type User {
   type Class {
     _id: ID
     name: String!
-    leadId: String!
+    leadId: String
     userIds: [String]
     teamIds: [String]
     inviteIds: [String]
@@ -25,8 +25,8 @@ type User {
 
   type Classes {
     _id: ID
-    name: String!
-    lead: String!
+    name: String
+    lead: String
   }
 
   type Invite {
@@ -85,12 +85,12 @@ type User {
     user(username: String!): User
     me: User
     classes(username: String): [Class]
-    class(classId: ID!): Class
-    team(teamId: ID!): Team
+    class(classId: ID): Class
+    team(teamId: ID): Team
     feedback(feedbackId: ID): Feedback
-    classAvatar(name: String!): ClassAvatar
-    userAvatar(name: String!): UserAvatar
-    invite(inviteId: ID!): Invite
+    classAvatar(name: String): ClassAvatar
+    userAvatar(name: String): UserAvatar
+    invite(inviteId: ID): Invite
   }
 
   type Mutation {
