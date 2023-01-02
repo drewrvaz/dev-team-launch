@@ -9,6 +9,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import { FaRocket } from 'react-icons/fa';
 
+import gql from "graphql-tag";
 import Random from './pages/random/Random';
 
 
@@ -22,7 +23,7 @@ import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: 'http://localhost3001/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {
