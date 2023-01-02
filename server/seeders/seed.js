@@ -1,42 +1,60 @@
 const db = require('../config/connection');
-const { User, Thought } = require('../models');
-const userSeeds = require('./userSeeds.json');
-const classSeeds = require('./classSeeds.json');
+const { User, Team, Class } = require('../models');
 
 db.once('open', async () => {
-  try {
+  await Class.deleteMany();
+
+  const classes = await Class.insertMany([
+    { name: 'Jedi',
+  leadId:'63a48f8355057de172ce6ba7' },
+    { name: 'Sith',
+    leadId: '63a48f8355057de172ce6ba6'},
+  ]);
+
+  console.log('classes seeded');
+
+  await Team.deleteMany();
+
+  const teams = await Team.insertMany([
+    {
+        name: "The Resistance",
+        classId: "63a50be87f424ad8db1ca8ab",
+        userIds: "[63a48f8355057de172ce6ba6, 63a48f8355057de172ce6ba7, 63a48f8355057de17…]",
+        avatar : "../images/lion.png",
+        Class: classes[0]._id,
+    },
+    {
+      name: "The Republic",
+      classId: "63a50c587f424ad8db1ca8af",
+      userIds: "[63a48f8355057de172ce6bab,63a48f8355057de172ce6bad, 63a48f8355057de172…]",
+      avatar : "../images/whiteTiger.png",
+      Class: classes[1]._id,
+  },
     
-    await User.deleteMany({});
+  ]);
 
-    await User.create(userSeeds);
+  console.log('teams seeded');
 
+  await User.deleteMany();
 
-    //for CLASS:
-    // find user by id 
-    //use id and generate a class name from a list of names
-    //add a class (create a class using user id and class name)
+  await User.create({
+    username: 'HanSolo',
+    email: 'hsolo@testmail.com',
+    password: 'password1234',
+    classes: [
+      {
+        classes: [classes[0]._id, classes[0]._id, classes[1]._id],
+      },
+    ],
+  });
 
-    //FOR TEAMS:
-    // find a team by id
-    //generate team name from a list of team names
-    //add a team using class id and team name
+  await User.create({
+    username: 'LukeSkywalker',
+    email: 'lskywalker@testmail.com',
+    password: 'password1234',
+  });
 
-    for (let i = 0; i < classSeeds.length; i++) {
-      
-      const user = await User.findOneAndUpdate(
-        
-        {
-          $addToSet: {
-           classId
-          },
-        }
-      );
-    }
-  } catch (err) {
-    console.error(err);
-    process.exit(1);
-  }
+  console.log('users seeded');
 
-  console.log('all done!');
-  process.exit(0);
+  process.exit();
 });

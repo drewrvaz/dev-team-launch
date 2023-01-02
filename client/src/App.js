@@ -7,7 +7,11 @@ import Navbar from './components/Navbar';
 
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import { FaRocket } from 'react-icons/fa'
+import { FaRocket } from 'react-icons/fa';
+
+import gql from "graphql-tag";
+import Random from './pages/random/Random';
+
 
 import {
   ApolloClient,
@@ -19,7 +23,7 @@ import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: 'http://localhost3001/graphql',
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -49,6 +53,9 @@ function App() {
               <Route path='/signup' element={<Signup />} />
               {/* <Route path='/profile' element={<Profile />} />
               <Route path='class' element={<Class />} /> */}
+
+              {<Route path='/random' element={<Random />} />
+              }
               <Route path='*' element={<h1>Wrong page!</h1>} />
             </Routes>
           </>

@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+.human-list-input-container,
+.random-human-picker-outer-container,
+.random-team-generator-outer-container {
+  width: 500px;
+  margin: 20px auto;
+}
+.human-list-input-container label,
+.human-list-input-container textarea {
+  display: block;
+  font-size: larger;
+}
+.human-list-input-container textarea {
+  width: 100%;
+  height: 100px;
+  margin: 10px;
+}
+.random-human-picker-outer-container,
+.random-team-generator-outer-container {
+  border: 2px solid rgb(3, 68, 20);
+  padding: 30px;
+  background-color: #71b48d;
+  border-radius: 0.5rem;
+}
+.random-human-picker-container,
+.random-team-generator-container {
+  width: 100%;
+}
+.random-human-picker-container input,
+.random-team-generator-container input {
+  width: 80%;
+  background-color: #fcf7f8;
+  border-radius: 0.5rem;
+}
+.random-human-picker-container button,
+.random-team-generator-container button {
+  width: 80%;
+  background-color: black;
+  color: white;
+  opacity: 70%;
+  border-radius: 0.5rem;
+}

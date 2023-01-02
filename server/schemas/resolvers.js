@@ -83,7 +83,7 @@ const resolvers = {
       const classObj1 = Class.findOne(filter);
 
       if (classObj1.leadId !== userId) {
-        const classObj2 = await Class.findOneandUp(filter, update, { new: true });
+        const classObj2 = await Class.findByIdAndUpdate(filter, update, { new: true });
         return classObj2;
       } else {
         console.log("Class leader can't be added to class");
@@ -106,7 +106,7 @@ const resolvers = {
       const classObj = Class.findOne({_id: team1.classId});
 
       if (classObj.leadId !== userId) {
-        const team2 = await Team.findOneandUp(filter, update, { new: true });
+        const team2 = await Team.findByIdAndUpdate(filter, update, { new: true });
         return team2;
       } else {
         console.log("Class leader can't be added to team");
@@ -132,7 +132,7 @@ const resolvers = {
     acceptInvite: async (parent, { inviteId }) => {
       const filter = { _id: inviteId };
       const update = { accept:true };
-      const invite = await Invite.findOneandUp(filter, update, { new: true });
+      const invite = await Invite.findByIdAndUpdate(filter, update, { new: true });
       
       return invite;
     },
