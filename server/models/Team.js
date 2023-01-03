@@ -14,7 +14,10 @@ const teamSchema = new Schema({
   userIds: [{
     type: String,
   }],
-  
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  }
 });
 
   

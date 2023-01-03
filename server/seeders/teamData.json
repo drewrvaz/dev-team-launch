@@ -1,0 +1,17 @@
+[
+    {
+      "name": "Foundations of Data Science",
+      "classId": "CHEM",
+      "userIds": 3
+    },
+    {
+      "name": "Introduction to Computational Thinking",
+      "classId": "LS",
+      "userIds": 3
+    },
+    {
+      "name": "C for Programmers",
+      "classId": "SCI",
+      "userIds": 4
+    }
+]
