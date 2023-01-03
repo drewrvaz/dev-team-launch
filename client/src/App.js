@@ -7,10 +7,15 @@ import Navbar from './components/Navbar';
 
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+
+import InstructorDashboard from './InstructorDashboard.js';
+import StudentDashboard from './StudentDashboard.js';
+
 import { FaRocket } from 'react-icons/fa';
 
 import gql from "graphql-tag";
 // import Random from './pages/random/Random';
+
 
 
 import {
@@ -49,15 +54,19 @@ function App() {
           <>
             <Navbar />
             <Routes>
+
+              <Route path='/' element={<StudentDashboard />} />
+      
+
               <Route path='/' element={<Login />} />
               <Route path='/signup' element={<Signup />} />
               {/* <Route path='/profile' element={<Profile />} />
-              <Route path='class' element={<Class />} /> */}
 
 
               
               {/* {<Route path='/random' element={<Random />} /> */}
   
+
 
               <Route path='*' element={<h1>Wrong page!</h1>} />
             </Routes>
