@@ -1,21 +1,15 @@
 const { AuthenticationError } = require('apollo-server-express');
 const {  Class, ClassAvatar, Feedback, Invite, Request, Team, UserAvatar, User } = require('../models');
 const { signToken } = require('../utils/auth');
+const {compare, shuffle, teamNames} = require('../utils/helper');
 
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find();
+      return User.find({});
     },
     user: async (parent, { username }) => {
       return User.findOne({ username });
-    },
-    classes: async (parent, { username }) => {
-      const params = username ? { username } : {};
-      return Class.find(params);
-    },
-    class: async (parent, { classId }) => {
-      return Class.findOne({ _id: classId });
     },
     me: async (parent, args, context) => {
       if (context.user) {
@@ -23,11 +17,34 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
+    allClasses: async () => {
+      return await Class.find({});
+    },
+    inClasses: async (parent, { username }) => {
+      const user = User.findOne({username: username});
+      return await Class.find({userIds: user._id});
+    },
+    myClasses: async (parent, { username }) => {
+      const user = User.findOne({username: username});
+      return await Class.find({leadId: user._id});
+    },
+    class: async (parent, { classId }) => {
+      return Class.findOne({ _id: classId });
+    },
     team: async (parent, { teamId }) => {
       return Team.findOne({ _id: teamId });
     },
-    feedback: async (parent, { teamId }) => {
+    feedback: async (parent, { feedbackId }) => {
+      return Feedback.find({ _id: feedbackId });
+    },
+    myFeedback: async (parent, { userId }) => {
+      return Feedback.find({ userId: userId });
+    },
+    teamFeedback: async (parent, { teamId }) => {
       return Feedback.find({ teamId: teamId });
+    },
+    classFeedback: async (parent, { classId }) => {
+      return Feedback.find({ classId: classId });
     },
     classAvatar: async (parent, { name }) => {
       return ClassAvatar.find({ name: name });
@@ -38,17 +55,19 @@ const resolvers = {
     invite: async (parent, { inviteId }) => {
       return Invite.find({ _id: inviteId });
     },
+    myInvites: async (parent, { username }) => {
+      const user = User.findOne({username: username});
+      return Invite.find({ userId: user._id });
+    },
+    classInvites: async (parent, { classId }) => {
+      return Invite.find({ classId: classId });
+    },
 
   },
 
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
       const user = await User.create({ username, email, password });
-      const token = signToken(user);
-      return { token, user };
-    },
-    addClass: async (parent, { name, lead}) => {
-      const user = await User.create({ name, lead });
       const token = signToken(user);
       return { token, user };
     },
@@ -70,9 +89,10 @@ const resolvers = {
       return { token, user };
     },
     addClass: async (parent, { name, leadId }) => {
-      const classObj = await Class.create({ name, leadId});
-
-      console.log(classObj);
+      const classObj = await Class.create({ 
+        name: name, 
+        leadId: leadId
+      });
       
       return classObj;
     },
@@ -83,7 +103,7 @@ const resolvers = {
       const classObj1 = Class.findOne(filter);
 
       if (classObj1.leadId !== userId) {
-        const classObj2 = await Class.findOneandUp(filter, update, { new: true });
+        const classObj2 = await Class.findByIdAndUpdate(filter, update, { new: true });
         return classObj2;
       } else {
         console.log("Class leader can't be added to class");
@@ -106,7 +126,7 @@ const resolvers = {
       const classObj = Class.findOne({_id: team1.classId});
 
       if (classObj.leadId !== userId) {
-        const team2 = await Team.findOneandUp(filter, update, { new: true });
+        const team2 = await Team.findByIdAndUpdate(filter, update, { new: true });
         return team2;
       } else {
         console.log("Class leader can't be added to team");
@@ -132,11 +152,78 @@ const resolvers = {
     acceptInvite: async (parent, { inviteId }) => {
       const filter = { _id: inviteId };
       const update = { accept:true };
-      const invite = await Invite.findOneandUp(filter, update, { new: true });
+      const invite = await Invite.findByIdAndUpdate(filter, update, { new: true });
       
       return invite;
     },
+    createTeamsRandom: async (parent, { classId }) => {
+      const classObj = Class.findOne({_id: classId});
+      const randomNames = shuffle(teamNames.shuffle);
+      const randomUserIds = shuffle(classObj.userIds);
+      const numTeams = Math.floor(classObj.classSize/classObj.teamSize);
+
+      for (let i = 0; i < numTeams; i++){
+        const team = await Team.create({ 
+          name: randomNames[i], 
+          classId: classId
+        });
+
+        const filter = { _id: classId};
+        const update = { $addToSet: {teamIds: team._id} };
+        await Class.findOneandUpdate(filter, update);
+      }
+
+      for (let i = 0, j = 0; i < randomUserIds.length; i++, j++){
     
+        if (j === classObj.teamSize) j = 0;
+    
+        const filter = { _id: classObj.teamIds[j] };
+        const update = { $addToSet: {userIds: randomUserIds[i]} };
+        await Team.findOneandUpdate(filter, update);
+          
+      }
+      
+      return await Class.findOne({_id: classId});
+    },
+    createTeamsCriteria: async (parent, { classId }) => {
+      const classObj = Class.findOne({_id: classId});
+      const randomNames = shuffle(teamNames.shuffle);
+      const numTeams = Math.floor(classObj.classSize/classObj.teamSize);
+      const roster = [];
+
+      for (let i = 0; i < classObj.classSize; i++){
+        let user = await User.findOne({ 
+            _id: classObj.userIds[i]
+          });
+        
+        roster.push(user);
+      }
+
+      roster.sort(compare);
+
+      for (let i = 0; i < numTeams; i++){
+        const team = await Team.create({ 
+          name: randomNames[i], 
+          classId: classId
+        });
+
+        const filter = { _id: classId};
+        const update = { $addToSet: {teamIds: roster[i]._id} };
+        await Class.findOneandUpdate(filter, update);
+      }
+
+      for (let i = 0, j = 0; i < roster.length; i++, j++){
+    
+        if (j === classObj.teamSize) j = 0;
+    
+        const filter = { _id: classObj.teamIds[j] };
+        const update = { $addToSet: {userIds: randomUserIds} };
+        await Team.findOneandUpdate(filter, update);
+          
+      }
+      
+      return await Class.findOne({_id: classId});
+    },
   },
 };
 

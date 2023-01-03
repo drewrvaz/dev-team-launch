@@ -17,16 +17,11 @@ type User {
     _id: ID
     name: String!
     leadId: String!
+    description: String
     userIds: [String]
     teamIds: [String]
     inviteIds: [String]
     classAvatarId: String
-  }
-
-  type Classes {
-    _id: ID
-    name: String!
-    lead: String!
   }
 
   type Invite {
@@ -52,7 +47,7 @@ type User {
     _id: ID
     issue: String!
     userId: String!
-    class: String!
+    classId: String!
   }
 
   type Feedback {
@@ -60,6 +55,7 @@ type User {
     rating: Int!
     userId: String!
     teamId: String!
+    classId: String!
   }
 
   type UserAvatar {
@@ -84,13 +80,20 @@ type User {
     users: [User]
     user(username: String!): User
     me: User
-    classes(username: String): [Class]
+    allClasses: [Class]
+    inClasses(username: String!): [Class]
+    myClasses(username: String!): [Class]
     class(classId: ID!): Class
     team(teamId: ID!): Team
-    feedback(feedbackId: ID): Feedback
+    feedback(feedbackId: ID!): Feedback
+    myFeedback(userId: ID!): [Feedback]
+    teamFeedback(teamId: ID!): [Feedback]
+    classFeedback(classId: ID!): [Feedback]
     classAvatar(name: String!): ClassAvatar
     userAvatar(name: String!): UserAvatar
     invite(inviteId: ID!): Invite
+    myInvites(username: String!): [Invite]
+    classInvites(classId: String!): [Invite]
   }
 
   type Mutation {
@@ -104,6 +107,8 @@ type User {
     submitRequest(issue: String!, userId: String!, teamId: String!): Request
     createInvite(userId: String!, classId: String): Invite
     acceptInvite(inviteId: String!): Invite
+    createTeamsRandom(classId: String!): Class
+    createTeamsCriteria(classId: String!): Class
 
   }
 `
