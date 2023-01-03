@@ -7,8 +7,8 @@ type User {
     email: String!
     password: String!
     skills: [String]
-    availability: Number
-    experience: Number
+    availability: Int
+    experience: Int
     userAvatarId: String
     inviteIds: [String]
   }
