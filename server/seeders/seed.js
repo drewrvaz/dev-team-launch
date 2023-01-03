@@ -1,4 +1,5 @@
 const db = require('../config/connection');
+
 const { User, Team, Class } = require('../models');
 const { userSeeds, teamNames, shuffle} = require('../utils/helper');
 
@@ -91,4 +92,5 @@ db.once('open', async () => {
   }
   console.log('teams seeded');
   process.exit();
+
 });
