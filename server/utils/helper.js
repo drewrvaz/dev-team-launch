@@ -1,3 +1,97 @@
+const userNames = [
+    "4-LOM",
+    "AaylaSecura",
+    "AdmiralAckbar",
+    "AdmiralThrawn",
+    "AhsokaTano",
+    "AnakinSolo",
+    "AsajjVentress",
+    "AurraSing",
+    "SenatorBailOrgana",
+    "BarrissOffee",
+    "BastilaShan",
+    "BenSkywalker",
+    "BibFortuna",
+    "BiggsDarklighter",
+    "BobaFett",
+    "Bossk",
+    "Brakiss",
+    "C-3PO",
+    "CadBane",
+    "CadeSkywalker",
+    "CallistaMing",
+    "CaptainRex",
+    "CarnorJax",
+    "Chewbacca",
+    "Clone CommanderCody",
+    "CountDooku",
+    "DarthBane",
+    "DarthKrayt",
+    "DarthMaul",
+    "DarthNihilus",
+    "DarthVader",
+    "DashRendar",
+    "Dengar",
+    "Durge",
+    "EmperorPalpatine",
+    "ExarKun",
+    "GalenMarek",
+    "GeneralCrixMadine",
+    "GeneralDodonna",
+    "GeneralGrievous",
+    "GeneralVeers",
+    "GiladPellaeon",
+    "Grand MoffTarkin",
+    "Greedo",
+    "HanSolo",
+    "IG88",
+    "Jabba TheHutt",
+    "JacenSolo",
+    "JainaSolo",
+    "JangoFett",
+    "Jarael",
+    "Jerec",
+    "Ki-Adi-Mundi",
+    "KirKanos",
+    "KitFisto",
+    "KyleKatarn",
+    "KypDurron",
+    "LandoCalrissian",
+    "LukeSkywalker",
+    "LuminaraUnduli",
+    "Lumiya",
+    "MaceWindu",
+    "MaraJade",
+    "MissionVao",
+    "NatasiDaala",
+    "NomAnor",
+    "Obi-WanKenobi",
+    "PadméAmidala",
+    "PloKoon",
+    "PreVizsla",
+    "PrinceXizor",
+    "PrincessLeia",
+    "PROXY",
+    "Qui-GonJinn",
+    "QuinlanVos",
+    "R2-D2",
+    "RahmKota",
+    "Revan",
+    "SateleShan",
+    "SavageOpress",
+    "Sebulba",
+    "ShaakTi",
+    "ShmiSkywalker",
+    "TalonKarrde",
+    "VisasMarr",
+    "Watto",
+    "WedgeAntilles",
+    "Yoda",
+    "ZamWesell",
+    "ZayneCarrick",
+    "Zuckuss"
+]
+
 function shuffle(array) {
   let currentIndex = array.length,
     randomIndex;
@@ -98,5 +192,23 @@ function teamNames(){
     ];
 }
 
-module.exports = {compare, shuffle, teamNames}
+function userSeeds() {
+  let users = [];
+  for (let i = 0; i < userNames.length; i++){
+    users.push({
+      username: userNames[i], 
+      email: userNames[i]+'@testmail.com',
+      password: 'password12345',
+      skills: [],
+      experience: Math.floor(Math.random() * 3) + 1,
+      availability: Math.floor(Math.random() * 3) + 1,
+      userAvatarId: "default",
+      inviteIds: [],
+    })
+  }
+
+  return users;
+}
+
+module.exports = {compare, shuffle, teamNames, userSeeds}
 
