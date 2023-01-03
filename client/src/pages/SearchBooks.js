@@ -80,69 +80,154 @@ const SearchStudents = () => {
     }
   };
 
-  return (
-    <>
-      <Jumbotron fluid className='search'/*'text-light bg-dark'*/ >
-        <Container>
-          <h1>Find your class!</h1>
-          <Form onSubmit={handleFormSubmit}>
-            <Form.Row>
-              <Col xs={12} md={8}>
-                <Form.Control
-                  name='searchInput'
-                  value={searchInput}
-                  onChange={(e) => setSearchInput(e.target.value)}
-                  type='text'
-                  size='lg'
-                  placeholder='Search for a student'
-                  className='searchInput'
-                />
-              </Col>
-              <Col xs={12} md={4}>
-                <Button type='submit' variant='success' size='lg' className='searchBtn'>
-                  Search
-                </Button>
-              </Col>
-            </Form.Row>
-          </Form>
-        </Container>
-      </Jumbotron>
-
-      <Container>
-        <h2>
-          {searchedBooks.length
-            ? `Viewing ${searchedBooks.length} results:`
-            : 'Search for a book to begin'}
-        </h2>
-        <CardColumns>
-          {searchedBooks.map((book) => {
-            return (
-              <Card key={book.bookId} border='dark'>
-                {book.image ? (
-                  <Card.Img src={book.image} alt={`The cover for ${book.title}`} variant='top' />
-                ) : null}
-                <Card.Body>
-                  <Card.Title>{book.title}</Card.Title>
-                  <p className='small'>Authors: {book.authors}</p>
-                  <Card.Text>{book.description}</Card.Text>
-                  {Auth.loggedIn() && (
-                    <Button
-                      disabled={savedBookIds?.some((savedBookId) => savedBookId === book.bookId)}
-                      className='btn-block btn-info'
-                      onClick={() => handleSaveBook(book.bookId)}>
-                      {savedBookIds?.some((savedBookId) => savedBookId === book.bookId)
-                        ? 'This book has already been saved!'
-                        : 'Save this Book!'}
-                    </Button>
-                  )}
-                </Card.Body>
+  
+    const optionListS = [
+      {value: "HTML", label: "HTML" },
+      {value: "CSS", label: "CSS" },
+      {value: "JavaScript", label: "JavaScript" },
+      {value: "Node", label: "Node" },
+      {value: "Express", label: "Express" },
+      {value: "MySQL", label: "MySQL" },
+      {value: "MongoDB", label :"MongoDB" },
+      ];
+  
+  //update user profile for skills
+  function handleSelectSkills(data) {
+   // e.prevent.default();
+   // setSavedSkills(data) = useMutation(UPDATE_SKILL);
+   
+     };
+  
+  //availability dropdown
+  //const [savedAvailability, setSavedAvailability] = useState();
+  const optionListA = [
+     {value: "low", label: "low" },
+     {value: "medium", label: "medium" },
+     {value: "high", label:  "high" },
+      ];
+    function handleSelectAvailability(data) {
+    //    e.prevent.default();
+    //    setSavedAvailability(data) = useMutation(UPDATE_AVAILABILITY);
+        };
+  
+  //experience dropdown
+  //const [savedExperience, setSavedExperience] = useState();
+  const optionListE = [
+    {value: "low", label: "low" },
+    {value: "medium", label: "medium" },
+    {value: "high", label: "high" },
+      ];
+      function handleSelectExperience(data) {
+     //   e.prevent.default();
+    //    setSavedExperience(data)= useMutation(UPDATE_EXPERIENCE);
+      };
+  
+  //avatar dropdown
+  //const [savedAvatar, setSavedAvatar] = useState();
+  const optionListAvatar = [
+    {value: "bird", label: "bird" },
+    {value: "dog", label: "dog" },
+    {value: "cat", label: "cat" },
+      ];
+      function handleSelectAvatar(data) {
+     //   e.prevent.default();
+    //    setSavedAvatar(data)= useMutation(UPDATE_AVATAR);
+      };
+  
+    return (  
+      <div className="UserProfile">  
+      <h2 style={{textAlign: "center", marginBottom: "5px"}}>My Profile</h2> 
+      <Container fluid className = "align-items-center" style={{height: "90vh", alignContent: "center"}}> 
+      <Row>
+        <CardGroup>
+        <Card  className="card-border-dark" style={{height: "12rem", width: "10rem", background: "#71B48D", padding: "3px", margin: "5px"}}>
+          <Card.Title className="mb-0 text-center">Skills</Card.Title>
+          <Card.Body className="mb-0">
+              <ListGroup>
+           <ListGroup.Item> userSkill1  </ListGroup.Item>
+           <ListGroup.Item>  userSkill2  </ListGroup.Item>
+             <ListGroup.Item> userSkill3   </ListGroup.Item> 
+             <ListGroup.Item> userSkill4  </ListGroup.Item>
+           <ListGroup.Item>  userSkill5 </ListGroup.Item>
+             <ListGroup.Item> userSkill6   </ListGroup.Item>   
+            </ListGroup>
+            </Card.Body>
+            <Card.Footer>
+              <div className="dropdown-container" style={{width: "10rem", height: "8rem"}}>
+                  <Select id="dropdown-skill"
+                     placeholder="Update"
+                  options={optionListS}
+                 value={"HTML" }
+                 onChange={handleSelectSkills}
+                 isMulti
+               />
+               </div>
+            </Card.Footer>
+          </Card>
+    
+          <Card className="card-border-dark" style={{height: "12rem", width: "10rem", background: "#71B48D", padding: "3px", margin: "5px"}}>
+            <Card.Title className="mb-0 text-center">Experience</Card.Title>
+            <Card.Body className="mb-0">
+            <  ListGroup>
+          <ListGroup.Item> user.experience </ListGroup.Item>
+              </  ListGroup>
+            </Card.Body>
+            <Card.Footer> <div className="dropdown-container" style={{width: "10rem", height: "8rem"}}>
+                  <Select
+                     placeholder="Update"
+                   options={optionListE}
+                    value={"low" }
+                  onChange={handleSelectExperience}                        
+               />
+               </div>
+            </Card.Footer>
+            </Card>
+      
+            <Card className="card-border-dark" style={{height: "12rem", width: "10rem", background: "#71B48D", padding: "3px",  margin: "5px"}}>
+              <Card.Title className="mb-0 text-center">Availability</Card.Title>
+              <Card.Body className="mb-0">
+              <  ListGroup>
+             <ListGroup.Item> user.availability 
+              </ListGroup.Item>
+              </  ListGroup>
+              </Card.Body>
+              <Card.Footer>
+               <div className="dropdown-container" style={{width: "10rem", height: "8rem"}}>
+                  
+                  <Select
+                     placeholder="Update" 
+                     options={optionListA}
+                     value={"low" }
+                     onChange={handleSelectAvailability}                        
+                  /></div>
+              </Card.Footer>
               </Card>
-            );
-          })}
-        </CardColumns>
-      </Container>
-    </>
-  );
-};
-
+  
+              <Card className="card-border-dark" style={{height: "12rem", width: "10rem", background: "#71B48D", padding: "3px",  margin: "5px"}}>
+                <Card.Title className="mb-0 text-center">Avatar</Card.Title>
+                <Card.Body className="mb-0">
+                <  ListGroup>
+              <ListGroup.Item> user.userAvatarId </ListGroup.Item> 
+              </  ListGroup>
+                </Card.Body>
+                <Card.Footer>
+                <div className="dropdown-container" style={{width: "10rem", height: "8rem"}}>
+                  <Select
+                     placeholder="Update" 
+                     options={optionListAvatar}
+                     value={"eagle" }
+                     onChange={handleSelectAvatar}                        
+                /></div>
+                </Card.Footer>
+                </Card>
+      
+                </CardGroup>
+                </Row>
+      </Container>  
+      </div>  
+    );  
+  }  
+  
+  
+    
 export default SearchStudents;
