@@ -1,44 +1,41 @@
-
 import 'bootstrap/dist/css/bootstrap.min.css';  
 import { Container , Row, CardGroup, Card, Button, Dropdown, Form } from 'react-bootstrap'; 
 import ListGroup  from 'react-bootstrap/ListGroup';
 import Auth from '../utils/auth'; 
 import { useMutation, useQuery } from '@apollo/client';
-import {GET_ME} from '../utils/queriesscm';/import { UPDATE_SKILL, UPDATE_EXPERIENCE, UPDATE_AVAILABILITY, UPDATE_PASSWORD } from '../utils/mutationscm';
+import {GET_ME} from '../utils/queriesscm';
+import { UPDATE_SKILL, UPDATE_EXPERIENCE, UPDATE_AVAILABILITY, UPDATE_PASSWORD } from '../utils/mutationscm';
 import React, { useState, useEffect } from 'react';
-import { Select } from 'react-select';
+import Select from 'react-select';
 //must add react-select to package.json dependencies
 
 const UserProfile = ()  => { 
 
   // create state for holding returned data
-const [searchedUser, setSearchedUser] = useState([]);
+  const [searchedUser, setSearchedUser] = useState([]);
   // create state to hold saved values
-const [savedPassword, setSavedPassword] = useMutation(UPDATE_PASSWORD);
-const [showPassword, setShowPassword]= React.useState({ password: "", showPassword: false,});
+  const [savedPassword, setSavedPassword] = useMutation(UPDATE_PASSWORD);
+  const [showPassword, setShowPassword]= React.useState({ password: "", showPassword: false,});
 
 //load user profile from db
-try {
-const { loading, data} = useQuery(GET_ME);
-  if (loading) {
-    return <h2>LOADING...</h2>;
-  }
- //  const { items } = await response.json();
-   const usrData = data.map((user) => ({
-     username: user.username,
-     skills: user.skills || ['None set'],
-     availability: user.availability || ['None set'],
-     experience: user.experience || ['None set'],
-     password: user.password,
-     avatar: user.userAvatarId
-     }));
-    setSearchedUser(usrData);
+    try {
+    const { loading, data} = useQuery(GET_ME);
+      if (loading) {
+        return <h2>LOADING...</h2>;
+      }
+ // const { items } = await response.json();
+      const usrData = data.map((user) => ({
+        username: user.username,
+        skills: user.skills || ['None set'],
+        availability: user.availability || ['None set'],
+        experience: user.experience || ['None set'],
+        password: user.password,
+        avatar: user.userAvatarId
+      }));
+      setSearchedUser(usrData);
     } catch (err) {
-    console.error(err);
+        console.error(err);
     }
-  };
-
-  
 
     //check to see if any skills are in db
   if ( user.skills  != null ) {
@@ -59,7 +56,7 @@ const optionList = [
 //update user profile for skills
 function handleSelect(data) {
   e.prevent.default();
-  setSavedSkills(data) = useMutation(UPDATE_SKILL);
+  setSavedSkills(data) == useMutation(UPDATE_SKILL);
   const dropDown = document.getElementById("dropdown-skill");  
         dropDown.selectedIndex = 0;  
   
@@ -74,7 +71,7 @@ const optionListA = [
      ];
     function handleSelectAvailability(data) {
       e.prevent.default();
-      setSavedAvailability(data) = useMutation(UPDATE_AVAILABILITY);
+      setSavedAvailability(data) == useMutation(UPDATE_AVAILABILITY);
       }
 
 //experience dropdown
@@ -86,7 +83,7 @@ const optionListE = [
      ];
     function handleSelectExperience(data) {
       e.prevent.default();
-      setSavedExperience(data)= useMutation(UPDATE_EXPERIENCE);
+      setSavedExperience(data) == useMutation(UPDATE_EXPERIENCE);
       }
 
   return (  
@@ -179,6 +176,6 @@ const optionListE = [
     </Container>  
     </div>  
   );  
-}  
+};  
 export default UserProfile;  
 
