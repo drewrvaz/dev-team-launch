@@ -133,11 +133,11 @@ db.once('open', async () => {
     );
   };
 
-  // const teams = await Team.insertMany([
-  //   team1=Team.create({name: "Name", classId: class1._id, userdIds:[user[0]._id, user[1]._id, user[2]._id]}),
-  //   team2=Team.create({name: "Name", classId: class1._id, userdIds:[user[3]._id, user[4]._id, user[5]._id]}),
-  //   await Class.findOneAndUpdate({_idclass1._id},addtoset:{teamIIds:team1._id}})
-  // ])
+  const teams = await Team.insertMany([
+    team1=Team.create({name: "Name", classId: class1._id, userdIds:[user[0]._id, user[1]._id, user[2]._id]}),
+    team2=Team.create({name: "Name", classId: class1._id, userdIds:[user[3]._id, user[4]._id, user[5]._id]}),
+    await Class.findOneAndUpdate({_idclass1._id},addtoset:{teamIIds:team1._id}})
+  ])
     //     {
 //         name: "The Jedi Knights",
 //         classId: "63b385fcac46850a92b36ef5",
@@ -195,176 +195,176 @@ db.once('open', async () => {
 // Class: classes[1]._id,
 // },
     
-  ]);
+  // ]);
 
-  console.log('teams seeded');
+  // console.log('teams seeded');
 
-  await User.deleteMany();
+  // await User.deleteMany();
 
-  await User.create({
-    username: 'HanSolo',
-    email: 'hsolo@testmail.com',
-    password: 'password1234',
-    classes: [
-      {
-        classes: [classes[0]._id, classes[0]._id, classes[1]._id],
-      },
-    ],
-  });
+  // await User.create({
+  //   username: 'HanSolo',
+  //   email: 'hsolo@testmail.com',
+  //   password: 'password1234',
+  //   classes: [
+  //     {
+  //       classes: [classes[0]._id, classes[0]._id, classes[1]._id],
+  //     },
+  //   ],
+  // });
 
-  await User.create({
-    username: 'LukeSkywalker',
-    email: 'lskywalker@testmail.com',
-    password: 'password1234',
-  });
+  // await User.create({
+  //   username: 'LukeSkywalker',
+  //   email: 'lskywalker@testmail.com',
+  //   password: 'password1234',
+  // });
 
-  await User.create({
-    username: 'BobaFett',
-    email: 'bfett@testmail.com',
-    password: 'password1234',
-    classes: [
-      {
-        classes: [classes[0]._id, classes[0]._id, classes[1]._id],
-      },
-    ],
-  });
-  await User.create({
-    username: 'DarthVader',
-    email: 'dvader@testmail.com',
-    password: 'password1234',
-    classes: [
-      {
-        classes: [classes[0]._id, classes[0]._id, classes[1]._id],
-      },
-    ],
-  });
+  // await User.create({
+  //   username: 'BobaFett',
+  //   email: 'bfett@testmail.com',
+  //   password: 'password1234',
+  //   classes: [
+  //     {
+  //       classes: [classes[0]._id, classes[0]._id, classes[1]._id],
+  //     },
+  //   ],
+  // });
+  // await User.create({
+  //   username: 'DarthVader',
+  //   email: 'dvader@testmail.com',
+  //   password: 'password1234',
+  //   classes: [
+  //     {
+  //       classes: [classes[0]._id, classes[0]._id, classes[1]._id],
+  //     },
+  //   ],
+  // });
 
-  await User.create({
-    username: 'JabbaTheHutt',
-    email: 'jhutt@testmail.com',
-    password: 'password1234',
-  });
+  // await User.create({
+  //   username: 'JabbaTheHutt',
+  //   email: 'jhutt@testmail.com',
+  //   password: 'password1234',
+  // });
 
-  await User.create({
-    username: 'LeiaSkywaler',
-    email: 'leiasky@testmail.com',
-    password: 'password1234',
-    classes: [
-      {
-        classes: [classes[0]._id, classes[0]._id, classes[1]._id],
-      },
-    ],
-  });
-  await User.create({
-    username: 'KyloRen',
-    email: 'kren@testmail.com',
-    password: 'password1234',
-    classes: [
-      {
-        classes: [classes[0]._id, classes[0]._id, classes[1]._id],
-      },
-    ],
-  });
+  // await User.create({
+  //   username: 'LeiaSkywaler',
+  //   email: 'leiasky@testmail.com',
+  //   password: 'password1234',
+  //   classes: [
+  //     {
+  //       classes: [classes[0]._id, classes[0]._id, classes[1]._id],
+  //     },
+  //   ],
+  // });
+  // await User.create({
+  //   username: 'KyloRen',
+  //   email: 'kren@testmail.com',
+  //   password: 'password1234',
+  //   classes: [
+  //     {
+  //       classes: [classes[0]._id, classes[0]._id, classes[1]._id],
+  //     },
+  //   ],
+  // });
 
-  await User.create({
-    username: 'SheevPalpatine',
-    email: 'spalpatine@testmail.com',
-    password: 'password1234',
-  });
+  // await User.create({
+  //   username: 'SheevPalpatine',
+  //   email: 'spalpatine@testmail.com',
+  //   password: 'password1234',
+  // });
 
-  await User.create({
-    username: 'Obi-WanKenobi',
-    email: 'okenobi@testmail.com',
-    password: 'password1234',
-    classes: [
-      {
-        classes: [classes[0]._id, classes[0]._id, classes[1]._id],
-      },
-    ],
-  });
-  await User.create({
-    username: 'AhsokaTano',
-    email: 'atano@testmail.com',
-    password: 'password1234',
-    classes: [
-      {
-        classes: [classes[0]._id, classes[0]._id, classes[1]._id],
-      },
-    ],
-  });
+  // await User.create({
+  //   username: 'Obi-WanKenobi',
+  //   email: 'okenobi@testmail.com',
+  //   password: 'password1234',
+  //   classes: [
+  //     {
+  //       classes: [classes[0]._id, classes[0]._id, classes[1]._id],
+  //     },
+  //   ],
+  // });
+  // await User.create({
+  //   username: 'AhsokaTano',
+  //   email: 'atano@testmail.com',
+  //   password: 'password1234',
+  //   classes: [
+  //     {
+  //       classes: [classes[0]._id, classes[0]._id, classes[1]._id],
+  //     },
+  //   ],
+  // });
 
-  await User.create({
-    username: 'CassianAndor',
-    email: 'candor@testmail.com',
-    password: 'password1234',
-  });
+  // await User.create({
+  //   username: 'CassianAndor',
+  //   email: 'candor@testmail.com',
+  //   password: 'password1234',
+  // });
 
-  await User.create({
-    username: 'Rey',
-    email: 'rey@testmail.com',
-    password: 'password1234',
-    classes: [
-      {
-        classes: [classes[0]._id, classes[0]._id, classes[1]._id],
-      },
-    ],
-  });
-  await User.create({
-    username: 'JangoFett',
-    email: 'jfett@testmail.com',
-    password: 'password1234',
-    classes: [
-      {
-        classes: [classes[0]._id, classes[0]._id, classes[1]._id],
-      },
-    ],
-  });
+  // await User.create({
+  //   username: 'Rey',
+  //   email: 'rey@testmail.com',
+  //   password: 'password1234',
+  //   classes: [
+  //     {
+  //       classes: [classes[0]._id, classes[0]._id, classes[1]._id],
+  //     },
+  //   ],
+  // });
+  // await User.create({
+  //   username: 'JangoFett',
+  //   email: 'jfett@testmail.com',
+  //   password: 'password1234',
+  //   classes: [
+  //     {
+  //       classes: [classes[0]._id, classes[0]._id, classes[1]._id],
+  //     },
+  //   ],
+  // });
 
-  await User.create({
-    username: 'BibFortuna',
-    email: 'bfortuna@testmail.com',
-    password: 'password1234',
-  });
+  // await User.create({
+  //   username: 'BibFortuna',
+  //   email: 'bfortuna@testmail.com',
+  //   password: 'password1234',
+  // });
 
-  await User.create({
-    username: 'CountDooku',
-    email: 'cdooku@testmail.com',
-    password: 'password1234',
-    classes: [
-      {
-        classes: [classes[0]._id, classes[0]._id, classes[1]._id],
-      },
-    ],
-  });
-  await User.create({
-    username: 'MaceWindu',
-    email: 'mwindu@testmail.com',
-    password: 'password1234',
-    classes: [
-      {
-        classes: [classes[0]._id, classes[0]._id, classes[1]._id],
-      },
-    ],
-  });
+  // await User.create({
+  //   username: 'CountDooku',
+  //   email: 'cdooku@testmail.com',
+  //   password: 'password1234',
+  //   classes: [
+  //     {
+  //       classes: [classes[0]._id, classes[0]._id, classes[1]._id],
+  //     },
+  //   ],
+  // });
+  // await User.create({
+  //   username: 'MaceWindu',
+  //   email: 'mwindu@testmail.com',
+  //   password: 'password1234',
+  //   classes: [
+  //     {
+  //       classes: [classes[0]._id, classes[0]._id, classes[1]._id],
+  //     },
+  //   ],
+  // });
 
-  await User.create({
-    username: 'Qui-Gon Jin',
-    email: 'QJin@testmail.com',
-    password: 'password1234',
-  });
+  // await User.create({
+  //   username: 'Qui-Gon Jin',
+  //   email: 'QJin@testmail.com',
+  //   password: 'password1234',
+  // });
 
-  await User.create({
-    username: 'LandoCalrissian',
-    email: 'lcalrissian@testmail.com',
-    password: 'password1234',
-    classes: [
-      {
-        classes: [classes[0]._id, classes[0]._id, classes[1]._id],
-      },
-    ],
-  });
+  // await User.create({
+  //   username: 'LandoCalrissian',
+  //   email: 'lcalrissian@testmail.com',
+  //   password: 'password1234',
+  //   classes: [
+  //     {
+  //       classes: [classes[0]._id, classes[0]._id, classes[1]._id],
+  //     },
+  //   ],
+  // });
 
-  console.log('users seeded');
+  // console.log('users seeded');
 
   process.exit();
 });
