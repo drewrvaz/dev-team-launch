@@ -8,7 +8,7 @@ import Navbar from './components/Navbar';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 
-// // import InstructorDashboard from './InstructorDashboard.js';
+// import InstructorDashboard from './InstructorDashboard.js';
 // import StudentDashboard from './StudentDashboard.js';
 
 import { FaRocket } from 'react-icons/fa';

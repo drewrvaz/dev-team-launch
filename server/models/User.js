@@ -23,10 +23,10 @@ const userSchema = new Schema({
     type: String,
   }],
   availability: {
-    type: String,
+    type: Number,
   },
   experience: {
-    type: String,
+    type: Number,
   },
   userAvatarId: {
     type: String,
