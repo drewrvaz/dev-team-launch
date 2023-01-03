@@ -54,8 +54,11 @@ function App() {
               {/* <Route path='/profile' element={<Profile />} />
               <Route path='class' element={<Class />} /> */}
 
+
+              
               {/* {<Route path='/random' element={<Random />} /> */}
   
+
               <Route path='*' element={<h1>Wrong page!</h1>} />
             </Routes>
           </>
