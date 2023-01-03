@@ -2,13 +2,15 @@
 // import './App.css';
 import React from 'react';
 import Navbar from './components/Navbar';
-// import Profile from './pages/Profile';
-// import Class from './pages/Class';
+import Profile from './pages/Profile';
+// import Project from './pages/Project';
 
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 
-// // import InstructorDashboard from './InstructorDashboard.js';
+
+// import InstructorDashboard from './InstructorDashboard.js';
+
 // import StudentDashboard from './StudentDashboard.js';
 
 import { FaRocket } from 'react-icons/fa';
@@ -56,23 +58,16 @@ function App() {
             <Routes>
 
               {/* <Route path='/' element={<StudentDashboard />} /> */}
-      
 
               <Route path='/' element={<Login />} />
               <Route path='/signup' element={<Signup />} />
-              {/* <Route path='/profile' element={<Profile />} />
-
-
-              
+              <Route path='/profile' element={<Profile />} />              
               {/* {<Route path='/random' element={<Random />} /> */}
-  
-
-
               <Route path='*' element={<h1>Wrong page!</h1>} />
             </Routes>
           </>
         </div>
-        <footer>
+        <footer class='navbar fixed-bottom navbar-light bg-success-subtle justify-content-center'>
           <h1>Dev Team <FaRocket /></h1>
         </footer>
       </Router>
