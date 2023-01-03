@@ -15,6 +15,9 @@ import Signup from './pages/Signup';
 
 import { FaRocket } from 'react-icons/fa';
 
+//Avatars + Font Awesome Icons stored here: 
+import Avatars from './components/Avatars';
+
 import gql from "graphql-tag";
 // import Random from './pages/random/Random';
 
@@ -64,6 +67,7 @@ function App() {
               <Route path='/signup' element={<Signup />} />
               <Route path='/profile' element={<Profile />} />              
               {/* {<Route path='/random' element={<Random />} /> */}
+              <Route path='/avatars' element={<Avatars />} />
               <Route path='*' element={<h1>Wrong page!</h1>} />
             </Routes>
           </>
