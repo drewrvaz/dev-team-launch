@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 
 const classSchema = new Schema({
-    name: {
+  name: {
     type: String,
     required: true,
     unique: true,
@@ -10,6 +10,9 @@ const classSchema = new Schema({
   leadId: {
     type: String,
     required: true,
+  },
+  description: {
+    type: String,
   },
   userIds: [{
       type: String,
