@@ -1,5 +1,5 @@
 import React from 'react';
-import {  FaGithubSquare } from 'react-icons/fa';
+import { FaGithubSquare } from 'react-icons/fa';
 
 
   function Footer() {
