@@ -8,8 +8,8 @@ import Navbar from './components/Navbar';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 
-import InstructorDashboard from './InstructorDashboard.js';
-import StudentDashboard from './StudentDashboard.js';
+// // import InstructorDashboard from './InstructorDashboard.js';
+// import StudentDashboard from './StudentDashboard.js';
 
 import { FaRocket } from 'react-icons/fa';
 
@@ -55,7 +55,7 @@ function App() {
             <Navbar />
             <Routes>
 
-              <Route path='/' element={<StudentDashboard />} />
+              {/* <Route path='/' element={<StudentDashboard />} /> */}
       
 
               <Route path='/' element={<Login />} />
