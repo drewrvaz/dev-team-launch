@@ -92,7 +92,7 @@ const Signup = () => {
             </Form.Group>
 
             <Button className='submitBtn btn-outline-light btn-lg px-5' type='submit'>
-              Login
+              Sign Up
             </Button>
                 
             <Form.Group className='signUp'>
