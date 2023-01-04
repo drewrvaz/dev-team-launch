@@ -1,25 +1,19 @@
-// import logo from './logo.svg';
-// import './App.css';
 import React from 'react';
-import Navbar from './components/Navbar';
-import Profile from './pages/newProfile';
-// import Project from './pages/Project';
 
+import Navbar from './components/Navbar';
+import Profile from './pages/Profile';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 
-
-// import InstructorDashboard from './InstructorDashboard.js';
-
-// import StudentDashboard from './StudentDashboard.js';
-
 import { FaRocket } from 'react-icons/fa';
-
-//Avatars + Font Awesome Icons stored here: 
-import Avatars from './components/Avatars';
-
 import gql from "graphql-tag";
+
+// import logo from './logo.svg';
+// import './App.css';
 // import Random from './pages/random/Random';
+// import InstructorDashboard from './InstructorDashboard.js';
+// import StudentDashboard from './StudentDashboard.js';
+// import Project from './pages/Project';
 
 
 
@@ -59,15 +53,11 @@ function App() {
           <>
             <Navbar />
             <Routes>
-
-              {/* <Route path='/' element={<StudentDashboard />} /> */}
-
               {/* <Route path='/' element={<StudentDashboard />} /> */}
               <Route path='/' element={<Login />} />
               <Route path='/signup' element={<Signup />} />
-              <Route path='/profile' element={<newProfile />} />              
+              <Route path='/profile' element={<Profile />} />              
               {/* {<Route path='/random' element={<Random />} /> */}
-              <Route path='/avatars' element={<Avatars />} />
               <Route path='*' element={<h1>Wrong page!</h1>} />
             </Routes>
           </>
@@ -77,22 +67,6 @@ function App() {
         </footer>
       </Router>
     </ApolloProvider>
-    // <div className="App">
-    //   <header className="App-header">
-    //     <img src={logo} className="App-logo" alt="logo" />
-    //     <p>
-    //       Edit <code>src/App.js</code> and save to reload.
-    //     </p>
-    //     <a
-    //       className="App-link"
-    //       href="https://reactjs.org"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       Learn React
-    //     </a>
-    //   </header>
-    // </div>
   );
 }
 
