@@ -26,6 +26,12 @@ const classSchema = new Schema({
   classAvatarId: {
     type: String,
   },
+  teamSize: {
+    type: Number,
+  },
+  classSize: {
+    type: Number,
+  },
   
 });
 

@@ -210,5 +210,66 @@ function userSeeds() {
   return users;
 }
 
-module.exports = {compare, shuffle, teamNames, userSeeds}
+function extraUserSeeds(){
+
+  const arry = [
+    "root",
+    "admin",
+    "test",
+    "guest",
+    "info",
+    "adm",
+    "mysql",
+    "user",
+    "administrator",
+    "oracle",
+    "ftp",
+    "pi",
+    "puppet",
+    "ansible",
+    "ec2-user",
+    "vagrant",
+    "azureuser",
+    "ADSUSER",
+    "ADS_AGENT",
+    "CONTENTSERV",
+    "CTB_ADMIN",
+    "DDIC",
+    "DEVELOPER",
+    "EARLYWATCH",
+    "IDEADM",
+    "J2EE_ADMIN",
+    "SAP",
+    "SAPCPIC",
+    "SAPJSF",
+    "SAPR3",
+    "SAPSUPPORT",
+    "SMD_ADMIN",
+    "SMD_AGT",
+    "SMD_BI_RFC",
+    "SMD_RFC",
+    "SOLMAN_ADMIN",
+    "SOLMAN_BTC",
+    "TMSADM",
+    "XMI_DEMO"
+  ]
+
+  let users = [];
+  for (let i = 0; i < arry.length; i++){
+    users.push({
+      username: arry[i], 
+      email: arry[i]+'@testmail.com',
+      password: 'password12345',
+      skills: [],
+      experience: Math.floor(Math.random() * 3) + 1,
+      availability: Math.floor(Math.random() * 3) + 1,
+      userAvatarId: "default",
+      inviteIds: [],
+    })
+  }
+
+  return users;
+}
+
+module.exports = {compare, shuffle, teamNames, userSeeds, extraUserSeeds}
 
