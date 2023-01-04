@@ -2,8 +2,14 @@
 // import './App.css';
 import React from 'react';
 import Navbar from './components/Navbar';
+<<<<<<< HEAD:client/src/App.js
 import Profile from './pages/Profile';
 import Project from './pages/Project';
+=======
+import Profile from './pages/newProfile';
+// import Project from './pages/Project';
+
+>>>>>>> cc84ceb5e93641c1a8077e37e0ea6851b3f33d27:client/src/App..js
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import { FaRocket } from 'react-icons/fa';
@@ -51,15 +57,19 @@ function App() {
             <Routes>
               <Route path='/' element={<Login />} />
               <Route path='/signup' element={<Signup />} />
+<<<<<<< HEAD:client/src/App.js
               <Route path='/profile' element={<Profile />} />   
               <Route path='/project' element={<Project />} />      
+=======
+              <Route path='/profile' element={<newProfile />} />              
+>>>>>>> cc84ceb5e93641c1a8077e37e0ea6851b3f33d27:client/src/App..js
               {/* {<Route path='/random' element={<Random />} /> */}
               <Route path='/avatars' element={<Avatars />} />
               <Route path='*' element={<h1>Wrong page!</h1>} />
             </Routes>
           </>
-        </div>
-        <footer class='navbar fixed-bottom navbar-light bg-success-subtle justify-content-center'>
+        </div> {/* fixed-bottom */}
+        <footer class='navbar navbar-light bg-success-subtle justify-content-center'>
           <h1>Dev Team <FaRocket /></h1>
         </footer>
       </Router>
