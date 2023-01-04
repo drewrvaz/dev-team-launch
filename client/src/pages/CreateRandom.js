@@ -1,11 +1,11 @@
-import { Users } from "../components/Users";
-
-
+import { useQuery, gql } from '@apollo/client';
+import {Users} from '../components/Users';
 export default function CreateRandom() {
   return (
-    <>
-    <h1>Random Team</h1>
+    <div>
+      <h2>Random Team Here 🚀</h2>
+    <br/>
     <Users />
-    </>
-  )
-};
+    </div>
+  );
+}

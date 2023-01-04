@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from 'graphql-tag';
 
 export const GET_ME = gql`
   {
@@ -13,7 +13,7 @@ export const GET_ME = gql`
 //Qeuries based on activity 26 in lesson 21 MERN
 //Query Classes (Based on typeDefs)
 export const QUERY_CLASSES = gql`
-  query getClasses {
+  query classes {
     classes {
       _id
       name
@@ -28,7 +28,7 @@ export const QUERY_CLASSES = gql`
 `;
 //Query Class (Based on typeDefs)
 export const QUERY_SINGLE_CLASS = gql`
-  query getSingleClass($classId: ID!) {
+  query class($classId: ID!) {
     class(classId: $classId) {
       _id
       name
@@ -43,7 +43,7 @@ export const QUERY_SINGLE_CLASS = gql`
 `;
 //Query Teams (Based on typeDefs)
 export const QUERY_TEAMS = gql`
-  query getTeams {
+  query team {
     team {
       _id
       name
@@ -55,7 +55,7 @@ export const QUERY_TEAMS = gql`
 //Query Team (Based on typeDefs)
 export const QUERY_SINGLE_TEAM = gql`
   query getSingleTeam($teamId: ID!) {
-    team(teamId: $teamId) {
+    team(teamId: $teamID) {
       _id
       name
       classId
