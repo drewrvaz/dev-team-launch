@@ -1,18 +1,112 @@
-export function shuffle(array) {
-  let currentIndex = array.length,
-    randomIndex;
+const userNames = [
+  "4-LOM",
+  "AaylaSecura",
+  "AdmiralAckbar",
+  "AdmiralThrawn",
+  "AhsokaTano",
+  "AnakinSolo",
+  "AsajjVentress",
+  "AurraSing",
+  "SenatorBailOrgana",
+  "BarrissOffee",
+  "BastilaShan",
+  "BenSkywalker",
+  "BibFortuna",
+  "BiggsDarklighter",
+  "BobaFett",
+  "Bossk",
+  "Brakiss",
+  "C-3PO",
+  "CadBane",
+  "CadeSkywalker",
+  "CallistaMing",
+  "CaptainRex",
+  "CarnorJax",
+  "Chewbacca",
+  "Clone CommanderCody",
+  "CountDooku",
+  "DarthBane",
+  "DarthKrayt",
+  "DarthMaul",
+  "DarthNihilus",
+  "DarthVader",
+  "DashRendar",
+  "Dengar",
+  "Durge",
+  "EmperorPalpatine",
+  "ExarKun",
+  "GalenMarek",
+  "GeneralCrixMadine",
+  "GeneralDodonna",
+  "GeneralGrievous",
+  "GeneralVeers",
+  "GiladPellaeon",
+  "Grand MoffTarkin",
+  "Greedo",
+  "HanSolo",
+  "IG88",
+  "Jabba TheHutt",
+  "JacenSolo",
+  "JainaSolo",
+  "JangoFett",
+  "Jarael",
+  "Jerec",
+  "Ki-Adi-Mundi",
+  "KirKanos",
+  "KitFisto",
+  "KyleKatarn",
+  "KypDurron",
+  "LandoCalrissian",
+  "LukeSkywalker",
+  "LuminaraUnduli",
+  "Lumiya",
+  "MaceWindu",
+  "MaraJade",
+  "MissionVao",
+  "NatasiDaala",
+  "NomAnor",
+  "Obi-WanKenobi",
+  "PadméAmidala",
+  "PloKoon",
+  "PreVizsla",
+  "PrinceXizor",
+  "PrincessLeia",
+  "PROXY",
+  "Qui-GonJinn",
+  "QuinlanVos",
+  "R2-D2",
+  "RahmKota",
+  "Revan",
+  "SateleShan",
+  "SavageOpress",
+  "Sebulba",
+  "ShaakTi",
+  "ShmiSkywalker",
+  "TalonKarrde",
+  "VisasMarr",
+  "Watto",
+  "WedgeAntilles",
+  "Yoda",
+  "ZamWesell",
+  "ZayneCarrick",
+  "Zuckuss"
+]
 
-  //While there remains elements to shuffle
-  while (currentIndex !== 0) {
-    //pick a remaining element
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex--;
+function shuffle(array) {
+let currentIndex = array.length,
+  randomIndex;
 
-    //and swap it with the current element
-    [array[currentIndex], array[randomIndex]] = [
-      array[randomIndex],
-      array[currentIndex],
-    ];
-  }
-  return array;
+//While there remains elements to shuffle
+while (currentIndex !== 0) {
+  //pick a remaining element
+  randomIndex = Math.floor(Math.random() * currentIndex);
+  currentIndex--;
+
+  //and swap it with the current element
+  [array[currentIndex], array[randomIndex]] = [
+    array[randomIndex],
+    array[currentIndex],
+  ];
+}
+return array;
 }

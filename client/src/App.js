@@ -18,6 +18,10 @@ import { FaRocket } from 'react-icons/fa';
 //Avatars + Font Awesome Icons stored here: 
 import Avatars from './components/Avatars';
 
+//Create random *example displayed here
+import CreateRandom from '../src/pages/CreateRandom';
+import CreateAllKindTeams from './components/CreateAllKindTeams';
+
 import gql from "graphql-tag";
 // import Random from './pages/random/Random';
 
@@ -68,6 +72,8 @@ function App() {
               <Route path='/profile' element={<Profile />} />              
               {/* {<Route path='/random' element={<Random />} /> */}
               <Route path='/avatars' element={<Avatars />} />
+              <Route path='/createrandom' element={<CreateRandom />} />
+              <Route path='/createallkindteams' element={<CreateAllKindTeams />} />
               <Route path='*' element={<h1>Wrong page!</h1>} />
             </Routes>
           </>

@@ -23,3 +23,12 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+// //Mutations for Creating a Random Team!!
+// export const CREATE_RANDOM = gql`
+//   mutation createTeamsRandom($classId: String!) {
+//     createTeamsRandom(classId: $classId) {
+//       _id
+//       
+//   }
+// `;
