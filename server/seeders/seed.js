@@ -1,4 +1,5 @@
 const db = require('../config/connection');
+
 const { User, Team, Class } = require('../models');
 const { userSeeds, teamNames, shuffle, extraUserSeeds} = require('../utils/helper');
 
@@ -95,4 +96,5 @@ db.once('open', async () => {
   console.log('extra users seeded');
   
   process.exit();
+
 });

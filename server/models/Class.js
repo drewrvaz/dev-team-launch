@@ -35,7 +35,6 @@ const classSchema = new Schema({
   
 });
 
-  
-  const Class = model('Class', classSchema);
-  
-  module.exports = Class;
+const Class = model('Class', classSchema);
+
+module.exports = Class;

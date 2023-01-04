@@ -2,16 +2,21 @@
 // import './App.css';
 import React from 'react';
 import Navbar from './components/Navbar';
-import Profile from './pages/Profile';
+import Profile from './pages/newProfile';
 // import Project from './pages/Project';
 
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 
+
 // import InstructorDashboard from './InstructorDashboard.js';
+
 // import StudentDashboard from './StudentDashboard.js';
 
 import { FaRocket } from 'react-icons/fa';
+
+//Avatars + Font Awesome Icons stored here: 
+import Avatars from './components/Avatars';
 
 import gql from "graphql-tag";
 // import Random from './pages/random/Random';
@@ -54,11 +59,15 @@ function App() {
           <>
             <Navbar />
             <Routes>
+
+              {/* <Route path='/' element={<StudentDashboard />} /> */}
+
               {/* <Route path='/' element={<StudentDashboard />} /> */}
               <Route path='/' element={<Login />} />
               <Route path='/signup' element={<Signup />} />
-              <Route path='/profile' element={<Profile />} />              
+              <Route path='/profile' element={<newProfile />} />              
               {/* {<Route path='/random' element={<Random />} /> */}
+              <Route path='/avatars' element={<Avatars />} />
               <Route path='*' element={<h1>Wrong page!</h1>} />
             </Routes>
           </>
