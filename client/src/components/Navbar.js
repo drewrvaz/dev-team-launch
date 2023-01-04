@@ -31,7 +31,7 @@ const AppNavbar = () => {
                     List of all users: PLEASE open the CONSOLE
                   </Nav.Link>
                   <Nav.Link as={Link} to='/createrandom' className='navLink'>
-                    Random Team Or Extra
+                    Random Team From API Or Extra
                   </Nav.Link>
                   <Nav.Link as={Link} to='/createallkindteams' className='navLink'>
                     Create All Kinds of Teams

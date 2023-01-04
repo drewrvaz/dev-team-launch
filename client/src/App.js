@@ -30,7 +30,7 @@ import GetUsers from './components/GetUsers';
 import ManualForm from './components/ManualForm';
 
 //Import everything needed to use the 'useQuery' hook
-import { useQuery, gql } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 
 //Random Generator Page for a quick pick, no need to call the API
 import Random from './pages/Random/Random';
