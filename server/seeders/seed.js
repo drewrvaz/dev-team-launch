@@ -1,7 +1,7 @@
 const db = require('../config/connection');
 
 const { User, Team, Class } = require('../models');
-const { userSeeds, teamNames, shuffle} = require('../utils/helper');
+const { userSeeds, teamNames, shuffle, extraUserSeeds} = require('../utils/helper');
 
 db.once('open', async () => {
   await User.deleteMany();
@@ -91,6 +91,10 @@ db.once('open', async () => {
     }
   }
   console.log('teams seeded');
+
+  await User.insertMany(extraUserSeeds());
+  console.log('extra users seeded');
+  
   process.exit();
 
 });

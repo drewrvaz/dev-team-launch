@@ -22,6 +22,8 @@ type User {
     teamIds: [String]
     inviteIds: [String]
     classAvatarId: String
+    teamSize: Int
+    classSize: Int
   }
 
   type Invite {
@@ -83,7 +85,7 @@ type User {
     allClasses: [Class]
     inClasses(username: String!): [Class]
     myClasses(username: String!): [Class]
-    class(classId: ID!): Class
+    singleClass(classId: ID!): Class
     team(teamId: ID!): Team
     feedback(feedbackId: ID!): Feedback
     myFeedback(userId: ID!): [Feedback]
@@ -100,6 +102,8 @@ type User {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     addClass(name: String!, leadId: String!): Class
+    updateClassTeamSize(classId: String!,teamSize: Int): Class
+    updateClassSize(classId: String!,classSize: Int): Class
     addUserToClass(classId: String!, userId: String!): Class
     addTeam(name: String!, classId: String!): Team
     addUserToTeam(teamId: String!, userId: String!): Team
