@@ -2,7 +2,7 @@
 // import './App.css';
 import React from 'react';
 import Navbar from './components/Navbar';
-import Profile from './pages/Profile';
+import Profile from './pages/newProfile';
 // import Project from './pages/Project';
 
 import Login from './pages/Login';
@@ -65,7 +65,7 @@ function App() {
               {/* <Route path='/' element={<StudentDashboard />} /> */}
               <Route path='/' element={<Login />} />
               <Route path='/signup' element={<Signup />} />
-              <Route path='/profile' element={<Profile />} />              
+              <Route path='/profile' element={<newProfile />} />              
               {/* {<Route path='/random' element={<Random />} /> */}
               <Route path='/avatars' element={<Avatars />} />
               <Route path='*' element={<h1>Wrong page!</h1>} />
