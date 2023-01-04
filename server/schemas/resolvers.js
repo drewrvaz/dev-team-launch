@@ -28,7 +28,7 @@ const resolvers = {
       const user = User.findOne({username: username});
       return await Class.find({leadId: user._id});
     },
-    class: async (parent, { classId }) => {
+    singleClass: async (parent, { classId }) => {
       return Class.findOne({ _id: classId });
     },
     team: async (parent, { teamId }) => {
@@ -96,6 +96,22 @@ const resolvers = {
       
       return classObj;
     },
+    updateClassSize: async (parent, {classId, classSize }) => {
+      
+      const filter = { _id: classId };
+      const update = { classSize: classSize };
+      const classObj = await Class.findByIdAndUpdate(filter, update, { new: true });
+      
+      return classObj;
+    },
+    updateClassTeamSize: async (parent, {classId, teamSize }) => {
+      
+      const filter = { _id: classId };
+      const update = { teamSize: teamSize };
+      const classObj = await Class.findByIdAndUpdate(filter, update, { new: true });
+      
+      return classObj;
+    },
     addUserToClass: async (parent, { userId, classId }) => {
       
       const filter = { _id: classId };
@@ -157,8 +173,9 @@ const resolvers = {
       return invite;
     },
     createTeamsRandom: async (parent, { classId }) => {
-      const classObj = Class.findOne({_id: classId});
-      const randomNames = shuffle(teamNames.shuffle);
+      const classObj = await Class.findOne({_id: classId});
+      const randomNames = shuffle(teamNames);
+      // console.log(classObj.userIds);
       const randomUserIds = shuffle(classObj.userIds);
       const numTeams = Math.floor(classObj.classSize/classObj.teamSize);
 
@@ -168,9 +185,11 @@ const resolvers = {
           classId: classId
         });
 
+        console.log(team._id);
+
         const filter = { _id: classId};
         const update = { $addToSet: {teamIds: team._id} };
-        await Class.findOneandUpdate(filter, update);
+        await Class.findOneAndUpdate(filter, update);
       }
 
       for (let i = 0, j = 0; i < randomUserIds.length; i++, j++){
@@ -179,15 +198,15 @@ const resolvers = {
     
         const filter = { _id: classObj.teamIds[j] };
         const update = { $addToSet: {userIds: randomUserIds[i]} };
-        await Team.findOneandUpdate(filter, update);
+        await Team.findOneAndUpdate(filter, update);
           
       }
       
       return await Class.findOne({_id: classId});
     },
     createTeamsCriteria: async (parent, { classId }) => {
-      const classObj = Class.findOne({_id: classId});
-      const randomNames = shuffle(teamNames.shuffle);
+      const classObj = await Class.findOne({_id: classId});
+      const randomNames = shuffle(teamNames);
       const numTeams = Math.floor(classObj.classSize/classObj.teamSize);
       const roster = [];
 
@@ -209,7 +228,7 @@ const resolvers = {
 
         const filter = { _id: classId};
         const update = { $addToSet: {teamIds: roster[i]._id} };
-        await Class.findOneandUpdate(filter, update);
+        await Class.findOneAndUpdate(filter, update);
       }
 
       for (let i = 0, j = 0; i < roster.length; i++, j++){
@@ -218,7 +237,7 @@ const resolvers = {
     
         const filter = { _id: classObj.teamIds[j] };
         const update = { $addToSet: {userIds: randomUserIds} };
-        await Team.findOneandUpdate(filter, update);
+        await Team.findOnAndUpdate(filter, update);
           
       }
       
