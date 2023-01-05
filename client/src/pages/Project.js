@@ -4,6 +4,9 @@ import { Button, Card, Col, Container, Form, InputGroup, Modal, Row  } from 'rea
 
 import Auth from '../utils/auth';
 import '../index.css'
+import ViewProject from '../components/ViewProject';
+import EditProject from '../components/EditProject';
+import ViewTeam from '../components/ViewTeam';
 // import Auth from '../utils/auth';
 // import { removeBookId } from '../utils/localStorage';
 // import { useQuery, useMutation } from '@apollo/client';
@@ -11,8 +14,17 @@ import '../index.css'
 // import { REMOVE_BOOK } from '../utils/mutations';
 
 const ProjectPage = () => {
-  // const [showModal, setShowModal] = useState(false);
+  const [modalOpen, setModal] = useState(false)
 
+  const openModal = event => {
+    event.preventDefault()
+    const { target: { dataset: { modal }}} = event
+    if (modal) setModal(modal)
+  }
+
+  const closeModal = () => {
+    setModal('')
+  }
   return (
     <>
       <Row>
@@ -68,12 +80,47 @@ const ProjectPage = () => {
                 <Card.Text>
                   We could list the teams for each project here. We would have to add all of the project names from the array that was created for the project. But we don't have to do that. Just a thought.
                 </Card.Text>
-                <Button variant="outline-secondary" id="button-addon2">
+
+                <Button variant="outline-secondary" id="button-addon2" onClick={openModal}>
                   View Project
                 </Button>
-                <Button variant="outline-secondary" id="button-addon2">
+                <ViewProject 
+                  closeFn={closeModal}
+                  open={modalOpen === 'viewproject'} 
+                />
+                {/* <Modal show={show} onHide={handleClose}>
+                  <Modal.Header closeButton>
+                    <Modal.Title>Project Title</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+                  <Modal.Footer>
+                    <Button variant="outline-secondary" onClick={handleClose}>
+                      Close
+                    </Button>
+                  </Modal.Footer>
+                </Modal> */}
+
+                <Button variant="outline-secondary" id="button-addon2" onClick={openModal}>
                   Edit Project
                 </Button>
+                <EditProject
+                  closeFn={closeModal}
+                  open={modalOpen === 'editproject'}
+                />
+                {/* <Modal show={show} onHide={handleClose}>
+                  <Modal.Header closeButton>
+                    <Modal.Title>Project Title</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+                  <Modal.Footer>
+                    <Button variant="outline-secondary" onClick={handleClose}>
+                      Save Changes
+                    </Button>
+                    <Button variant="outline-secondary" onClick={handleClose}>
+                      Close
+                    </Button>
+                  </Modal.Footer>
+                </Modal> */}
               </Card.Body>
             </Card>
           </Col>
@@ -88,13 +135,28 @@ const ProjectPage = () => {
           <Col>
             <Card>
               <Card.Body>
-                <Card.Title><h3>Insert Title of Project Here</h3></Card.Title>
+                <Card.Title><h3>Team Name Here</h3></Card.Title>
                 <Card.Text>
                   We could list the users part of the team here. We would have to add all of the usernames from the array that was created for the team. Or we could have a button to push that allows the user to view the team.
                 </Card.Text>
-                <Button variant="outline-secondary" id="button-addon2">
+                <Button variant="outline-secondary" id="button-addon2" onClick={openModal}>
                   View Team
                 </Button>
+                <ViewTeam
+                  closeFn={closeModal}
+                  open={modalOpen === 'editproject'}
+                />
+                {/* <Modal show={show} onHide={handleClose}>
+                  <Modal.Header closeButton>
+                    <Modal.Title>Project Title</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>Team Members Populate Here</Modal.Body>
+                  <Modal.Footer>
+                    <Button variant="outline-secondary" onClick={handleClose}>
+                      Close
+                    </Button>
+                  </Modal.Footer>
+                </Modal> */}
               </Card.Body>
             </Card>
           </Col>
