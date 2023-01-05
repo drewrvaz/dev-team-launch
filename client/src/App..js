@@ -2,14 +2,10 @@
 // import './App.css';
 import React from 'react';
 import Navbar from './components/Navbar';
-<<<<<<< HEAD:client/src/App.js
 import Profile from './pages/Profile';
-import Project from './pages/Project';
-=======
 import Profile from './pages/newProfile';
 // import Project from './pages/Project';
 
->>>>>>> cc84ceb5e93641c1a8077e37e0ea6851b3f33d27:client/src/App..js
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import { FaRocket } from 'react-icons/fa';

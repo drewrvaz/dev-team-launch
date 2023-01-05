@@ -53,11 +53,11 @@ function TeamGenerator(props) {
         {/*displaying the teams in a list format*/}
         {teams.map((team, index) => {
           return (
-            <ul key={index}>
+            <ol key={index}>
               {team.map((member, index) => {
                 return <li key={index}>{member}</li>;
               })}
-            </ul>
+            </ol>
           );
         })}
       </div>

@@ -7,9 +7,11 @@ import Row from 'react-bootstrap/Row';
 
 const newProfile = () =>  {
 return (
-<Form classNaame="form-floating form-group-row">
+  <div className="Wrapper">
+    <h1>How bout them apples</h1>
+<Form>
   <div className="col-md">
-    <label for="Availability">Availability</label>
+    <label for="Availability">Availability
     <div className="form-group">
       <select className="form-control" id="selectAvailability">
         <option>Low</option>
@@ -17,8 +19,14 @@ return (
         <option>High</option>
       </select>
     </div>
+    </label>
     </div>
 </Form>
+</div>
+)}
+{/* <></>
+<div className='wrapper'>
+
 
 <Form>
   <div className="form-group row">
@@ -53,8 +61,10 @@ return (
       </div>
     </div>
   </div>
+  
   </Form>
-
+</div>
+<div>
   <Form className="form-floating form-group-row">
     <div className="col-md">
       <label for="Experience">Experience</label>
@@ -68,24 +78,25 @@ return (
     </div>
   </Form>
 
-  <div className="form-floating form-group-row">
-    <label for="changePassword">Change Password</label>
-    <input type="text" class="form-control" id="changePassword" placeholder="newt password"/>
-  </div>
 
-  <div className="form-floating form-group-row">
-    <label for="confirmPassword">Confirm  Password</label>
-    <input type="text" className="form-control" id="confirmPassword" placeholder="confirm password"/>
-  </div>
+//   <div className="form-floating form-group-row">
+//     <label for="changePassword">Change Password</label>
+//     <input type="text" class="form-control" id="changePassword" placeholder="newt password"/>
+//   </div>
+
+//   <div className="form-floating form-group-row">
+//     <label for="confirmPassword">Confirm  Password</label>
+//     <input type="text" className="form-control" id="confirmPassword" placeholder="confirm password"/>
+//   </div>
 
 <div className="form-group row">
   <div className="col-sm-10">
     <Button type="submit">Save</Button>
   </div>
 </div>
+</div>
+)
+)}
 
-
-);
-
-}
+} */}
 export default newProfile;

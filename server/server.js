@@ -25,6 +25,11 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 
+//POST data to database
+app.post("/createrandom", (req, res) => {
+  console.log(req.body)
+})
+
 
 // Create a new instance of an Apollo server with the GraphQL schema
 const startApolloServer = async (typeDefs, resolvers) => {
