@@ -28,6 +28,7 @@
 .random-human-picker-container,
 .random-team-generator-container {
   width: 100%;
+  
 }
 .random-human-picker-container input,
 .random-team-generator-container input {

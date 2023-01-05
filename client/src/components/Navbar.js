@@ -21,6 +21,21 @@ const AppNavbar = () => {
               {/* if user is logged in show saved books and logout */}
               {Auth.loggedIn() ? (
                 <>
+                  <Nav.Link as={Link} to='/manualform' className='navLink'>
+                    Create a Team Manually
+                  </Nav.Link>
+                  <Nav.Link as={Link} to='/random' className='navLink'>
+                    Create a Team by Random
+                  </Nav.Link>
+                  <Nav.Link as={Link} to='/getusers' className='navLink'>
+                    List of all users: PLEASE open the CONSOLE
+                  </Nav.Link>
+                  <Nav.Link as={Link} to='/createrandom' className='navLink'>
+                    Random Team From API Or Extra
+                  </Nav.Link>
+                  <Nav.Link as={Link} to='/createallkindteams' className='navLink'>
+                    Create All Kinds of Teams
+                  </Nav.Link>
                   <Nav.Link as={Link} to='/' className='navLink'>
                     Search For Users
                   </Nav.Link>
@@ -32,6 +47,7 @@ const AppNavbar = () => {
                   </Nav.Link>
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
                 </>
+                
               ) : (
                 <>
                   <Nav.Link as={Link} to='/' className='navLink'>Login</Nav.Link>
