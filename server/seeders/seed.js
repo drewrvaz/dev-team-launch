@@ -8,8 +8,17 @@ db.once('open', async () => {
   await Class.deleteMany();
   await Team.deleteMany();
 
-
-  const users = await User.insertMany(userSeeds());
+  await User.create({
+    username: "testuser1",
+    email: "testuser1@test.com",
+    password: "password12345",
+    
+  });
+  const uSeeds = userSeeds();
+  for (let i = 0; i < uSeeds.length; i++){
+    await User.create(uSeeds[i]);
+  }
+  const users = await User.find({});
   console.log('users seeded');
 
   const classes = await Class.insertMany([
@@ -92,7 +101,10 @@ db.once('open', async () => {
   }
   console.log('teams seeded');
 
-  await User.insertMany(extraUserSeeds());
+  const uExtraSeeds = extraUserSeeds();
+  for (let i = 0; i < uExtraSeeds.length; i++){
+    await User.create(uExtraSeeds[i]);
+  }
   console.log('extra users seeded');
   
   process.exit();
