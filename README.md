@@ -11,7 +11,7 @@ This app implements a MERN stack, using MongooseDB, Express, Node and Apollo on 
 
 ### INSTALLATION
 
-Clone the directory  (https://github.com/drewrvaz/dev-team-launch), then run `npm i` , `npm run build`,  `npm run` . 
+Clone the directory  (https://github.com/drewrvaz/dev-team-launch), then run `npm i` , `npm run build`,  `npm run develop` . 
 
 
 ### LICENSE
@@ -31,7 +31,7 @@ None.
 
 ## COLLABORATORS
 
-* Sara Milligan https://github.com/saramill
+* Sara Milligan https://github.com/Sara-Mill
 * Sue Morin https://github.com/suecmorin
 * Andrew Vasquez https://github.com/drewrvaz
 * Will Winston https://github.com/win-will

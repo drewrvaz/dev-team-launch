@@ -87,7 +87,11 @@ footer {
   align-items: center;
   border: 1px;
   border-color: var(--green);
-}
+  @media screen  and (max-width: 640px) {
+    width: 50% }
+  @media screen and (max-width: 1007px) {
+    width: 75% }
+  }
 
 .loginCard {
   text-align: center;
@@ -177,4 +181,13 @@ footer {
   background-color: var(--black);
   color: var(--white);
   border-color: none;
+}
+.Table {
+  border-color: var(--green);
+}
+.Breadcrumb.Item {
+  color: var(--green);
+}
+.mb3 {
+  color: var(--green);
 }

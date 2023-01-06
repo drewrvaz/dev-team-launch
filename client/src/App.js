@@ -70,6 +70,7 @@ const client = new ApolloClient({
 
 function App() {
   return (
+    
     //Here we make requests to our API server
     <ApolloProvider client={client}>
       <Router>
