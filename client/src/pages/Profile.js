@@ -5,6 +5,11 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Select from 'react-select'
 
+import Auth from '../utils/auth';
+import { useQuery } from '@apollo/client';
+import {useState} from 'react';
+import { GET_USER } from '../utils/queries';
+
 const optionsAvailability = [
   { value: '3', label: 'High' },
   { value: '2', label: 'Medium' },
@@ -23,6 +28,29 @@ const divStyle = {
 };
 
 const Profile = () =>  {
+  const [userData, setUserData] = useState({
+    username: "",
+  });
+
+  const { loading, data } = useQuery(GET_USER, {
+    variables: {username: Auth.getProfile().data.username}
+  });
+  
+  console.log(data);
+  // console.log(data.user.username);
+
+  if (data && userData.username === "") {
+
+    setUserData({
+      username: data.user.username,
+    });
+
+  }
+
+  if (loading) {
+    return <h2>LOADING...</h2>;
+  }
+
 return (
   <Container className="d-flex justify-content-center">
   <Container className="mt-5 p-3 border border-dark rounded bg-light " style={divStyle}>

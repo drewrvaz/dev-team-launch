@@ -1,11 +1,16 @@
 import { gql } from 'graphql-tag';
 
-export const GET_ME = gql`
-  {
-    me {
+export const GET_USER = gql`
+query user($username: String!) {
+  user(username: $username) {
       _id
       username
       email
+      skills
+      availability
+      experience
+      userAvatarId
+      inviteIds
     }
   }
 `;
