@@ -36,11 +36,12 @@ const Profile = () =>  {
     variables: {username: Auth.getProfile().data.username}
   });
   
-  console.log(data);
+  
   // console.log(data.user.username);
 
   if (data && userData.username === "") {
 
+    console.log(data.user.username);
     setUserData({
       username: data.user.username,
     });
