@@ -1,34 +1,17 @@
 // import logo from './logo.svg';
 // import './App.css';
-// import InstructorDashboard from './InstructorDashboard.js';
-// import StudentDashboard from './StudentDashboard.js';
+import React from 'react';
+import Navbar from './components/Navbar';
+import Profile from './pages/Profile';
+import Profile from './pages/newProfile';
 // import Project from './pages/Project';
 
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import { FaRocket } from 'react-icons/fa';
 
-//Avatars + Font Awesome Icons stored here:
-import Avatars from "./components/Avatars";
-
-//Create teams *example pages displayed here
-import CreateRandom from "./pages/CreateRandom";
-import CreateAllKindTeams from "./components/CreateAllKindTeams";
-
-// get users, classes, teams API endpoints
-import GetUsers from './components/GetUsers';
-import GetClasses from './components/GetClasses';
-import GetTeams from './components/GetTeams';
-//This form is responsive and unstyled!!!!!!!!!!!!!
-
-// *Add user* need to change it, don't want to confuse with the sign up (is just a paceholder for now form API endpoint
-import ManualForm from './components/ManualForm';
-
-//Import everything needed to use the 'useQuery' hook
-import { useQuery } from '@apollo/client';
-
-//Random Generator Page for a quick pick, no need to call the API
-import Random from './pages/Random/Random';
-
-//Work on setting up a classes callback function/endpoint
-import {Classes} from './components/Classes';
+//Avatars + Font Awesome Icons stored here: 
+import Avatars from './components/Avatars';
 
 import gql from "graphql-tag";
 // import Random from './pages/random/Random';
@@ -70,21 +53,39 @@ function App() {
             <Routes>
               <Route path='/' element={<Login />} />
               <Route path='/signup' element={<Signup />} />
+<<<<<<< HEAD:client/src/App.js
               <Route path='/profile' element={<Profile />} />   
               <Route path='/project' element={<Project />} />      
+=======
+              <Route path='/profile' element={<newProfile />} />              
+>>>>>>> cc84ceb5e93641c1a8077e37e0ea6851b3f33d27:client/src/App..js
               {/* {<Route path='/random' element={<Random />} /> */}
               <Route path='/avatars' element={<Avatars />} />
-              <Route path="/getclasses" element={<GetClasses />} />
-              <Route path="/getteams" element={<GetTeams />} />
               <Route path='*' element={<h1>Wrong page!</h1>} />
             </Routes>
           </>
-        </div>
+        </div> {/* fixed-bottom */}
         <footer class='navbar navbar-light bg-success-subtle justify-content-center'>
           <h1>Dev Team <FaRocket /></h1>
         </footer>
       </Router>
     </ApolloProvider>
+    // <div className="App">
+    //   <header className="App-header">
+    //     <img src={logo} className="App-logo" alt="logo" />
+    //     <p>
+    //       Edit <code>src/App.js</code> and save to reload.
+    //     </p>
+    //     <a
+    //       className="App-link"
+    //       href="https://reactjs.org"
+    //       target="_blank"
+    //       rel="noopener noreferrer"
+    //     >
+    //       Learn React
+    //     </a>
+    //   </header>
+    // </div>
   );
 }
 
