@@ -25,6 +25,7 @@ const optionsExperience = [
 const divStyle = {
   maxWidth: '500px',
   fontFamily: 'Arial',
+  color: 'var(--green)',
 };
 
 const Profile = () =>  {
@@ -54,29 +55,29 @@ const Profile = () =>  {
 
 return (
   <Container className="d-flex justify-content-center">
-  <Container className="profileFormContainer mt-5 p-3 border border-dark rounded" style={divStyle}>
+  <Container className="profileFormContainer mt-0 p-3 border border-dark rounded" style={divStyle}>
     
     <Form className='profileForm'>
       <Form.Group className="mb-3" controlId="availability">
-        <Form.Label className="fw-bold">Availability</Form.Label>
+        <Form.Label className="fw-bold" >Availability</Form.Label>
         <Select options={optionsAvailability} />
       </Form.Group>
       <Form.Group className="mb-3" controlId="availability">
-        <Form.Label>Experience</Form.Label>
+        <Form.Label  className="fw-bold" >Experience</Form.Label>
         <Select options={optionsExperience} />
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
+        <Form.Label  className="fw-bold" >Password</Form.Label>
         <Form.Control type="password" placeholder="Password" />
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Confirm Password</Form.Label>
+        <Form.Label  className="fw-bold">Confirm Password</Form.Label>
         <Form.Control type="password" placeholder="ConfirmPassword" />
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicCheckbox" id="">
-      <Form.Label>Skills:</Form.Label>
+      <Form.Label  className="fw-bold">Skills:</Form.Label>
       <Container className="ml-3">
           <Row>
             <Col>

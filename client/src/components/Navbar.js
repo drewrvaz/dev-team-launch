@@ -27,7 +27,7 @@ const AppNavbar = () => {
                 <>
 
                   <Nav className="d-inline-flex">
-                  <Nav.Link as={Link} to='/profile' className='nav-links fs-4 fw-bold'> 
+                  <Nav.Link as={Link} to='/profile' className='nav-links fs-4 fw- border-radius-base: 30px'> 
                     PROFILE
                   </Nav.Link>
                   <div class="vr"></div>

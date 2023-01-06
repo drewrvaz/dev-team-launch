@@ -11,6 +11,7 @@ import { Form,
 import Auth from '../utils/auth';
 import '../index.css'
 
+
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [login, { error, data }] = useMutation(LOGIN_USER);
@@ -49,7 +50,7 @@ const Login = (props) => {
   return (
     <>
       <Container className='loginContainer py-5 h-100'>
-        <Card className='loginCard'>
+        <Card className="loginCard">
           <h2>Login</h2>
           <p>Please enter your login and password!</p>
           <Form onSubmit={handleFormSubmit}>
@@ -66,6 +67,7 @@ const Login = (props) => {
               />
               <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
             </Form.Group>
+
 
             <Form.Group>
               <Form.Label htmlFor='password'>Password</Form.Label>
