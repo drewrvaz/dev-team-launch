@@ -15,3 +15,29 @@ query Query {
     }
   }
 `
+export const LOAD_CLASSES = gql`
+query Query {
+  allClasses {
+    userIds
+    teamSize
+    teamIds
+    name
+    leadId
+    inviteIds
+    description
+    classSize
+    classAvatarId
+    _id
+  }
+}
+`
+export const LOAD_TEAMS = gql`
+query Query($teamId: ID!) {
+  team(teamId: $teamId) {
+    userIds
+    name
+    classId
+    _id
+  }
+}
+`

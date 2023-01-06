@@ -21,9 +21,10 @@ import Avatars from "./components/Avatars";
 import CreateRandom from "./pages/CreateRandom";
 import CreateAllKindTeams from "./components/CreateAllKindTeams";
 
-// get users API endpoint
+// get users, classes, teams API endpoints
 import GetUsers from './components/GetUsers';
-
+import GetClasses from './components/GetClasses';
+import GetTeams from './components/GetTeams';
 //This form is responsive and unstyled!!!!!!!!!!!!!
 
 // *Add user* need to change it, don't want to confuse with the sign up (is just a paceholder for now form API endpoint
@@ -84,6 +85,8 @@ function App() {
               <Route path="/createrandom" element={<CreateRandom />} />
               <Route path="/createallkindteams" element={<CreateAllKindTeams />} />
               <Route path="/getusers" element={<GetUsers />} />
+              <Route path="/getclasses" element={<GetClasses />} />
+              <Route path="/getteams" element={<GetTeams />} />
               <Route path="/manualform" element={<ManualForm />} />
               {/* <Route path='/classes' element={<Classes />} /> */}
               <Route path="*" element={<h1>Wrong page!</h1>} />
