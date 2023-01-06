@@ -1,4 +1,5 @@
 :root {
+  --blue: #00a5e0;
   --black: #04080F;
   --green:   #71B48D;
   --white: #FCF7F8;
@@ -23,6 +24,7 @@ h1 {
 
 .devTeamPage {
   background-color: var(--white);
+  height: 100vh;
 }
 
 .navbar {
