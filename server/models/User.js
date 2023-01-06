@@ -33,13 +33,7 @@ const userSchema = new Schema({
   },
   inviteIds: [{
     type: String,
-  }],
-  teams: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Team'
-    }
-  ]
+  }]
 });
 
 userSchema.pre('save', async function (next) {

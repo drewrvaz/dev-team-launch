@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "./components/Navbar";
 import Profile from "./pages/Profile";
+import Project from "./pages/Project";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 
@@ -79,6 +80,7 @@ function App() {
               <Route path="/" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/project" element={<Project />} />
               <Route path='/random' element={<Random />} />
               <Route path="/avatars" element={<Avatars />} />
               <Route path="/createrandom" element={<CreateRandom />} />
@@ -97,22 +99,6 @@ function App() {
         </footer>
       </Router>
     </ApolloProvider>
-    // <div className="App">
-    //   <header className="App-header">
-    //     <img src={logo} className="App-logo" alt="logo" />
-    //     <p>
-    //       Edit <code>src/App.js</code> and save to reload.
-    //     </p>
-    //     <a
-    //       className="App-link"
-    //       href="https://reactjs.org"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       Learn React
-    //     </a>
-    //   </header>
-    // </div>
   );
 }
 
