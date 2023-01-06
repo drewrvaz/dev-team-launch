@@ -73,8 +73,8 @@ const AppNavbar = () => {
                 
               ) : (
                 <>
-                  <Nav.Link as={Link} to='/' className='fw-bold fs-4 bg-black text-white p-2 border rounded border-dark m-2'>Login</Nav.Link>
-                  <Nav.Link as={Link} to='/signup' className='fw-bold fs-4 bg-light text-black p-2 border rounded border-dark m-2'>Sign Up</Nav.Link>
+                  <Nav.Link as={Link} to='/' className='loginBtn fw-bold fs-4 p-2 border rounded border-dark m-2'>Login</Nav.Link>
+                  <Nav.Link as={Link} to='/signup' className='signUpBtn fw-bold fs-4 p-2 border rounded border-dark m-2'>Sign Up</Nav.Link>
                 </>
               )}
             </Container>
