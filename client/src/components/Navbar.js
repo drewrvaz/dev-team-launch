@@ -2,26 +2,43 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import{ FaRocket } from 'react-icons/fa';
+import Tabs from 'react-bootstrap/Tabs';
+import Tab from 'react-bootstrap/Tab';
 
 import Auth from '../utils/auth';
+import './Navbar.css';
+
 
 const AppNavbar = () => {
-
 
   return (
     <>
       <Navbar expand='lg' className='navbar'>
         <Container fluid>
-          <Navbar.Brand>
-            <h1>Dev Team <FaRocket /></h1>
+        
+          <Navbar.Brand className="ml-2 fs-1 fw-bold">
+            <span>DevTeam <FaRocket /></span>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar'>
-            <Nav className='ml-auto'>
+            <Container className="d-inline-flex  justify-content-end">
               {/* if user is logged in show saved books and logout */}
               {Auth.loggedIn() ? (
                 <>
-                  <Nav.Link as={Link} to='/manualform' className='navLink'>
+
+                  <Nav className="d-inline-flex">
+                  <Nav.Link as={Link} to='/profile' className='nav-links fs-4 fw-bold'> 
+                    PROFILE
+                  </Nav.Link>
+                  <div class="vr"></div>
+                  <Nav.Link as={Link} to='/project' className='nav-links fs-4 fw-bold'>
+                    PROJECT
+                  </Nav.Link>
+                  </Nav>
+                  
+                  
+                  
+                   {/* <Nav.Link as={Link} to='/manualform' className='navLink'>
                     Create a Team Manually
                   </Nav.Link>
                   <Nav.Link as={Link} to='/random' className='navLink'>
@@ -38,23 +55,29 @@ const AppNavbar = () => {
                   </Nav.Link>
                   <Nav.Link as={Link} to='/' className='navLink'>
                     Search For Users
-                  </Nav.Link>
-                  <Nav.Link as={Link} to='/profile' className='navLink'>
-                    View Your Profile
-                  </Nav.Link>
-                  <Nav.Link as={Link} to='/project' className='navLink'>
-                    View Your Project(s)
-                  </Nav.Link>
-                  <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
+                  </Nav.Link> */}
                 </>
                 
               ) : (
                 <>
-                  <Nav.Link as={Link} to='/' className='navLink'>Login</Nav.Link>
-                  <Nav.Link as={Link} to='/signup' className='navLink'>Sign Up</Nav.Link>
+
                 </>
               )}
-            </Nav>
+            </Container>
+            <Container className="d-inline-flex  justify-content-end">
+            {Auth.loggedIn() ? (
+                <>
+                  
+                  <Nav.Link onClick={Auth.logout} className='fw-bold fs-5 bg-black text-white p-2 border rounded border-dark'>Logout</Nav.Link>
+                </>
+                
+              ) : (
+                <>
+                  <Nav.Link as={Link} to='/' className='fw-bold fs-4 bg-black text-white p-2 border rounded border-dark m-2'>Login</Nav.Link>
+                  <Nav.Link as={Link} to='/signup' className='fw-bold fs-4 bg-light text-black p-2 border rounded border-dark m-2'>Sign Up</Nav.Link>
+                </>
+              )}
+            </Container>
           </Navbar.Collapse>
         </Container>
       </Navbar>
