@@ -25,9 +25,9 @@ const divStyle = {
 const Profile = () =>  {
 return (
   <Container className="d-flex justify-content-center">
-  <Container className="mt-5 p-3 border border-dark rounded bg-light " style={divStyle}>
+  <Container className="profileFormContainer mt-5 p-3 border border-dark rounded" style={divStyle}>
     
-    <Form>
+    <Form className='profileForm'>
       <Form.Group className="mb-3" controlId="availability">
         <Form.Label className="fw-bold">Availability</Form.Label>
         <Select options={optionsAvailability} />
@@ -69,7 +69,7 @@ return (
         
       </Form.Group>
       <Container className="d-flex justify-content-center mt-4">
-        <Button variant="primary" type="submit">
+        <Button className='profileSaveBtn' type="submit">
           Save
         </Button>
       </Container>
