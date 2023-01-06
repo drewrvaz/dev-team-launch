@@ -135,15 +135,16 @@ const Profile = () =>  {
     setIsProjectModalShown(false);
   };
 
+
 return (
 
-  <Container>
+  <Container style={{color: 'var(--green)'}}>
     <Modal.Dialog   style={{display: isProjectModalShown ?  'block' : 'none'}}>
       <Modal.Header closeButton onClick={closeProjectModal}>
-        <Modal.Title>Project Name</Modal.Title>
+        <Modal.Title >Project Name</Modal.Title>
       </Modal.Header>
 
-      <Modal.Body>
+      <Modal.Body >
         <Form.Group className="mb-3" controlId="formBasicInput">
           <Form.Label>Enter Team Name</Form.Label>
           <Container fluid className="d-flex inline p-0">
@@ -156,7 +157,7 @@ return (
             </Col>
           </Container>
         </Form.Group>
-        <Table striped bordered hover size="sm">
+        <Table striped bordered hover size="sm"  style={{color: 'var(--green)'}}>
           <thead>
             <tr>
               <th>#</th>
@@ -192,7 +193,7 @@ return (
           </Col>
         </Container>
         </Form.Group>
-        <Table striped bordered hover size="sm">
+        <Table striped bordered hover size="sm"  style={{color: 'var(--green)'}}>
           <thead>
             <tr>
               <th>#</th>
@@ -276,7 +277,7 @@ return (
     <Row className="justify-content-center"  style={{display: isRosterShown ?  'block' : 'none'}}>
       <Container className="mt-1 p-3 border border-dark rounded bg-light " style={divStyle}>
         <Form>
-          <div className="justify-content-center fs-3">Manage Roster</div>
+          <div className="justify-content-center fs-3 fw-italic">Manage Roster</div>
           <Form.Group className="mb-3" controlId="formBasicInput">
             <Form.Label>Select Project</Form.Label>
             <Select options={optionsProjects} />
@@ -414,7 +415,7 @@ return (
       <Container className="mt-1 p-3 border border-dark rounded bg-light " style={divStyle}>
       
       <Form>
-      <div className="justify-content-center fs-3">View Projects</div>
+      <div className="justify-content-center fs-3 fw-italic">View Projects</div>
         <Table striped bordered hover size="sm">
       <thead>
         <tr>
@@ -427,32 +428,32 @@ return (
         <tr>
           <td>1</td>
           <td>Project 1</td>
-          <td><Button variant="primary" size="sm">View</Button><Button variant="success" size="sm" onClick={displayProjectModal}>Edit</Button><Button variant="danger" size="sm">Remove</Button></td>
+          <td><Button variant="success" size="sm" onClick={displayProjectModal}>Edit</Button><Button variant="danger" size="sm">Remove</Button></td>
         </tr>
         <tr>
           <td>2</td>
           <td>Project 2</td>
-          <td><Button variant="primary" size="sm">View</Button><Button variant="success" size="sm" onClick={displayProjectModal}>Edit</Button><Button variant="danger" size="sm">Remove</Button></td>
+          <td><Button variant="success" size="sm" onClick={displayProjectModal}>Edit</Button><Button variant="danger" size="sm">Remove</Button></td>
         </tr>
         <tr>
           <td>3</td>
           <td>Project 3</td>
-          <td><Button variant="primary" size="sm">View</Button><Button variant="success" size="sm" onClick={displayProjectModal}>Edit</Button><Button variant="danger" size="sm">Remove</Button></td>
+          <td><Button variant="success" size="sm" onClick={displayProjectModal}>Edit</Button><Button variant="danger" size="sm">Remove</Button></td>
         </tr>
         <tr>
           <td>4</td>
           <td>Project 4</td>
-          <td><Button variant="primary" size="sm">View</Button><Button variant="success" size="sm" onClick={displayProjectModal}>Edit</Button><Button variant="danger" size="sm">Remove</Button></td>
+          <td><Button variant="success" size="sm" onClick={displayProjectModal}>Edit</Button><Button variant="danger" size="sm">Remove</Button></td>
         </tr>
         <tr>
           <td>5</td>
           <td>Project 5</td>
-          <td><Button variant="primary" size="sm">View</Button><Button variant="success" size="sm" onClick={displayProjectModal}>Edit</Button><Button variant="danger" size="sm">Remove</Button></td>
+          <td><Button variant="success" size="sm" onClick={displayProjectModal}>Edit</Button><Button variant="danger" size="sm">Remove</Button></td>
         </tr>
         <tr>
           <td>6</td>
           <td>Project 6</td>
-          <td><Button variant="primary" size="sm">View</Button><Button variant="success" size="sm" onClick={displayProjectModal}>Edit</Button><Button variant="danger" size="sm">Remove</Button></td>
+          <td><Button variant="success" size="sm" onClick={displayProjectModal}>Edit</Button><Button variant="danger" size="sm">Remove</Button></td>
         </tr>
       </tbody>
     </Table>
@@ -466,12 +467,12 @@ return (
       <Container className="mt-1 p-3 border border-dark rounded bg-light " style={divStyle}>
       
       <Form>
-      <div className="justify-content-center fs-3">Invites</div>
+      <div className="justify-content-center fs-3 fw-italic">Invites</div>
         <Table striped bordered hover size="sm">
       <thead>
         <tr>
           <th>#</th>
-          <th>Project Invites</th>
+          <th style={{color: 'var(--green)'}}>Project Invites</th>
           <th></th>
         </tr>
       </thead>
@@ -484,7 +485,7 @@ return (
         <tr>
           <td>2</td>
           <td>Project 2</td>
-          <td><Button variant="success" size="sm">Accept</Button><Button variant="danger" size="sm">Remove</Button></td>
+          <td><Button variant="success" size="sm">Accept</Button><Button variant="danger" size="sm">Decline</Button></td>
         </tr>
         <tr>
           <td>3</td>
