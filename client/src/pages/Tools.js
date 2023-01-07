@@ -28,7 +28,7 @@ const optionsTeamBuildType = [
   { value: 'criteria', label: 'Criteria Based' },
 ]
 
-const Profile = () =>  {
+const Tools = () =>  {
 
   const [isCreateProjectShown, setIsCreateProjectShown] = useState(true);
   const [isRosterShown, setIsRosterShown] = useState(false);
@@ -117,6 +117,42 @@ const Profile = () =>  {
   };
 
   const displayInvites = event => {
+    // 👇️ toggle visibility
+    setIsCreateProjectShown(false);
+    setIsRosterShown(false);
+    setIsTeamBuilderShown(false);
+    setIsViewProjectsShown(false);
+    setIsInvitesShown(true);
+  };
+
+  const displayRandomTeamGenerator = event => {
+    // 👇️ toggle visibility
+    setIsCreateProjectShown(false);
+    setIsRosterShown(false);
+    setIsTeamBuilderShown(false);
+    setIsViewProjectsShown(false);
+    setIsInvitesShown(true);
+  };
+
+  const displayUserSearch = event => {
+    // 👇️ toggle visibility
+    setIsCreateProjectShown(false);
+    setIsRosterShown(false);
+    setIsTeamBuilderShown(false);
+    setIsViewProjectsShown(false);
+    setIsInvitesShown(true);
+  };
+
+  const displayTeamSearch = event => {
+    // 👇️ toggle visibility
+    setIsCreateProjectShown(false);
+    setIsRosterShown(false);
+    setIsTeamBuilderShown(false);
+    setIsViewProjectsShown(false);
+    setIsInvitesShown(true);
+  };
+
+  const displayProjectSearch = event => {
     // 👇️ toggle visibility
     setIsCreateProjectShown(false);
     setIsRosterShown(false);
@@ -232,20 +268,17 @@ return (
   <Col>
     <Row >
     <Breadcrumb className="d-flex justify-content-center">
-      <Breadcrumb.Item onClick={displayCreateProject}>
-        Create Project
+      <Breadcrumb.Item onClick={displayRandomTeamGenerator}>
+        Random Team Generator
       </Breadcrumb.Item>
-      <Breadcrumb.Item onClick={displayRoster}>
-        Manage Roster
+      <Breadcrumb.Item onClick={displayUserSearch}>
+        Search for Current User
       </Breadcrumb.Item>
-      <Breadcrumb.Item onClick={displayTeamBuilder}>
-        Team Builder
+      <Breadcrumb.Item onClick={displayProjectSearch}>
+        Search for Project
       </Breadcrumb.Item>
-      <Breadcrumb.Item onClick={displayViewProjects}>
-        View Projects
-      </Breadcrumb.Item>
-      <Breadcrumb.Item onClick={displayInvites}>
-        Invites
+      <Breadcrumb.Item onClick={displayTeamSearch}>
+        List All My Teams
       </Breadcrumb.Item>
     </Breadcrumb>
     </Row>
@@ -554,4 +587,4 @@ return (
 );
 
 }
-export default Profile;
+export default Tools;

@@ -11,20 +11,24 @@ import {useState} from 'react';
 import { GET_USER } from '../utils/queries';
 
 const optionsAvailability = [
-  { value: '3', label: 'High' },
+  { value: '1', label: 'Low' },
   { value: '2', label: 'Medium' },
-  { value: '1', label: 'Low' }
+  { value: '3', label: 'High' },
 ]
 
 const optionsExperience = [
-  { value: '3', label: 'None' },
+  { value: '1', label: 'None' },
   { value: '2', label: 'Some' },
-  { value: '1', label: 'A Lot' }
+  { value: '3', label: 'A Lot' },
 ]
 
 const divStyle = {
   maxWidth: '500px',
   fontFamily: 'Arial',
+};
+
+const saveProfile = event => {
+  console.log(event.target);
 };
 
 const Profile = () =>  {
@@ -36,14 +40,15 @@ const Profile = () =>  {
     variables: {username: Auth.getProfile().data.username}
   });
   
-  
-  // console.log(data.user.username);
 
   if (data && userData.username === "") {
 
-    console.log(data.user.username);
     setUserData({
       username: data.user.username,
+      _id: data.user._id,
+      skills: data.user.skills,
+      availability: data.user.availability,
+      experience: data.user.experience,
     });
 
   }
@@ -55,52 +60,50 @@ const Profile = () =>  {
 return (
   <Container className="d-flex justify-content-center">
   <Container className="mt-5 p-3 border border-dark rounded bg-light " style={divStyle}>
-    
+  <Container className="d-flex justify-content-center fs-3 fw-italic"> <span>{userData.username}</span> </Container>
     <Form>
       <Form.Group className="mb-3" controlId="availability">
         <Form.Label className="fw-bold">Availability</Form.Label>
-        <Select options={optionsAvailability} />
+        <Select name="selectAvailability" options={optionsAvailability} defaultValue={optionsAvailability[userData.availability - 1]}/>
       </Form.Group>
-      <Form.Group className="mb-3" controlId="availability">
-        <Form.Label>Experience</Form.Label>
-        <Select options={optionsExperience} />
+      <Form.Group className="mb-3" controlId="experience">
+        <Form.Label className="fw-bold">Experience</Form.Label>
+        <Select name="selectExperience" options={optionsExperience} defaultValue={optionsExperience[userData.experience - 1]}/>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
+        <Form.Label className="fw-bold">Password</Form.Label>
         <Form.Control type="password" placeholder="Password" />
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Confirm Password</Form.Label>
+        <Form.Label className="fw-bold">Confirm Password</Form.Label>
         <Form.Control type="password" placeholder="ConfirmPassword" />
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicCheckbox" id="">
-      <Form.Label>Skills:</Form.Label>
+      <Form.Label className="fw-bold">Skills:</Form.Label>
       <Container className="ml-3">
           <Row>
             <Col>
-            <Form.Check type="checkbox" label="Frontend" />
+            <Form.Check type="checkbox" label="Frontend" defaultChecked={userData.skills?.includes('Frontend')}/>
             </Col>
             <Col>
-            <Form.Check className="ml-3"type="checkbox" label="Backend" />
+            <Form.Check className="ml-3"type="checkbox" label="Backend" defaultChecked={userData.skills?.includes('Backend')}/>
             </Col>
           </Row>
           <Row>
             <Col>
-            <Form.Check type="checkbox" label="Database" />
+            <Form.Check type="checkbox" label="Database" defaultChecked={userData.skills?.includes('Database')}/>
             </Col>
             <Col>
-            <Form.Check className="ml-3"type="checkbox" label="Infrastructure" />
+            <Form.Check className="ml-3"type="checkbox" label="Infrastructure" defaultChecked={userData.skills?.includes('Infrastructure')}/>
             </Col>
           </Row>
         </Container>
         
       </Form.Group>
       <Container className="d-flex justify-content-center mt-4">
-        <Button variant="primary" type="submit">
-          Save
-        </Button>
+        <Button variant="primary" onClick={saveProfile}>Save</Button>
       </Container>
       
     </Form>

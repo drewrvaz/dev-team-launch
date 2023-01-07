@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
+import Col from 'react-bootstrap/Col';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import{ FaRocket } from 'react-icons/fa';
-import Tabs from 'react-bootstrap/Tabs';
-import Tab from 'react-bootstrap/Tab';
 
 import Auth from '../utils/auth';
 import './Navbar.css';
@@ -16,23 +15,28 @@ const AppNavbar = () => {
       <Navbar expand='lg' className='navbar'>
         <Container fluid>
         
-          <Navbar.Brand className="ml-2 fs-1 fw-bold">
+          <Navbar.Brand className="ml-2 fs-3 fw-bold">
             <span>DevTeam <FaRocket /></span>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar'>
-            <Container className="d-inline-flex  justify-content-end">
+            <Col className="col-10 d-flex justify-content-center">
               {/* if user is logged in show saved books and logout */}
               {Auth.loggedIn() ? (
                 <>
-
-                  <Nav className="d-inline-flex">
-                  <Nav.Link as={Link} to='/profile' className='nav-links fs-4 fw-bold'> 
-                    PROFILE
+                  {/* <div class="vr"></div> */}
+                  <Nav>
+                  <Nav.Link as={Link} to='/profile' className='nav-links fs-5 fw-bold'> 
+                    PROFILE 
                   </Nav.Link>
-                  <div class="vr"></div>
-                  <Nav.Link as={Link} to='/project' className='nav-links fs-4 fw-bold'>
-                    PROJECT
+                  <Nav.Link as={Link} to='/launchprojects' className='nav-links fs-5 fw-bold'>
+                    LAUNCH PROJECTS
+                  </Nav.Link> 
+                  <Nav.Link as={Link} to='/viewprojects' className='nav-links fs-5 fw-bold'>
+                    VIEW PROJECTS 
+                  </Nav.Link>
+                  <Nav.Link as={Link} to='/tools' className='nav-links fs-5 fw-bold'>
+                    TOOLS
                   </Nav.Link>
                   </Nav>
                   
@@ -63,8 +67,8 @@ const AppNavbar = () => {
 
                 </>
               )}
-            </Container>
-            <Container className="d-inline-flex  justify-content-end">
+            </Col>
+            <Col className="d-inline-flex  justify-content-end" style={{maxWidth:'100%'}}>
             {Auth.loggedIn() ? (
                 <>
                   
@@ -77,7 +81,7 @@ const AppNavbar = () => {
                   <Nav.Link as={Link} to='/signup' className='fw-bold fs-4 bg-light text-black p-2 border rounded border-dark m-2'>Sign Up</Nav.Link>
                 </>
               )}
-            </Container>
+            </Col>
           </Navbar.Collapse>
         </Container>
       </Navbar>

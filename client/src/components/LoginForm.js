@@ -90,7 +90,7 @@ const LoginForm = () => {
           Submit
         </Button>
       </Form>
-      <ExtraText Reset Password/ExtraText>
+      <ExtraText>Reset Password</ExtraText>
     </>
   );
 };
