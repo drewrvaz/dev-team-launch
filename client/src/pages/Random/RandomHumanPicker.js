@@ -37,7 +37,7 @@ function RandomHumanPicker(props) {
         <button onClick={handlePickBtnClick}>Pick People</button>
         {errorMessage && <p className="error"> {errorMessage} </p>}
 
-        {/*choosing a person from the index and dispaying as a list element*/}
+        {/*choosing a person from the index and displaying as a list element*/}
         <ul>
           {randomHumans.map((person, index) => (
             <li key={index}>{person}</li>

@@ -34,8 +34,11 @@ const AppNavbar = () => {
                   <Nav.Link as={Link} to='/project' className='nav-links fs-4 fw-bold'>
                     PROJECT
                   </Nav.Link>
+                  <div class="vr"></div>
+                  <Nav.Link as={Link} to='/miscellaneous' className='nav-links fs-4 fw-bold'>
+                    EXTRAS
+                  </Nav.Link>
                   </Nav>
-                  
                   
                   
                    {/* <Nav.Link as={Link} to='/manualform' className='navLink'>

@@ -28,13 +28,12 @@ const optionsTeamBuildType = [
   { value: 'criteria', label: 'Criteria Based' },
 ]
 
-const Profile = () =>  {
+const Project = () =>  {
 
   const [isCreateProjectShown, setIsCreateProjectShown] = useState(true);
   const [isRosterShown, setIsRosterShown] = useState(false);
   const [isTeamBuilderShown, setIsTeamBuilderShown] = useState(false);
   const [isViewProjectsShown, setIsViewProjectsShown] = useState(false);
-  const [isInvitesShown, setIsInvitesShown] = useState(false);
   
 
   const [isManualTeamBuilderShown, setIsManualTeamBuilderShown] = useState(false);
@@ -86,7 +85,6 @@ const Profile = () =>  {
     setIsRosterShown(false);
     setIsTeamBuilderShown(false);
     setIsViewProjectsShown(false);
-    setIsInvitesShown(false);
   };
 
   const displayRoster = event => {
@@ -95,7 +93,6 @@ const Profile = () =>  {
     setIsRosterShown(true);
     setIsTeamBuilderShown(false);
     setIsViewProjectsShown(false);
-    setIsInvitesShown(false);
   };
 
   const displayTeamBuilder = event => {
@@ -104,7 +101,6 @@ const Profile = () =>  {
     setIsRosterShown(false);
     setIsTeamBuilderShown(true);
     setIsViewProjectsShown(false);
-    setIsInvitesShown(false);
   };
 
   const displayViewProjects = event => {
@@ -113,16 +109,7 @@ const Profile = () =>  {
     setIsRosterShown(false);
     setIsTeamBuilderShown(false);
     setIsViewProjectsShown(true);
-    setIsInvitesShown(false);
-  };
 
-  const displayInvites = event => {
-    // 👇️ toggle visibility
-    setIsCreateProjectShown(false);
-    setIsRosterShown(false);
-    setIsTeamBuilderShown(false);
-    setIsViewProjectsShown(false);
-    setIsInvitesShown(true);
   };
 
   const displayProjectModal = event => {
@@ -239,11 +226,9 @@ return (
       <Breadcrumb.Item onClick={displayViewProjects}>
         View Projects
       </Breadcrumb.Item>
-      <Breadcrumb.Item onClick={displayInvites}>
-        Invites
-      </Breadcrumb.Item>
     </Breadcrumb>
     </Row>
+    </Col>
 
     <Row  className="justify-content-center"  style={{display: isCreateProjectShown ?  'block' : 'none'}}>
       <Container className="mt-1 p-3 border border-dark rounded bg-light " style={divStyle}>
@@ -330,9 +315,7 @@ return (
     </Row>
 
     <Row  className="justify-content-center"  style={{display: isTeamBuilderShown ?  'block' : 'none'}}>
-      
       <Container className="mt-1 p-3 border border-dark rounded bg-light " style={divStyle}>
-      
       <Form>
       <div className="justify-content-center fs-3 fw-italic">Team Builder</div>
         <Form.Group className="mb-3" controlId="formBasicInput">
@@ -355,12 +338,16 @@ return (
               <Button className='submitBtn' type="submit">
                 Add
               </Button>
-               
-            </Col>
-          </Container>
+              </Col>
+              </Container>
+              </Form.Group>
+            </Form>
+            </Container>
+          </Row>
           
-          
-        </Form.Group>
+          <Row>
+            <Container className="mt-1 p-3 border border-dark rounded bg-light " style={divStyle}>
+              <Form>
         <Table striped bordered hover size="sm" style={{display: isManualTeamBuilderShown ?  'block' : 'none'}}>
       <thead>
         <tr>
@@ -386,30 +373,26 @@ return (
           <td><Button variant="success" size="sm">Add Users</Button><Button variant="danger" size="sm">Remove Team</Button></td>
         </tr>
       </tbody>
-    </Table>
-        
+    </Table> 
         <Container className="d-flex justify-content-center mt-4" style={{display: isManualTeamBuilderShown ?  'block' : 'none'}}>
           <Button className='submitBtn' type="submit" style={{display: isManualTeamBuilderShown ?  'block' : 'none'}}>
             Add Teams
           </Button>
         </Container>
-
         <Container className="d-flex justify-content-center mt-4" style={{display: isRandomTeamBuilderShown ?  'block' : 'none'}}>
           <Button className='submitBtn' type="submit" style={{display: isRandomTeamBuilderShown ?  'block' : 'none'}}>
             Create Teams Randomly
           </Button>
         </Container>
-
         <Container className="d-flex justify-content-center mt-4" style={{display: isCriteriaTeamBuilderShown ?  'block' : 'none'}}>
           <Button className='submitBtn' type="submit" style={{display: isCriteriaTeamBuilderShown ?  'block' : 'none'}}>
             Create Teams Based On Criteria
           </Button>
         </Container>
-        
       </Form>
     </Container>
-
     </Row>
+
     <Row  className="justify-content-center"  style={{display: isViewProjectsShown ?  'block' : 'none'}}>
       
       <Container className="mt-1 p-3 border border-dark rounded bg-light " style={divStyle}>
@@ -458,69 +441,12 @@ return (
       </tbody>
     </Table>
         
-      </Form>
-    </Container>
-
-    </Row>
-    <Row  className="justify-content-center"  style={{display: isInvitesShown ?  'block' : 'none'}}>
-      
-      <Container className="mt-1 p-3 border border-dark rounded bg-light " style={divStyle}>
-      
-      <Form>
-      <div className="justify-content-center fs-3 fw-italic">Invites</div>
-        <Table striped bordered hover size="sm">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th style={{color: 'var(--green)'}}>Project Invites</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody >
-        <tr>
-          <td>1</td>
-          <td>Project 1</td>
-          <td><Button variant="success" size="sm">Accept</Button><Button variant="danger" size="sm">Decline</Button></td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Project 2</td>
-          <td><Button variant="success" size="sm">Accept</Button><Button variant="danger" size="sm">Decline</Button></td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Project 3</td>
-          <td><Button variant="success" size="sm">Accept</Button><Button variant="danger" size="sm">Decline</Button></td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td>Project 4</td>
-          <td><Button variant="success" size="sm">Accept</Button><Button variant="danger" size="sm">Decline</Button></td>
-        </tr>
-        <tr>
-          <td>5</td>
-          <td>Project 5</td>
-          <td><Button variant="success" size="sm">Accept</Button><Button variant="danger" size="sm">Decline</Button></td>
-        </tr>
-        <tr>
-          <td>6</td>
-          <td>Project 6</td>
-          <td><Button variant="success" size="sm">Accept</Button><Button variant="danger" size="sm">Decline</Button></td>
-        </tr>
-      </tbody>
-    </Table>
-        
-      </Form>
-    </Container>
-
-    </Row>  
-  </Col>
- 
-  
+    </Form>
   </Container>
-
-
+  </Row>
+  </Container>
 );
 
 }
-export default Profile;
+
+export default Project;

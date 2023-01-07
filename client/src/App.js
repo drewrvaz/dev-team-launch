@@ -4,6 +4,7 @@ import Profile from "./pages/Profile";
 import Project from "./pages/Project";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import Miscellaneous from "./pages/Miscellaneous";
 
 import { FaRocket } from "react-icons/fa";
 import gql from "graphql-tag";
@@ -28,7 +29,7 @@ import GetUsers from './components/GetUsers';
 
 //This form is responsive and unstyled!!!!!!!!!!!!!
 
-// *Add user* need to change it, don't want to confuse with the sign up (is just a paceholder for now form API endpoint
+// *Add user* need to change it, don't want to confuse with the sign up (is just a placeholder for now form API endpoint
 import ManualForm from './components/ManualForm';
 
 //Import everything needed to use the 'useQuery' hook
@@ -83,6 +84,7 @@ function App() {
               <Route path="/signup" element={<Signup />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/project" element={<Project />} />
+              <Route path="/miscellaneous" element={<Miscellaneous />} />
               <Route path='/random' element={<Random />} />
               <Route path="/avatars" element={<Avatars />} />
               <Route path="/createrandom" element={<CreateRandom />} />
