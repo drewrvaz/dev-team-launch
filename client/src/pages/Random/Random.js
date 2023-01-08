@@ -14,6 +14,7 @@ const user=gql`
 function Random() {
   const [humanList, setHumanList] = useState('');
 
+  
   return (
     <div className="Random">
       <HumanListInput onChange={setHumanList} />
