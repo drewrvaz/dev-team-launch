@@ -9,7 +9,7 @@
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false"
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.7.3",
+    "dotenv": "^16.0.3",
     "graphql": "^16.6.0",
     "react-query": "^3.39.2",
     "react-select": "^5.7.0"
