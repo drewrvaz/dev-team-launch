@@ -4,31 +4,111 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Select from 'react-select'
+import Breadcrumb from 'react-bootstrap/Breadcrumb';
+
 
 import Auth from '../utils/auth';
 import { useQuery } from '@apollo/client';
 import {useState} from 'react';
 import { GET_USER } from '../utils/queries';
 
+import ViewProfile from '../components/ViewProfile';
+import EditAvatar from '../components/EditAvatar';
+import UpdateAvailability from '../components/UpdateAvailability';
+import ModifyExperience from '../components/ModifyExperience';
+import ChangePassword from '../components/ChangePassword';
+import AdjustSkills from '../components/AdjustSkills';
+
+
 const optionsAvailability = [
-  { value: '3', label: 'High' },
+  { value: '1', label: 'Low' },
   { value: '2', label: 'Medium' },
-  { value: '1', label: 'Low' }
+  { value: '3', label: 'High' },
 ]
 
 const optionsExperience = [
-  { value: '3', label: 'None' },
+  { value: '1', label: 'None' },
   { value: '2', label: 'Some' },
-  { value: '1', label: 'A Lot' }
+  { value: '3', label: 'A Lot' },
 ]
 
 const divStyle = {
   maxWidth: '500px',
   fontFamily: 'Arial',
-  color: 'var(--green)',
+};
+
+const saveProfile = event => {
+  console.log(event.target);
 };
 
 const Profile = () =>  {
+  const [isViewProfileShown, setIsViewProfileShown] = useState(true);
+  const [isEditAvatarShown, setIsEditAvatarShown] = useState(false);
+  const [isUpdateAvailabilityShown, setIsUpdateAvailabilityShown] = useState(false);
+  const [isModifyExperienceShown, setIsModifyExperienceShown] = useState(false);
+  const [isChangePasswordShown, setIsChangePasswordShown] = useState(false);
+  const [isAdjustSkillsShown, setIsAdjustSkillsShown] = useState(false);
+
+  const displayViewProfile = event => {
+    // 👇️ toggle visibility
+    setIsViewProfileShown(true);
+    setIsEditAvatarShown(false);
+    setIsUpdateAvailabilityShown(false);
+    setIsModifyExperienceShown(false);
+    setIsChangePasswordShown(false);
+    setIsAdjustSkillsShown(false);
+  };
+
+  const displayEditAvatar = event => {
+    // 👇️ toggle visibility
+    setIsViewProfileShown(false);
+    setIsEditAvatarShown(true);
+    setIsUpdateAvailabilityShown(false);
+    setIsModifyExperienceShown(false);
+    setIsChangePasswordShown(false);
+    setIsAdjustSkillsShown(false);
+  };
+
+  const displayUpdateAvailability = event => {
+    // 👇️ toggle visibility
+    setIsViewProfileShown(false);
+    setIsEditAvatarShown(false);
+    setIsUpdateAvailabilityShown(true);
+    setIsModifyExperienceShown(false);
+    setIsChangePasswordShown(false);
+    setIsAdjustSkillsShown(false);
+  };
+
+  const displayModifyExperience = event => {
+    // 👇️ toggle visibility
+    setIsViewProfileShown(false);
+    setIsEditAvatarShown(false);
+    setIsUpdateAvailabilityShown(false);
+    setIsModifyExperienceShown(true);
+    setIsChangePasswordShown(false);
+    setIsAdjustSkillsShown(false);
+  };
+
+  const displayChangePassword = event => {
+    // 👇️ toggle visibility
+    setIsViewProfileShown(false);
+    setIsEditAvatarShown(false);
+    setIsUpdateAvailabilityShown(false);
+    setIsModifyExperienceShown(false);
+    setIsChangePasswordShown(true);
+    setIsAdjustSkillsShown(false);
+  };
+
+  const displayAdjustSkills = event => {
+    // 👇️ toggle visibility
+    setIsViewProfileShown(false);
+    setIsEditAvatarShown(false);
+    setIsUpdateAvailabilityShown(false);
+    setIsModifyExperienceShown(false);
+    setIsChangePasswordShown(false);
+    setIsAdjustSkillsShown(true);
+  };
+
   const [userData, setUserData] = useState({
     username: "",
   });
@@ -37,14 +117,15 @@ const Profile = () =>  {
     variables: {username: Auth.getProfile().data.username}
   });
   
-  
-  // console.log(data.user.username);
 
   if (data && userData.username === "") {
 
-    console.log(data.user.username);
     setUserData({
       username: data.user.username,
+      _id: data.user._id,
+      skills: data.user.skills,
+      availability: data.user.availability,
+      experience: data.user.experience,
     });
 
   }
@@ -54,59 +135,50 @@ const Profile = () =>  {
   }
 
 return (
-  <Container className="d-flex justify-content-center">
-  <Container className="profileFormContainer mt-0 p-3 border border-dark rounded" style={divStyle}>
-    
-    <Form className='profileForm'>
-      <Form.Group className="mb-3" controlId="availability">
-        <Form.Label className="fw-bold" >Availability</Form.Label>
-        <Select options={optionsAvailability} />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="availability">
-        <Form.Label  className="fw-bold" >Experience</Form.Label>
-        <Select options={optionsExperience} />
-      </Form.Group>
+  <Col>
+    <Row >
+    <Breadcrumb className="d-flex justify-content-center">
+      <Breadcrumb.Item onClick={displayViewProfile}>
+        View
+      </Breadcrumb.Item>
+      <Breadcrumb.Item onClick={displayEditAvatar}>
+        Edit Avatar
+      </Breadcrumb.Item>
+      <Breadcrumb.Item onClick={displayUpdateAvailability}>
+        Update Availability
+      </Breadcrumb.Item>
+      <Breadcrumb.Item onClick={displayModifyExperience}>
+        Modify Experience
+      </Breadcrumb.Item>
+      <Breadcrumb.Item onClick={displayChangePassword}>
+        Change Password
+      </Breadcrumb.Item>
+      <Breadcrumb.Item onClick={displayAdjustSkills}>
+        Adjust Skills
+      </Breadcrumb.Item>
+    </Breadcrumb>
+    </Row>
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label  className="fw-bold" >Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" />
-      </Form.Group>
+    <Row  className="justify-content-center" style={{display: isViewProfileShown ?  'block' : 'none'}}>
+      <ViewProfile />
+    </Row>
+    <Row  className="justify-content-center"style={{display: isEditAvatarShown ?  'block' : 'none'}}>
+      <EditAvatar />
+    </Row>
+    <Row  className="justify-content-center" style={{display: isUpdateAvailabilityShown ?  'block' : 'none'}}>
+      <UpdateAvailability />
+    </Row>
+    <Row  className="justify-content-center" style={{display: isModifyExperienceShown ?  'block' : 'none'}}>
+      <ModifyExperience />
+    </Row>
+    <Row  className="justify-content-center" style={{display: isChangePasswordShown ?  'block' : 'none'}}>
+      <ChangePassword />
+    </Row>
+    <Row  className="justify-content-center" style={{display: isAdjustSkillsShown ?  'block' : 'none'}}>
+      <AdjustSkills />
+    </Row>
+  </Col>
 
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label  className="fw-bold">Confirm Password</Form.Label>
-        <Form.Control type="password" placeholder="ConfirmPassword" />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicCheckbox" id="">
-      <Form.Label  className="fw-bold">Skills:</Form.Label>
-      <Container className="ml-3">
-          <Row>
-            <Col>
-            <Form.Check type="checkbox" label="Frontend" />
-            </Col>
-            <Col>
-            <Form.Check className="ml-3"type="checkbox" label="Backend" />
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-            <Form.Check type="checkbox" label="Database" />
-            </Col>
-            <Col>
-            <Form.Check className="ml-3"type="checkbox" label="Infrastructure" />
-            </Col>
-          </Row>
-        </Container>
-        
-      </Form.Group>
-      <Container className="d-flex justify-content-center mt-4">
-        <Button className='profileSaveBtn' type="submit">
-          Save
-        </Button>
-      </Container>
-      
-    </Form>
-  </Container>
-  </Container>
 );
 
 }

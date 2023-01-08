@@ -1,6 +1,6 @@
 
 .nav-links:hover {
-    background-color:green; /*will change background-color of element on hover */
+    /* background-color:green; will change background-color of element on hover */
     color: white; /*will change color of text within the element on hover */
     border: 1px;
     border-color: var(--black);
