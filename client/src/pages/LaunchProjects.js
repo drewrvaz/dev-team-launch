@@ -9,6 +9,10 @@ import Table from 'react-bootstrap/Table';
 import {useState} from 'react';
 import Modal from 'react-bootstrap/Modal';
 
+import CreateProject from '../components/CreateProject';
+import ManageRoster from '../components/ManageRoster';
+import TeamBuilder from '../components/TeamBuilder';
+
 const divStyle = {
   maxWidth: '500px',
   fontFamily: 'Arial',
@@ -250,177 +254,14 @@ return (
     </Breadcrumb>
     </Row>
     <Row  className="justify-content-center"  style={{display: isCreateProjectShown ?  'block' : 'none'}}>
-      <Container className="mt-1 p-3 border border-dark rounded bg-light " style={divStyle}>
-      
-      <Form>
-      <div className="justify-content-center fs-3 fw-italic">Create Project</div>
-        <Form.Group className="mb-3" controlId="formBasicInput">
-          <Form.Label>Project Name</Form.Label>
-          <Form.Control type="Text" placeholder="Project Name" />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicInput">
-          <Form.Label>Description</Form.Label>
-          <Form.Control as="textarea" placeholder="Description" />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicInput">
-          <Form.Label>Number of Project Members</Form.Label>
-          <Form.Control type="Text" placeholder="Enter Number" />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicInput">
-          <Form.Label>Number of Teams</Form.Label>
-          <Form.Control type="Text" placeholder="Enter Number" />
-        </Form.Group>
-        
-        <Container className="d-flex justify-content-center mt-4">
-          <Button variant="primary" type="submit">
-            Launch Project
-          </Button>
-        </Container>
-        
-      </Form>
-    </Container>
-
+      <CreateProject />
     </Row>
     <Row  className="justify-content-center"  style={{display: isRosterShown ?  'block' : 'none'}}>
-      
-      <Container className="mt-1 p-3 border border-dark rounded bg-light " style={divStyle}>
-      
-      <Form>
-      <div className="justify-content-center fs-3">Manage Roster</div>
-        <Form.Group className="mb-3" controlId="formBasicInput">
-          <Form.Label>Select Project</Form.Label>
-          <Select options={optionsProjects} />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicInput">
-          <Form.Label>Search for User</Form.Label>
-          <Container fluid className="d-flex inline p-0">
-            <Col className='col-10'>
-              <Form.Control type="Text" placeholder="Enter Username" />
-            </Col>
-            <Col>
-              <Button variant="primary" type="submit">Search</Button>
-               
-            </Col>
-          </Container>
-          
-          
-        </Form.Group>
-        <Table striped bordered hover size="sm" style={{maxHeight:'10px',overflow:'auto'}}>
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Username</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody >
-        <tr>
-          <td>1</td>
-          <td>User1</td>
-          <td><Button variant="danger" size="sm">Remove</Button></td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>User2</td>
-          <td><Button variant="danger" size="sm">Remove</Button></td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>User3</td>
-          <td><Button variant="danger" size="sm">Remove</Button></td>
-        </tr>
-      </tbody>
-    </Table>
-        
-        <Container className="d-flex justify-content-center mt-4">
-          <Button variant="primary" type="submit">
-            Save Users
-          </Button>
-        </Container>
-        
-      </Form>
-    </Container>
-
+      <ManageRoster />
     </Row>
 
     <Row  className="justify-content-center"  style={{display: isTeamBuilderShown ?  'block' : 'none'}}>
-      
-      <Container className="mt-1 p-3 border border-dark rounded bg-light " style={divStyle}>
-      
-      <Form>
-      <div className="justify-content-center fs-3 fw-italic">Team Builder</div>
-        <Form.Group className="mb-3" controlId="formBasicInput">
-          <Form.Label>Select Project</Form.Label>
-          <Select options={optionsProjects} />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formBasicInput">
-          <Form.Label>Build Type</Form.Label>
-          <Select options={optionsTeamBuildType} onChange={onChange}/>
-        </Form.Group>
-        
-        <Form.Group className="mb-3" controlId="formBasicInput" style={{display: isManualTeamBuilderShown ?  'block' : 'none'}}>
-          <Form.Label>Enter Team Name</Form.Label>
-          <Container fluid className="d-flex inline p-0">
-            <Col className='col-10'>
-              <Form.Control type="Text" placeholder="Enter Username" />
-            </Col>
-            <Col>
-              <Button variant="primary" type="submit">Add</Button>
-               
-            </Col>
-          </Container>
-          
-          
-        </Form.Group>
-        <Table striped bordered hover size="sm" style={{display: isManualTeamBuilderShown ?  'block' : 'none'}}>
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Team Name</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody >
-        <tr>
-          <td>1</td>
-          <td>Team1</td>
-          <td><Button variant="success" size="sm">Add Users</Button><Button variant="danger" size="sm">Remove Team</Button></td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Team2</td>
-          <td><Button variant="success" size="sm">Add Users</Button><Button variant="danger" size="sm">Remove Team</Button></td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Team3</td>
-          <td><Button variant="success" size="sm">Add Users</Button><Button variant="danger" size="sm">Remove Team</Button></td>
-        </tr>
-      </tbody>
-    </Table>
-        
-        <Container className="d-flex justify-content-center mt-4" style={{display: isManualTeamBuilderShown ?  'block' : 'none'}}>
-          <Button variant="primary" type="submit" style={{display: isManualTeamBuilderShown ?  'block' : 'none'}}>
-            Add Teams
-          </Button>
-        </Container>
-
-        <Container className="d-flex justify-content-center mt-4" style={{display: isRandomTeamBuilderShown ?  'block' : 'none'}}>
-          <Button variant="primary" type="submit" style={{display: isRandomTeamBuilderShown ?  'block' : 'none'}}>
-            Create Teams Randomly
-          </Button>
-        </Container>
-
-        <Container className="d-flex justify-content-center mt-4" style={{display: isCriteriaTeamBuilderShown ?  'block' : 'none'}}>
-          <Button variant="primary" type="submit" style={{display: isCriteriaTeamBuilderShown ?  'block' : 'none'}}>
-            Create Teams Based On Criteria
-          </Button>
-        </Container>
-        
-      </Form>
-    </Container>
-
+      <TeamBuilder />
     </Row>
     <Row  className="justify-content-center"  style={{display: isViewProjectsShown ?  'block' : 'none'}}>
       

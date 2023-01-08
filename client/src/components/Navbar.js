@@ -68,17 +68,17 @@ const AppNavbar = () => {
                 </>
               )}
             </Col>
-            <Col className="d-inline-flex  justify-content-end" style={{maxWidth:'100%'}}>
+            <Col className="d-inline-flex justify-content-end">
             {Auth.loggedIn() ? (
                 <>
                   
-                  <Nav.Link onClick={Auth.logout} className='fw-bold fs-5 bg-black text-white p-2 border rounded border-dark'>Logout</Nav.Link>
+                  <Nav.Link onClick={Auth.logout} className='fw-bold fs-7 bg-black text-white p-2 border rounded border-dark'>Logout</Nav.Link>
                 </>
                 
               ) : (
                 <>
-                  <Nav.Link as={Link} to='/' className='fw-bold fs-4 bg-black text-white p-2 border rounded border-dark m-2'>Login</Nav.Link>
-                  <Nav.Link as={Link} to='/signup' className='fw-bold fs-4 bg-light text-black p-2 border rounded border-dark m-2'>Sign Up</Nav.Link>
+                  <Nav.Link as={Link} to='/' className='d-flex justify-content-center fw-bold fs-7 bg-black text-white p-1 border rounded border-dark m-1' style={{minWidth:"80px"}}>Login</Nav.Link>
+                  <Nav.Link as={Link} to='/signup' className='d-flex justify-content-center fw-bold fs-7 bg-light text-black p-1 border rounded border-dark m-1' style={{minWidth:"80px"}}>Sign Up</Nav.Link>
                 </>
               )}
             </Col>
