@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/devteamlaunchdb', {
+mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://mongo1:P4AD6ezyRAIBBtHI@cluster0.n384iyj.mongodb.net/?retryWrites=true&w=majority", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
