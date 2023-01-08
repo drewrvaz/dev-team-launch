@@ -94,7 +94,7 @@ function App() {
             </Routes>
           </>
         </div>
-        <footer class="navbar fixed-bottom navbar-light bg-success-subtle justify-content-center">
+        <footer className="navbar fixed-bottom navbar-light bg-success-subtle justify-content-center">
           <h1>
             Dev Team <FaRocket />
           </h1>
