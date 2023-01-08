@@ -61,7 +61,6 @@ const ViewProjects = () =>  {
 return (
 
   <Container>
-  {/* <ProjectModal /> */}
   <Col>
     <Row >
     <Breadcrumb className="d-flex justify-content-center">
