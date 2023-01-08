@@ -34,22 +34,12 @@ h1 {
   background-color: var(--green);
 }
 
-.loginBtn {
+.navbarBtn {
   background-color: var(--black);
   color: var(--white);
 }
 
-.loginBtn:hover {
-  background-color: var(--white);
-  color: var(--green);
-}
-
-.signUpBtn {
-  background-color: var(--black);
-  color: var(--white);
-}
-
-.signUpBtn:hover {
+.navbarBtn:hover {
   background-color: var(--white);
   color: var(--green);
 }
@@ -110,11 +100,16 @@ footer {
   background-color: var(--white);
 }
 
-.submitBtn {
-  margin-top: 1rem;
+.loginBtn {
   background-color: var(--black);
   color: var(--white);
-  border-color: none;
+  border-color: var(--black);
+}
+
+.loginBtn:hover {
+  background-color: var(--white);
+  color: var(--green);
+  border-color: var(--black);
 }
 
 .signUp {
@@ -141,12 +136,7 @@ footer {
 }
 
 /* Styling for Profile Page */
-.profileFormContainer {
-  background-color: var(--white);
-  color: var(--black);
-}
-
-.profileForm {
+.profilePageLinks {
   font-family: 'Lusitana', serif;
 }
 
@@ -187,6 +177,7 @@ footer {
 }
 .Breadcrumb.Item {
   color: var(--green);
+  font-family: 'Lusitana', serif;
 }
 .mb3 {
   color: var(--green);
