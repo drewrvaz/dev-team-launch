@@ -38,6 +38,9 @@ const AppNavbar = () => {
                   <Nav.Link as={Link} to='/tools' className='nav-links fs-5 fw-bold'>
                     TOOLS
                   </Nav.Link>
+                  <Nav.Link as={Link} to='/random' className='nav-links fs-5 fw-bold'>
+                    RANDOM HUMAN PICKER
+                  </Nav.Link>
                   </Nav>
                   
                   

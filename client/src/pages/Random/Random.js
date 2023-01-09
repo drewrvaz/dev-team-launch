@@ -4,6 +4,11 @@ import HumanListInput from "./HumanListInput";
 import RandomHumanPicker from "./RandomHumanPicker";
 import TeamGenerator from "./TeamGenerator";
 
+const divStyle = {
+  maxWidth: '500px',
+  fontFamily: 'Arial',
+};
+
 //define query
 const user=gql`
 {
