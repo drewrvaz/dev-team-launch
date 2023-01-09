@@ -9,15 +9,16 @@ import Breadcrumb from 'react-bootstrap/Breadcrumb';
 
 import Auth from '../utils/auth';
 import { useQuery } from '@apollo/client';
-import {useState} from 'react';
+import { useState } from 'react';
 import { GET_USER } from '../utils/queries';
 
-import ViewProfile from '../components/ViewProfile';
-import EditAvatar from '../components/EditAvatar';
-import UpdateAvailability from '../components/UpdateAvailability';
-import ModifyExperience from '../components/ModifyExperience';
+// import ViewProfile from '../components/ViewProfile';
+// import EditAvatar from '../components/EditAvatar';
+// import UpdateAvailability from '../components/UpdateAvailability';
+// import ModifyExperience from '../components/ModifyExperience';
+import EditAttributes from '../components/EditProfileAttributes';
 import ChangePassword from '../components/ChangePassword';
-import AdjustSkills from '../components/AdjustSkills';
+// import AdjustSkills from '../components/AdjustSkills';
 
 
 const optionsAvailability = [
@@ -37,77 +38,90 @@ const divStyle = {
   fontFamily: 'Arial',
 };
 
-const saveProfile = event => {
-  console.log(event.target);
-};
+// const saveProfile = event => {
+//   console.log(event.target);
+// };
 
 const Profile = () =>  {
-  const [isViewProfileShown, setIsViewProfileShown] = useState(true);
-  const [isEditAvatarShown, setIsEditAvatarShown] = useState(false);
-  const [isUpdateAvailabilityShown, setIsUpdateAvailabilityShown] = useState(false);
-  const [isModifyExperienceShown, setIsModifyExperienceShown] = useState(false);
+  // const [isViewProfileShown, setIsViewProfileShown] = useState(true);
+  // const [isEditAvatarShown, setIsEditAvatarShown] = useState(false);
+  // const [isUpdateAvailabilityShown, setIsUpdateAvailabilityShown] = useState(false);
+  // const [isModifyExperienceShown, setIsModifyExperienceShown] = useState(false);
+  const [isEditAttributesShown, setIsEditAttributesShown] = useState(true);
   const [isChangePasswordShown, setIsChangePasswordShown] = useState(false);
-  const [isAdjustSkillsShown, setIsAdjustSkillsShown] = useState(false);
+  // const [isAdjustSkillsShown, setIsAdjustSkillsShown] = useState(false);
 
-  const displayViewProfile = event => {
-    // 👇️ toggle visibility
-    setIsViewProfileShown(true);
-    setIsEditAvatarShown(false);
-    setIsUpdateAvailabilityShown(false);
-    setIsModifyExperienceShown(false);
-    setIsChangePasswordShown(false);
-    setIsAdjustSkillsShown(false);
-  };
+  // const displayViewProfile = event => {
+  //   // 👇️ toggle visibility
+  //   setIsViewProfileShown(true);
+  //   setIsEditAvatarShown(false);
+  //   setIsUpdateAvailabilityShown(false);
+  //   setIsModifyExperienceShown(false);
+  //   setIsChangePasswordShown(false);
+  //   setIsAdjustSkillsShown(false);
+  // };
 
-  const displayEditAvatar = event => {
-    // 👇️ toggle visibility
-    setIsViewProfileShown(false);
-    setIsEditAvatarShown(true);
-    setIsUpdateAvailabilityShown(false);
-    setIsModifyExperienceShown(false);
-    setIsChangePasswordShown(false);
-    setIsAdjustSkillsShown(false);
-  };
+  // const displayEditAvatar = event => {
+  //   // 👇️ toggle visibility
+  //   setIsViewProfileShown(false);
+  //   setIsEditAvatarShown(true);
+  //   setIsUpdateAvailabilityShown(false);
+  //   setIsModifyExperienceShown(false);
+  //   setIsChangePasswordShown(false);
+  //   setIsAdjustSkillsShown(false);
+  // };
 
-  const displayUpdateAvailability = event => {
-    // 👇️ toggle visibility
-    setIsViewProfileShown(false);
-    setIsEditAvatarShown(false);
-    setIsUpdateAvailabilityShown(true);
-    setIsModifyExperienceShown(false);
-    setIsChangePasswordShown(false);
-    setIsAdjustSkillsShown(false);
-  };
+  // const displayUpdateAvailability = event => {
+  //   // 👇️ toggle visibility
+  //   setIsViewProfileShown(false);
+  //   setIsEditAvatarShown(false);
+  //   setIsUpdateAvailabilityShown(true);
+  //   setIsModifyExperienceShown(false);
+  //   setIsChangePasswordShown(false);
+  //   setIsAdjustSkillsShown(false);
+  // };
 
-  const displayModifyExperience = event => {
-    // 👇️ toggle visibility
-    setIsViewProfileShown(false);
-    setIsEditAvatarShown(false);
-    setIsUpdateAvailabilityShown(false);
-    setIsModifyExperienceShown(true);
-    setIsChangePasswordShown(false);
-    setIsAdjustSkillsShown(false);
-  };
+  // const displayModifyExperience = event => {
+  //   // 👇️ toggle visibility
+  //   setIsViewProfileShown(false);
+  //   setIsEditAvatarShown(false);
+  //   setIsUpdateAvailabilityShown(false);
+  //   setIsModifyExperienceShown(true);
+  //   setIsChangePasswordShown(false);
+  //   setIsAdjustSkillsShown(false);
+  // };
 
   const displayChangePassword = event => {
     // 👇️ toggle visibility
-    setIsViewProfileShown(false);
-    setIsEditAvatarShown(false);
-    setIsUpdateAvailabilityShown(false);
-    setIsModifyExperienceShown(false);
+    // setIsViewProfileShown(false);
+    // setIsEditAvatarShown(false);
+    // setIsUpdateAvailabilityShown(false);
+    // setIsModifyExperienceShown(false);
+    setIsEditAttributesShown(false);
     setIsChangePasswordShown(true);
-    setIsAdjustSkillsShown(false);
+    // setIsAdjustSkillsShown(false);
   };
 
-  const displayAdjustSkills = event => {
+  const displayEditAttributes = event => {
     // 👇️ toggle visibility
-    setIsViewProfileShown(false);
-    setIsEditAvatarShown(false);
-    setIsUpdateAvailabilityShown(false);
-    setIsModifyExperienceShown(false);
+    // setIsViewProfileShown(false);
+    // setIsEditAvatarShown(false);
+    // setIsUpdateAvailabilityShown(false);
+    // setIsModifyExperienceShown(false);
+    setIsEditAttributesShown(true);
     setIsChangePasswordShown(false);
-    setIsAdjustSkillsShown(true);
+    // setIsAdjustSkillsShown(false);
   };
+
+  // const displayAdjustSkills = event => {
+  //   // 👇️ toggle visibility
+  //   setIsViewProfileShown(false);
+  //   setIsEditAvatarShown(false);
+  //   setIsUpdateAvailabilityShown(false);
+  //   setIsModifyExperienceShown(false);
+  //   setIsChangePasswordShown(false);
+  //   setIsAdjustSkillsShown(true);
+  // };
 
   const [userData, setUserData] = useState({
     username: "",
@@ -135,13 +149,19 @@ const Profile = () =>  {
   }
 
 return (
-  <Col >
-    <Row className="profilePageLinks d-flex justify-content-center" >
+  <Col>
+    <Row>
     <Breadcrumb className="d-flex justify-content-center">
-      <Breadcrumb.Item onClick={displayViewProfile}>
+      {/* <Breadcrumb.Item onClick={displayViewProfile}>
         View
+      </Breadcrumb.Item> */}
+      <Breadcrumb.Item onClick={displayEditAttributes}>
+        Edit Attributes
       </Breadcrumb.Item>
-      <Breadcrumb.Item onClick={displayEditAvatar}>
+      <Breadcrumb.Item onClick={displayChangePassword}>
+        Change Password
+      </Breadcrumb.Item>
+      {/* <Breadcrumb.Item onClick={displayEditAvatar}>
         Edit Avatar
       </Breadcrumb.Item>
       <Breadcrumb.Item onClick={displayUpdateAvailability}>
@@ -150,33 +170,33 @@ return (
       <Breadcrumb.Item onClick={displayModifyExperience}>
         Modify Experience
       </Breadcrumb.Item>
-      <Breadcrumb.Item onClick={displayChangePassword}>
-        Change Password
-      </Breadcrumb.Item>
       <Breadcrumb.Item onClick={displayAdjustSkills}>
         Adjust Skills
-      </Breadcrumb.Item>
+      </Breadcrumb.Item> */}
     </Breadcrumb>
     </Row>
 
-    <Row  className="justify-content-center" style={{display: isViewProfileShown ?  'block' : 'none'}}>
+    {/* <Row  className="justify-content-center" style={{display: isViewProfileShown ?  'block' : 'none'}}>
       <ViewProfile />
     </Row>
-    <Row  className="justify-content-center"style={{display: isEditAvatarShown ?  'block' : 'none'}}>
+    <Row className="justify-content-center" style={{display: isEditAvatarShown ?  'block' : 'none'}}>
       <EditAvatar />
     </Row>
-    <Row  className="justify-content-center" style={{display: isUpdateAvailabilityShown ?  'block' : 'none'}}>
+    <Row className="justify-content-center" style={{display: isUpdateAvailabilityShown ?  'block' : 'none'}}>
       <UpdateAvailability />
     </Row>
-    <Row  className="justify-content-center" style={{display: isModifyExperienceShown ?  'block' : 'none'}}>
+    <Row className="justify-content-center" style={{display: isModifyExperienceShown ?  'block' : 'none'}}>
       <ModifyExperience />
+    </Row> */}
+    <Row className="justify-content-center" style={{display: isEditAttributesShown ?  'block' : 'none'}}>
+      <EditAttributes />
     </Row>
-    <Row  className="justify-content-center" style={{display: isChangePasswordShown ?  'block' : 'none'}}>
+    <Row className="justify-content-center" style={{display: isChangePasswordShown ?  'block' : 'none'}}>
       <ChangePassword />
     </Row>
-    <Row  className="justify-content-center" style={{display: isAdjustSkillsShown ?  'block' : 'none'}}>
+    {/* <Row className="justify-content-center" style={{display: isAdjustSkillsShown ?  'block' : 'none'}}>
       <AdjustSkills />
-    </Row>
+    </Row> */}
   </Col>
 
 );

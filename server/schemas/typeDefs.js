@@ -102,6 +102,7 @@ type User {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     addClass(name: String!, leadId: String!): Class
+    createClass(name: String!, username: String!, description: String, classSize: Int, teamSize:Int ): Class
     updateClassTeamSize(classId: String!,teamSize: Int): Class
     updateClassSize(classId: String!,classSize: Int): Class
     addUserToClass(classId: String!, userId: String!): Class
@@ -113,6 +114,10 @@ type User {
     acceptInvite(inviteId: String!): Invite
     createTeamsRandom(classId: String!): Class
     createTeamsCriteria(classId: String!): Class
+    addUserAvailability(username: String!, availability: Int!): User
+    addUserExperience(username: String!, experience: Int!): User
+    addUserAvatar(username: String!, userAvatarId: String!): User
+    addUserSkills(username: String!, skills: [String!]): User
 
   }
 `
