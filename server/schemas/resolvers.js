@@ -26,6 +26,8 @@ const resolvers = {
     },
     myClasses: async (parent, { username }) => {
       const user = await User.findOne({username: username});
+      // const classObj = await Class.find({leadId: user._id});
+      // console.log(classObj);
       return await Class.find({leadId: user._id});
     },
     singleClass: async (parent, { classId }) => {
@@ -289,6 +291,19 @@ const resolvers = {
       const user = await User.findOneAndUpdate(filter, update, { new: true });
   
       return user;
+    },
+    searchUsers: async (parent, { username}) => {
+      const filter = { username: username};
+      const user = await User.find(filter).limit(10);
+  
+      return user;
+    },
+    searchTeams: async (parent, { name}) => { 
+      console.log(name);
+      const filter = { name: name};
+      const teams = await Team.find(filter).limit(10);
+
+      return teams;
     },
   },
  
