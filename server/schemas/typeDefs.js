@@ -105,15 +105,15 @@ type User {
     createClass(name: String!, username: String!, description: String, classSize: Int, teamSize:Int ): Class
     updateClassTeamSize(classId: String!,teamSize: Int): Class
     updateClassSize(classId: String!,classSize: Int): Class
-    addUserToClass(classId: String!, userId: String!): Class
+    addUserToClass(classname: String!, username: String!): Class
     addTeam(name: String!, classId: String!): Team
     addUserToTeam(teamId: String!, userId: String!): Team
     submitFeedback(rating: String!, userId: String!, teamId: String!): Feedback
     submitRequest(issue: String!, userId: String!, teamId: String!): Request
     createInvite(userId: String!, classId: String): Invite
     acceptInvite(inviteId: String!): Invite
-    createTeamsRandom(classId: String!): Class
-    createTeamsCriteria(classId: String!): Class
+    createTeamsRandom(classname: String!): Class
+    createTeamsCriteria(classname: String!): Class
     addUserAvailability(username: String!, availability: Int!): User
     addUserExperience(username: String!, experience: Int!): User
     addUserAvatar(username: String!, userAvatarId: String!): User
