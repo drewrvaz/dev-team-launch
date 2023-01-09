@@ -6,6 +6,7 @@ import ViewProjects from "./pages/ViewProjects";
 import Tools from "./pages/Tools";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import Dashboard from "./components/Dashboard";
 
 import { FaRocket } from "react-icons/fa";
 import gql from "graphql-tag";
@@ -49,7 +50,7 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Redirect } from "react-router-dom";
 
 const httpLink = createHttpLink({
   uri: "http://localhost:3001/graphql",
@@ -75,12 +76,14 @@ function App() {
     //Here we make requests to our API server
     <ApolloProvider client={client}>
       <Router>
+        
         <div className="devTeamPage">
           <>
             <Navbar />
             <Routes>
               {/* <Route path='/' element={<StudentDashboard />} /> */}
-              <Route path="/" element={<Login />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/" element={<Dashboard />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/launchprojects" element={<LaunchProjects />} />
