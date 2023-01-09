@@ -28,6 +28,12 @@ h1 {
   height: 100vh;
 }
 
+.welcome {
+  display: flex;
+  justify-content: center;
+  padding: 760px, 540px;
+  margin: 50px;
+}
 
 /* Styling for NavBar and footer */
 .navbar {

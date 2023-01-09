@@ -4,7 +4,7 @@ import Profile from "./pages/Profile";
 import LaunchProjects from "./pages/LaunchProjects";
 import ViewProjects from "./pages/ViewProjects";
 import Tools from "./pages/Tools";
-import Login from "./pages/Login";
+import Login from "../src/components/LoginForm";
 import Signup from "./pages/Signup";
 import Dashboard from "./components/Dashboard";
 

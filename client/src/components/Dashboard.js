@@ -1,7 +1,7 @@
 const Dashboard = () => {
       return (
-        <div>
-          <h4>Welcome to your Dashboard</h4>
+        <div className="welcome">
+          <h4>Welcome to Your Team Generator</h4>
         </div>
       );
     };
