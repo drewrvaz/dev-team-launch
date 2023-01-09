@@ -125,14 +125,15 @@ const resolvers = {
       
       return classObj;
     },
-    addUserToClass: async (parent, { userId, classId }) => {
-      
-      const filter = { _id: classId };
-      const update = { $addToSet: {userIds: userId} };
-      const classObj1 = Class.findOne(filter);
+    addUserToClass: async (parent, { classname, username }) => {
+      const user = await User.findOne({username: username});
 
-      if (classObj1.leadId !== userId) {
-        const classObj2 = await Class.findByIdAndUpdate(filter, update, { new: true });
+      const filter = { name: classname };
+      const update = { $addToSet: {userIds: user._id} };
+      const classObj1 = await Class.findOne(filter);
+
+      if (classObj1.leadId !== user._id) {
+        const classObj2 = await Class.findOneAndUpdate(filter, update, { new: true });
         return classObj2;
       } else {
         console.log("Class leader can't be added to class");
@@ -185,8 +186,8 @@ const resolvers = {
       
       return invite;
     },
-    createTeamsRandom: async (parent, { classId }) => {
-      const classObj = await Class.findOne({_id: classId});
+    createTeamsRandom: async (parent, { classname }) => {
+      const classObj = await Class.findOne({name: classname});
       const randomNames = shuffle(teamNames);
       // console.log(classObj.userIds);
       const randomUserIds = shuffle(classObj.userIds);
@@ -195,12 +196,12 @@ const resolvers = {
       for (let i = 0; i < numTeams; i++){
         const team = await Team.create({ 
           name: randomNames[i], 
-          classId: classId
+          classId: classObj._id
         });
 
         console.log(team._id);
 
-        const filter = { _id: classId};
+        const filter = { _id: classObj._id};
         const update = { $addToSet: {teamIds: team._id} };
         await Class.findOneAndUpdate(filter, update);
       }
@@ -215,10 +216,10 @@ const resolvers = {
           
       }
       
-      return await Class.findOne({_id: classId});
+      return await Class.findOne({_id: classObj._id});
     },
-    createTeamsCriteria: async (parent, { classId }) => {
-      const classObj = await Class.findOne({_id: classId});
+    createTeamsCriteria: async (parent, { classname }) => {
+      const classObj = await Class.findOne({name: classname});
       const randomNames = shuffle(teamNames);
       const numTeams = Math.floor(classObj.classSize/classObj.teamSize);
       const roster = [];
@@ -236,10 +237,10 @@ const resolvers = {
       for (let i = 0; i < numTeams; i++){
         const team = await Team.create({ 
           name: randomNames[i], 
-          classId: classId
+          classId: classObj._id
         });
 
-        const filter = { _id: classId};
+        const filter = { _id: classObj._id};
         const update = { $addToSet: {teamIds: roster[i]._id} };
         await Class.findOneAndUpdate(filter, update);
       }
@@ -249,12 +250,12 @@ const resolvers = {
         if (j === classObj.teamSize) j = 0;
     
         const filter = { _id: classObj.teamIds[j] };
-        const update = { $addToSet: {userIds: randomUserIds} };
+        const update = { $addToSet: {userIds: roster[i]._id} };
         await Team.findOnAndUpdate(filter, update);
           
       }
       
-      return await Class.findOne({_id: classId});
+      return await Class.findOne({_id: classObj._id});
     },
 
     addUserAvailability: async (parent, { username, availability}) => {
