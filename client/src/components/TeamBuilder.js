@@ -9,6 +9,7 @@ import {useState} from 'react';
 import { useQuery, useMutation } from '@apollo/client';
 
 import { GET_MY_CLASSES } from '../utils/queries';
+import { CREATE_RANDOM, CREATE_CRITERIA} from '../utils/mutations'
 import Auth from '../utils/auth';
 
 const divStyle = {
@@ -22,6 +23,12 @@ const TeamBuilder = () =>  {
 const [isManualTeamBuilderShown, setIsManualTeamBuilderShown] = useState(false);
 const [isRandomTeamBuilderShown, setIsRandomTeamBuilderShown] = useState(false);
 const [isCriteriaTeamBuilderShown, setIsCriteriaTeamBuilderShown] = useState(false);
+
+const [projectNameData, setProjectNameData] = useState({ name: "" });
+const [projectData, setProjectData] = useState({ projects: [] });
+
+const [createTeamsRandom, { createRandomTeamsError, createRandomData }] = useMutation(CREATE_RANDOM);
+const [createTeamsCriteria, { createTeamsCriteriaError, createTeamsCriteriaData }] = useMutation(CREATE_CRITERIA);
 
 const onChange = (event) => {
 
@@ -55,40 +62,78 @@ const onChange = (event) => {
   }
 
 };
-
-//Placeholder need to query projects
-const optionsProjects = [
-    { value: 'None', label: 'None' },
-    { value: 'Project 1', label: 'Project 1' },
-    { value: 'Project 2', label: 'Project 2' },
-    { value: 'Project 3', label: 'Project 3' },
-  ]
   
   const optionsTeamBuildType = [
     { value: 'manual', label: 'Manual' },
     { value: 'random', label: 'Random' },
     { value: 'criteria', label: 'Criteria Based' },
   ]
-
-  const [projectData, setProjectData] = useState({
-    projects: []
+ 
+  const { loading, data } = useQuery(GET_MY_CLASSES, {
+    variables: {username: Auth.getProfile().data.username}
   });
 
-const { loading, data } = useQuery(GET_MY_CLASSES, {
-variables: {username: Auth.getProfile().data.username}
-});
+  if (data && projectData.projects.length === 0) {
 
-if (data && projectData.projects.length === 0) {
+      let projectNames = [];
 
-    let projectNames = [];
+      for (let i = 0; i < data.myClasses.length;i++){
+          projectNames.push({value: data.myClasses[i].name, label: data.myClasses[i].name});
+      }
+      setProjectData({projects : projectNames});
+  };
 
-    for (let i = 0; i < data.myClasses.length;i++){
-        projectNames.push({value: data.myClasses[i].name, label: data.myClasses[i].name});
-        console.log(data.myClasses[i].name)
-    }
-    setProjectData({projects : projectNames});
-    console.log(data);
-    console.log(projectData);
+const handleProjectNameChange = (event) => {
+  const { value } = event;
+  setProjectNameData({ name: value });
+  // console.log(value);
+};
+
+const handleFormSubmitRandom = async (event) => {
+  event.preventDefault();
+
+  try {
+
+      console.log(projectNameData.name);
+      const { createTeamsRandomData } = await createTeamsRandom({
+          variables: { classname: projectNameData.name },
+      });
+
+  } catch (err) {
+    console.error(err);
+  }
+
+  setProjectData({
+      projects: []
+  });
+
+  setProjectNameData({
+      name: ""
+  });
+
+};
+
+const handleFormSubmitCriteria = async (event) => {
+  event.preventDefault();
+
+  try {
+
+      const { createTeamsCriteriaData } = await createTeamsCriteria({
+          variables: { classname: projectNameData.name },
+      });
+
+  } catch (err) {
+    console.error(err);
+  }
+
+  setProjectData({
+      projects: []
+  });
+
+  setProjectNameData({
+      name: ""
+  });
+
 };
 
 if (loading) {
@@ -102,7 +147,7 @@ return <h2>LOADING...</h2>;
       <div className="justify-content-center fs-3 fw-italic">Team Builder</div>
         <Form.Group className="mb-3" controlId="formBasicInput">
           <Form.Label>Select Project</Form.Label>
-          <Select options={projectData.projects} />
+          <Select options={projectData.projects} onChange={handleProjectNameChange}/>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicInput">
@@ -158,14 +203,15 @@ return <h2>LOADING...</h2>;
         </Container>
 
         <Container className="d-flex justify-content-center mt-4" style={{display: isRandomTeamBuilderShown ?  'block' : 'none'}}>
-          <Button variant="primary" type="submit" style={{display: isRandomTeamBuilderShown ?  'block' : 'none'}}>
-            Create Teams Randomly
+
+          <Button variant="primary" type="submit" style={{display: isRandomTeamBuilderShown ?  'block' : 'none'}} onClick={handleFormSubmitRandom}>
+            Random Teams
           </Button>
         </Container>
 
         <Container className="d-flex justify-content-center mt-4" style={{display: isCriteriaTeamBuilderShown ?  'block' : 'none'}}>
-          <Button variant="primary" type="submit" style={{display: isCriteriaTeamBuilderShown ?  'block' : 'none'}}>
-            Create Teams Based On Criteria
+          <Button variant="primary" type="submit" style={{display: isCriteriaTeamBuilderShown ?  'block' : 'none'}} onClick={handleFormSubmitCriteria}>
+            Teams Based Compatibility
           </Button>
         </Container>
         

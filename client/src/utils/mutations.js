@@ -40,8 +40,17 @@ export const CREATE_CLASS = gql`
 `;
 //Mutations for Creating a Random Team!!
 export const CREATE_RANDOM = gql`
-  mutation createTeamsRandom($classId: String!) {
-    createTeamsRandom(classId: $classId) {
+  mutation createTeamsRandom($classname: String!) {
+    createTeamsRandom(classname: $classname) {
+      _id
+      name
+    }
+  }
+`;
+
+export const CREATE_CRITERIA = gql`
+  mutation createTeamsCriteria($classname: String!) {
+    createTeamsCriteria(classname: $classname) {
       _id
       name
     }
@@ -80,6 +89,21 @@ export const ADD_AVATAR = gql`
     addUserAvatar(username: $username, userAvatarId: $userAvatarId){
       username
       userAvatarId
+    } 
+  }
+`;
+
+export const ADD_USER_TO_CLASS = gql`
+  mutation addUserToClass($classname: String!, $username: String!) {
+    addUserToClass(classname: $classname, username: $username){
+      _id
+      name
+      leadId
+      description
+      userIds
+      teamIds
+      teamSize
+      classSize
     } 
   }
 `;

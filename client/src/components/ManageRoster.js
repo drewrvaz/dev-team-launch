@@ -9,6 +9,7 @@ import { useQuery, useMutation } from '@apollo/client';
 import { useState } from 'react';
 
 import { GET_MY_CLASSES } from '../utils/queries';
+import {ADD_USER_TO_CLASS} from '../utils/mutations'
 import Auth from '../utils/auth';
 
 const divStyle = {
@@ -21,6 +22,16 @@ const ManageRoster = () =>  {
     const [projectData, setProjectData] = useState({
         projects: []
       });
+
+    const [userData, setUserData] = useState({
+        username: ""
+    });
+
+    const [projectNameData, setProjectNameData] = useState({
+        name: ""
+    });
+
+    const [addUserToClass, { addUserToClassError, addUserToClassData }] = useMutation(ADD_USER_TO_CLASS);
 
     const { loading, data } = useQuery(GET_MY_CLASSES, {
     variables: {username: Auth.getProfile().data.username}
@@ -35,13 +46,54 @@ const ManageRoster = () =>  {
             console.log(data.myClasses[i].name)
         }
         setProjectData({projects : projectNames});
-        console.log(data);
-        console.log(projectData);
     };
 
     if (loading) {
     return <h2>LOADING...</h2>;
     }
+
+    const handleProjectNameChange = (event) => {
+        const { value } = event;
+        setProjectNameData({ name: value });
+        // console.log(value);
+    };
+
+    const handleUsernameChange = (event) => {
+        const { value } = event.target;
+        setUserData({ ...userData, username: value });
+        // console.log(value);
+    };
+
+    const handleFormSubmit = async (event) => {
+        event.preventDefault();
+    
+        try {
+
+            console.log(projectNameData.name);
+            console.log(userData.username);
+
+            const { userToClassData } = await addUserToClass({
+                variables: { classname: projectNameData.name, username: userData.username },
+            });
+    
+    
+        } catch (err) {
+          console.error(err);
+        }
+    
+        setUserData({
+          username: ""
+        });
+        
+        setProjectData({
+            projects: []
+        });
+
+        setProjectNameData({
+            name: ""
+        });
+
+      };
 
     return (
     <Container className="mt-1 p-3 border border-dark rounded bg-light " style={divStyle}>
@@ -49,16 +101,16 @@ const ManageRoster = () =>  {
         <div className="justify-content-center fs-3">Manage Roster</div>
             <Form.Group className="mb-3" controlId="formBasicInput">
             <Form.Label>Select Project</Form.Label>
-            <Select options={projectData.projects} />
+            <Select options={projectData.projects} onChange={handleProjectNameChange}/>
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicInput">
             <Form.Label>Add User</Form.Label>
             <Container fluid className="d-flex inline p-0">
                 <Col className='col-10'>
-                <Form.Control type="Text" placeholder="Enter Username" />
+                <Form.Control type="Text" placeholder="Enter Username" value={userData.username} onChange={handleUsernameChange}/>
                 </Col>
                 <Col>
-                <Button variant="primary" type="submit">Add</Button>
+                <Button variant="primary" type="submit" onClick={handleFormSubmit}>Add</Button>
                 
                 </Col>
             </Container>
