@@ -271,7 +271,7 @@ return (
 
 {/* Breadcrumbs for what Modal to display when clicked */}
   <Col>
-    <Row >
+    <Row className="d-flex justify-content-center">
     <Breadcrumb className="d-flex justify-content-center">
       {/* When I click here I am taken to the invites page */}
       <Breadcrumb.Item onClick={displayRandomTeamGenerator}>

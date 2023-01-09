@@ -93,7 +93,7 @@ const Signup = () => {
               <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
             </Form.Group>
 
-            <Button className='submitBtn btn-outline-light btn-lg px-5' type='submit'>
+            <Button className='loginBtn btn-lg px-5' type='submit'>
               Sign Up
             </Button>
                 
