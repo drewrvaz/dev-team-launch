@@ -6,8 +6,12 @@ import Row from 'react-bootstrap/Row';
 import Select from 'react-select'
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import Table from 'react-bootstrap/Table';
-import {useState} from 'react';
 import Modal from 'react-bootstrap/Modal';
+
+import Auth from '../utils/auth';
+import { useQuery, useMutation } from '@apollo/client';
+import { useState } from 'react';
+import { GET_USER, QUERY_IN_CLASSES } from '../utils/queries';
 
 const divStyle = {
   maxWidth: '500px',
@@ -24,8 +28,10 @@ const optionsProjects = [
   
   const ViewAssignedProjects = () =>  {
 
-    const [isProjectModalShown, setIsProjectModalShown] = useState(false);  
-
+    const [isProjectModalShown, setIsProjectModalShown] = useState(false);
+    const [userData, setUserData] = useState({ username: "" });
+    const [projectData, setProjectData] = useState({ projects : [] });  
+    
     const displayProjectModal = event => {
       // 👇️ toggle visibility
       setIsProjectModalShown(true);
@@ -35,22 +41,54 @@ const optionsProjects = [
       // 👇️ toggle visibility
       setIsProjectModalShown(false);
     };
+
+    const { loading, data } = useQuery(QUERY_IN_CLASSES, {
+      variables: {username: Auth.getProfile().data.username}
+    });
+  
+    console.log(data);
+
+    if (data && userData.username === "") {
+  
+      setUserData({
+        username: Auth.getProfile().data.username,
+      });
+
+      setProjectData({
+        projects: data.inClasses,
+      });
+    }
+
+      
+    if (loading) {
+      return <h2>LOADING...</h2>;
+    }
+
+    console.log(projectData.projects);
   
     return (
       <Container className="mt-1 p-3 border border-dark rounded bg-light " style={divStyle}>
       
       <Form>
       <div className="justify-content-center fs-3">Assigned Projects</div>
-        <Table striped bordered hover size="sm">
+        <Table striped  bordered hover size="sm">
       <thead>
         <tr>
-          <th>#</th>
-          <th>Projects</th>
-          <th></th>
+          <th>Project Names</th>
+          <th>Description</th>
         </tr>
       </thead>
       <tbody >
+      {projectData.projects.map(data => 
         <tr>
+          <td><Link key={data._id} to={this.setProfile(e.user.attributes.username)}>
+                <button type="button" onClick={{displayProjectModal}}>{data.name}</button>
+              </Link>
+          </td>
+          <td>{data.description}</td>
+        </tr>
+        )}
+        {/* <tr>
           <td>1</td>
           <td>Project 1</td>
           <td><Button variant="primary" size="sm">View</Button><Button variant="success" size="sm" onClick={displayProjectModal}>Edit</Button><Button variant="danger" size="sm">Remove</Button></td>
@@ -79,13 +117,31 @@ const optionsProjects = [
           <td>6</td>
           <td>Project 6</td>
           <td><Button variant="primary" size="sm">View</Button><Button variant="success" size="sm" onClick={displayProjectModal}>Edit</Button><Button variant="danger" size="sm">Remove</Button></td>
-        </tr>
+        </tr> */}
       </tbody>
     </Table>
         
       </Form>
 
-      <Modal.Dialog   style={{display: isProjectModalShown ?  'block' : 'none'}}>
+      <div className="modal" tabIndex="-1" style={{display: isProjectModalShown ?  'block' : 'none'}}>
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 className="modal-title">Modal title</h5>
+              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div className="modal-body">
+              <p>Modal body text goes here.</p>
+            </div>
+            <div className="modal-footer">
+              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={closeProjectModal}>Close</button>
+              <button type="button" className="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* <Modal.Dialog   style={{display: isProjectModalShown ?  'block' : 'none'}}>
         <Modal.Header closeButton onClick={closeProjectModal}>
           <Modal.Title>Project Name</Modal.Title>
         </Modal.Header>
@@ -175,7 +231,7 @@ const optionsProjects = [
           <Button variant="secondary" onClick={closeProjectModal}>Close</Button>
           <Button variant="primary">Save changes</Button>
         </Modal.Footer>
-      </Modal.Dialog>
+      </Modal.Dialog> */}
     </Container>
     
     );

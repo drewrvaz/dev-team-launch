@@ -107,3 +107,22 @@ export const ADD_USER_TO_CLASS = gql`
     } 
   }
 `;
+
+export const ADD_SEARCH_USERS = gql`
+  mutation searchUsers($username: String!) {
+    searchUsers(username: $username){
+      _id
+      username
+    } 
+  }
+`;
+
+export const ADD_SEARCH_TEAMS = gql`
+  mutation searchTeams($name: String!) {
+    searchTeams(name: $name){
+      _id
+      name
+    } 
+  }
+`;
+

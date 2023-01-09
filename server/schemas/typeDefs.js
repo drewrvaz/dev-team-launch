@@ -118,6 +118,8 @@ type User {
     addUserExperience(username: String!, experience: Int!): User
     addUserAvatar(username: String!, userAvatarId: String!): User
     addUserSkills(username: String!, skills: [String!]): User
+    searchUsers(username: String!): [User]
+    searchTeams(name: String!): [Team]
 
   }
 `

@@ -15,6 +15,36 @@ query user($username: String!) {
   }
 `;
 
+export const QUERY_MY_CLASSES = gql`
+  query myClasses($username: String!) {
+    myClasses(username: $username) {
+      _id
+      name
+      leadId
+      description
+      userIds
+      teamIds
+      inviteIds
+      classAvatarId
+    }
+  }
+`;
+
+export const QUERY_IN_CLASSES = gql`
+  query inClasses($username: String!) {
+    inClasses(username: $username) {
+      _id
+      name
+      leadId
+      description
+      userIds
+      teamIds
+      inviteIds
+      classAvatarId
+    }
+  }
+`;
+
 //Qeuries based on activity 26 in lesson 21 MERN
 //Query Classes (Based on typeDefs)
 export const QUERY_CLASSES = gql`
