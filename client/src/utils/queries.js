@@ -69,3 +69,20 @@ export const QUERY_SINGLE_TEAM = gql`
   }
 `;
 
+//Query Class (Based on typeDefs)
+export const GET_MY_CLASSES = gql`
+  query myClasses($username: String!) {
+    myClasses(username: $username) {
+      _id
+      name
+      leadId
+      description
+      userIds
+      teamIds
+      inviteIds
+      classAvatarId
+    }
+  }
+`;
+
+

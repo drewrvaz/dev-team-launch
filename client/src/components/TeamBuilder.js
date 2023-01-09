@@ -6,6 +6,11 @@ import Select from 'react-select'
 import Table from 'react-bootstrap/Table';
 import {useState} from 'react';
 
+import { useQuery, useMutation } from '@apollo/client';
+
+import { GET_MY_CLASSES } from '../utils/queries';
+import Auth from '../utils/auth';
+
 const divStyle = {
   maxWidth: '500px',
   fontFamily: 'Arial',
@@ -14,7 +19,7 @@ const divStyle = {
 
 
 const TeamBuilder = () =>  {
-  const [isManualTeamBuilderShown, setIsManualTeamBuilderShown] = useState(false);
+const [isManualTeamBuilderShown, setIsManualTeamBuilderShown] = useState(false);
 const [isRandomTeamBuilderShown, setIsRandomTeamBuilderShown] = useState(false);
 const [isCriteriaTeamBuilderShown, setIsCriteriaTeamBuilderShown] = useState(false);
 
@@ -64,6 +69,31 @@ const optionsProjects = [
     { value: 'random', label: 'Random' },
     { value: 'criteria', label: 'Criteria Based' },
   ]
+
+  const [projectData, setProjectData] = useState({
+    projects: []
+  });
+
+const { loading, data } = useQuery(GET_MY_CLASSES, {
+variables: {username: Auth.getProfile().data.username}
+});
+
+if (data && projectData.projects.length === 0) {
+
+    let projectNames = [];
+
+    for (let i = 0; i < data.myClasses.length;i++){
+        projectNames.push({value: data.myClasses[i].name, label: data.myClasses[i].name});
+        console.log(data.myClasses[i].name)
+    }
+    setProjectData({projects : projectNames});
+    console.log(data);
+    console.log(projectData);
+};
+
+if (loading) {
+return <h2>LOADING...</h2>;
+}
   
   return (
         <Container className="mt-1 p-3 border border-dark rounded bg-light " style={divStyle}>
@@ -72,7 +102,7 @@ const optionsProjects = [
       <div className="justify-content-center fs-3 fw-italic">Team Builder</div>
         <Form.Group className="mb-3" controlId="formBasicInput">
           <Form.Label>Select Project</Form.Label>
-          <Select options={optionsProjects} />
+          <Select options={projectData.projects} />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicInput">

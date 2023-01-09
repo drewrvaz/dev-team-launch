@@ -21,11 +21,11 @@ const resolvers = {
       return await Class.find({});
     },
     inClasses: async (parent, { username }) => {
-      const user = User.findOne({username: username});
+      const user = await User.findOne({username: username});
       return await Class.find({userIds: user._id});
     },
     myClasses: async (parent, { username }) => {
-      const user = User.findOne({username: username});
+      const user = await User.findOne({username: username});
       return await Class.find({leadId: user._id});
     },
     singleClass: async (parent, { classId }) => {
