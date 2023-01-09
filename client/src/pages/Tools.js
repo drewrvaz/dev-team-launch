@@ -8,6 +8,7 @@ import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import Table from 'react-bootstrap/Table';
 import {useState} from 'react';
 import Modal from 'react-bootstrap/Modal';
+import RandomHuman from '../pages/Random/Random';
 
 const divStyle = {
   maxWidth: '500px',
@@ -173,6 +174,8 @@ const Tools = () =>  {
 
 return (
 
+// Is this for manage users breadcrumb/page?
+
   <Container>
   <Modal.Dialog   style={{display: isProjectModalShown ?  'block' : 'none'}}>
   <Modal.Header closeButton onClick={closeProjectModal}>
@@ -265,9 +268,12 @@ return (
     <Button variant="primary">Save changes</Button>
   </Modal.Footer>
 </Modal.Dialog>
+
+{/* Breadcrumbs for what Modal to display when clicked */}
   <Col>
     <Row className="d-flex justify-content-center">
     <Breadcrumb className="d-flex justify-content-center">
+      {/* When I click here I am taken to the invites page */}
       <Breadcrumb.Item onClick={displayRandomTeamGenerator}>
         Random Team Generator
       </Breadcrumb.Item>
@@ -285,6 +291,7 @@ return (
     <Row  className="justify-content-center"  style={{display: isCreateProjectShown ?  'block' : 'none'}}>
       <Container className="mt-1 p-3 border border-dark rounded bg-light " style={divStyle}>
       
+      {/* Create Project From */}
       <Form>
       <div className="justify-content-center fs-3 fw-italic">Create Project</div>
         <Form.Group className="mb-3" controlId="formBasicInput">
@@ -318,6 +325,7 @@ return (
       
       <Container className="mt-1 p-3 border border-dark rounded bg-light " style={divStyle}>
       
+      {/* Manage Roster Modal? */}
       <Form>
       <div className="justify-content-center fs-3">Manage Roster</div>
         <Form.Group className="mb-3" controlId="formBasicInput">
@@ -375,7 +383,7 @@ return (
     </Container>
 
     </Row>
-
+{/* Team builder */}
     <Row  className="justify-content-center"  style={{display: isTeamBuilderShown ?  'block' : 'none'}}>
       
       <Container className="mt-1 p-3 border border-dark rounded bg-light " style={divStyle}>
@@ -438,7 +446,7 @@ return (
             Add Teams
           </Button>
         </Container>
-
+{/* This is the button under launchprojects/teambuilder after select random*/}
         <Container className="d-flex justify-content-center mt-4" style={{display: isRandomTeamBuilderShown ?  'block' : 'none'}}>
           <Button variant="primary" type="submit" style={{display: isRandomTeamBuilderShown ?  'block' : 'none'}}>
             Create Teams Randomly

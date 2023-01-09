@@ -5,9 +5,11 @@
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
+    "client": "npm start --prefix client",
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
-    "build": "cd client && npm run build"
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "keywords": [],
   "author": "",
@@ -17,8 +19,13 @@
   },
   "dependencies": {
     "@apollo/client": "^3.7.3",
+    "dotenv": "^16.0.3",
     "graphql": "^16.6.0",
     "react-query": "^3.39.2",
     "react-select": "^5.7.0"
+  },
+  "engines": {
+    "node": "16.17.0",
+    "npm":"8.15.0"
   }
 }
