@@ -62,7 +62,7 @@ return (
 
   <Container>
   <Col>
-    <Row >
+    <Row className="d-flex justify-content-center">
     <Breadcrumb className="d-flex justify-content-center">
       <Breadcrumb.Item onClick={displayViewMyProjects}>
         My Projects

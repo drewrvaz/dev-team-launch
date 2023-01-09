@@ -149,8 +149,8 @@ const Profile = () =>  {
   }
 
 return (
-  <Col >
-    <Row >
+  <Col>
+    <Row>
     <Breadcrumb className="d-flex justify-content-center">
       {/* <Breadcrumb.Item onClick={displayViewProfile}>
         View

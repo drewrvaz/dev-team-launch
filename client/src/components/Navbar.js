@@ -16,7 +16,7 @@ const AppNavbar = () => {
         <Container fluid>
         
           <Navbar.Brand className="ml-2 fs-3 fw-bold">
-            <span>DevTeam <FaRocket /></span>
+            <span><h1>DevTeam <FaRocket /></h1></span>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar'>
@@ -72,13 +72,13 @@ const AppNavbar = () => {
             {Auth.loggedIn() ? (
                 <>
                   
-                  <Nav.Link onClick={Auth.logout} className='fw-bold fs-7 bg-black text-white p-2 border rounded border-dark'>Logout</Nav.Link>
+                  <Nav.Link onClick={Auth.logout} className='navbarBtn fw-bold fs-7 p-2 border rounded border-dark'>Logout</Nav.Link>
                 </>
                 
               ) : (
                 <>
-                  <Nav.Link as={Link} to='/' className='d-flex justify-content-center fw-bold fs-7 bg-black text-white p-1 border rounded border-dark m-1' style={{minWidth:"80px"}}>Login</Nav.Link>
-                  <Nav.Link as={Link} to='/signup' className='d-flex justify-content-center fw-bold fs-7 bg-light text-black p-1 border rounded border-dark m-1' style={{minWidth:"80px"}}>Sign Up</Nav.Link>
+                  <Nav.Link as={Link} to='/' className='navbarBtn d-flex justify-content-center fw-bold fs-7 p-1 border rounded border-dark m-1' style={{minWidth:"80px"}}>Login</Nav.Link>
+                  <Nav.Link as={Link} to='/signup' className='navbarBtn d-flex justify-content-center fw-bold fs-7 p-1 border rounded border-dark m-1' style={{minWidth:"80px"}}>Sign Up</Nav.Link>
                 </>
               )}
             </Col>
