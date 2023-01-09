@@ -80,7 +80,7 @@ const AppNavbar = () => {
                 
               ) : (
                 <>
-                  <Nav.Link as={Link} to='/' className='navbarBtn d-flex justify-content-center fw-bold fs-7 p-1 border rounded border-dark m-1' style={{minWidth:"80px"}}>Login</Nav.Link>
+                  <Nav.Link as={Link} to='/login' className='navbarBtn d-flex justify-content-center fw-bold fs-7 p-1 border rounded border-dark m-1' style={{minWidth:"80px"}}>Login</Nav.Link>
                   <Nav.Link as={Link} to='/signup' className='navbarBtn d-flex justify-content-center fw-bold fs-7 p-1 border rounded border-dark m-1' style={{minWidth:"80px"}}>Sign Up</Nav.Link>
                 </>
               )}
