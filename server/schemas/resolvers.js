@@ -96,6 +96,19 @@ const resolvers = {
       
       return classObj;
     },
+    createClass: async (parent, { name, username, description, classSize, teamSize }) => {
+      const user = await User.findOne({username:username});
+      
+      const classObj = await Class.create({ 
+        name: name, 
+        leadId: user._id,
+        description: description,
+        classSize: classSize,
+        teamSize: teamSize,
+      });
+      
+      return classObj;
+    },
     updateClassSize: async (parent, {classId, classSize }) => {
       
       const filter = { _id: classId };
@@ -243,7 +256,41 @@ const resolvers = {
       
       return await Class.findOne({_id: classId});
     },
+
+    addUserAvailability: async (parent, { username, availability}) => {
+      
+      const filter = { username: username };
+      const update = { availability: availability };
+      const user = await User.findOneAndUpdate(filter, update, { new: true });
+
+      return user;
+    },
+    addUserExperience: async (parent, { username, experience}) => {
+      
+      const filter = { username: username };
+      const update = { experience: experience };
+      const user = await User.findOneAndUpdate(filter, update, { new: true });
+  
+      return user;
+    },
+    addUserSkills: async (parent, { username, skills}) => {
+        
+      const filter = { username: username };
+      const update = { skills: skills };
+      const user = await User.findOneAndUpdate(filter, update, { new: true });
+  
+      return user;
+    },
+    addUserAvatar: async (parent, { username, userAvatarId}) => {
+        
+      const filter = { username: username };
+      const update = { userAvatarId: userAvatarId };
+      const user = await User.findOneAndUpdate(filter, update, { new: true });
+  
+      return user;
+    },
   },
+ 
 };
 
 module.exports = resolvers;

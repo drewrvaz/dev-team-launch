@@ -48,18 +48,23 @@ const ChangePassword = () =>  {
             <Container className="d-flex justify-content-center fs-5 fw-italic"> <span>{userData.username}</span> </Container>
             <Container className="d-flex justify-content-center fs-5 fw-italic"> <span>Change Password</span> </Container>
             <Form>
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label className="fw-bold">Password</Form.Label>
+              <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Label className="fw-bold">Current Password</Form.Label>
                     <Form.Control type="password" placeholder="Password" />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label className="fw-bold">Confirm Password</Form.Label>
+                    <Form.Label className="fw-bold">New Password</Form.Label>
+                    <Form.Control type="password" placeholder="Password" />
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Label className="fw-bold">Confirm New Password</Form.Label>
                     <Form.Control type="password" placeholder="ConfirmPassword" />
                 </Form.Group>
                 <Container className="d-flex justify-content-center mt-4">
             <Button variant="primary" type="submit">
-                Save
+                Update Password
             </Button>
             </Container>
             </Form>
