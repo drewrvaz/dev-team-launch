@@ -5,26 +5,43 @@ import Form from 'react-bootstrap/Form';
 import Select from 'react-select'
 import Table from 'react-bootstrap/Table';
 
+import { useQuery, useMutation } from '@apollo/client';
+import { useState } from 'react';
+
+import { GET_MY_CLASSES } from '../utils/queries';
+import Auth from '../utils/auth';
+
 const divStyle = {
     maxWidth: '500px',
     fontFamily: 'Arial',
 };
 
-//Placeholder need to query projects
-const optionsProjects = [
-    { value: 'None', label: 'None' },
-    { value: 'Project 1', label: 'Project 1' },
-    { value: 'Project 2', label: 'Project 2' },
-    { value: 'Project 3', label: 'Project 3' },
-  ]
-  
-  const optionsTeamBuildType = [
-    { value: 'manual', label: 'Manual' },
-    { value: 'random', label: 'Random' },
-    { value: 'criteria', label: 'Criteria Based' },
-  ]
-
 const ManageRoster = () =>  {
+
+    const [projectData, setProjectData] = useState({
+        projects: []
+      });
+
+    const { loading, data } = useQuery(GET_MY_CLASSES, {
+    variables: {username: Auth.getProfile().data.username}
+    });
+
+    if (data && projectData.projects.length === 0) {
+
+        let projectNames = [];
+
+        for (let i = 0; i < data.myClasses.length;i++){
+            projectNames.push({value: data.myClasses[i].name, label: data.myClasses[i].name});
+            console.log(data.myClasses[i].name)
+        }
+        setProjectData({projects : projectNames});
+        console.log(data);
+        console.log(projectData);
+    };
+
+    if (loading) {
+    return <h2>LOADING...</h2>;
+    }
 
     return (
     <Container className="mt-1 p-3 border border-dark rounded bg-light " style={divStyle}>
@@ -32,23 +49,23 @@ const ManageRoster = () =>  {
         <div className="justify-content-center fs-3">Manage Roster</div>
             <Form.Group className="mb-3" controlId="formBasicInput">
             <Form.Label>Select Project</Form.Label>
-            <Select options={optionsProjects} />
+            <Select options={projectData.projects} />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicInput">
-            <Form.Label>Search for User</Form.Label>
+            <Form.Label>Add User</Form.Label>
             <Container fluid className="d-flex inline p-0">
                 <Col className='col-10'>
                 <Form.Control type="Text" placeholder="Enter Username" />
                 </Col>
                 <Col>
-                <Button variant="primary" type="submit">Search</Button>
+                <Button variant="primary" type="submit">Add</Button>
                 
                 </Col>
             </Container>
             
             
             </Form.Group>
-            <Table striped bordered hover size="sm" style={{maxHeight:'10px',overflow:'auto'}}>
+            {/* <Table striped bordered hover size="sm" style={{maxHeight:'10px',overflow:'auto'}}>
         <thead>
             <tr>
             <th>#</th>
@@ -73,13 +90,13 @@ const ManageRoster = () =>  {
             <td><Button variant="danger" size="sm">Remove</Button></td>
             </tr>
         </tbody>
-        </Table>
+        </Table> */}
             
-            <Container className="d-flex justify-content-center mt-4">
+            {/* <Container className="d-flex justify-content-center mt-4">
             <Button variant="primary" type="submit">
                 Save Users
             </Button>
-            </Container>
+            </Container> */}
             
         </Form>
         </Container>
