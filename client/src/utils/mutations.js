@@ -126,3 +126,12 @@ export const ADD_SEARCH_TEAMS = gql`
   }
 `;
 
+export const LIST_TEAMS = gql`
+  mutation listTeams($classname: String!) {
+    listTeams(classname: $classname){
+      _id
+      name
+    } 
+  }
+`;
+

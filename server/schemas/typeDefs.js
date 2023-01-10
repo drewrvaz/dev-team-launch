@@ -120,6 +120,7 @@ type User {
     addUserSkills(username: String!, skills: [String!]): User
     searchUsers(username: String!): [User]
     searchTeams(name: String!): [Team]
+    listTeams(classname: String!): [Team]
 
   }
 `
