@@ -305,7 +305,20 @@ const resolvers = {
 
       return teams;
     },
+    listTeams: async (parent, { classname}) => { 
+      const classObj = await Class.findOne({name:classname});
+      let teams = await Team.find({name:"Nothin"});
+  
+      for (let i = 0; i < classObj.userIds.length; i++) {
+        let team = await Team.find({_id: classObj.userIds[i]});
+        console.log(team);
+        teams.push(team);
+      }
+  
+      return teams;
+    },
   },
+ 
  
 };
 

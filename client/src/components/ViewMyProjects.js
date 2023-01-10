@@ -13,7 +13,7 @@ import Auth from '../utils/auth';
 import { useQuery, useMutation } from '@apollo/client';
 import { useState } from 'react';
 import { GET_USER, QUERY_MY_CLASSES } from '../utils/queries';
-
+import { LIST_TEAMS } from '../utils/mutations';
 
 
 
@@ -34,10 +34,21 @@ const optionsProjects = [
     const [isProjectModalShown, setIsProjectModalShown] = useState(false);
     const [userData, setUserData] = useState({ username: "" });
     const [projectData, setProjectData] = useState({ projects : [] });  
+    const [projectName, setProjectName] = useState({ name : "" });  
+
+    const [teamSearchStore, setTeamSearchStore] = useState({ teams : [] });
+
+    const [teamSearch, { teamSearchError, teamSearchData }] = useMutation(LIST_TEAMS);
     
-    const displayProjectModal = event => {
+    const displayProjectModal = async (event) => {
       // 👇️ toggle visibility
-      console.log(event)
+      console.log(event);
+      const { data } = await teamSearch({
+        variables: { classname: event.target.name},
+      });
+      console.log(data);
+      console.log(event.target.name);
+      setProjectName({name:event.target.name})
       setIsProjectModalShown(true);
     };
   
@@ -95,36 +106,7 @@ const optionsProjects = [
           <td>{data.description}</td>
         </tr>
         )}
-        {/* <tr>
-          <td>1</td>
-          <td>Project 1</td>
-          <td><Button variant="primary" size="sm">View</Button><Button variant="success" size="sm" onClick={displayProjectModal}>Edit</Button><Button variant="danger" size="sm">Remove</Button></td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Project 2</td>
-          <td><Button variant="primary" size="sm">View</Button><Button variant="success" size="sm" onClick={displayProjectModal}>Edit</Button><Button variant="danger" size="sm">Remove</Button></td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Project 3</td>
-          <td><Button variant="primary" size="sm">View</Button><Button variant="success" size="sm" onClick={displayProjectModal}>Edit</Button><Button variant="danger" size="sm">Remove</Button></td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td>Project 4</td>
-          <td><Button variant="primary" size="sm">View</Button><Button variant="success" size="sm" onClick={displayProjectModal}>Edit</Button><Button variant="danger" size="sm">Remove</Button></td>
-        </tr>
-        <tr>
-          <td>5</td>
-          <td>Project 5</td>
-          <td><Button variant="primary" size="sm">View</Button><Button variant="success" size="sm" onClick={displayProjectModal}>Edit</Button><Button variant="danger" size="sm">Remove</Button></td>
-        </tr>
-        <tr>
-          <td>6</td>
-          <td>Project 6</td>
-          <td><Button variant="primary" size="sm">View</Button><Button variant="success" size="sm" onClick={displayProjectModal}>Edit</Button><Button variant="danger" size="sm">Remove</Button></td>
-        </tr> */}
+        
       </tbody>
     </Table>
         
@@ -133,15 +115,14 @@ const optionsProjects = [
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title">Modal title</h5>
+              <h5 className="modal-title">{projectName.name}</h5>
               <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div className="modal-body">
-              <p>Modal body text goes here.</p>
+              <p>Teams:</p>
             </div>
             <div className="modal-footer">
               <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" onClick={closeProjectModal}>Close</button>
-              <button type="button" className="btn btn-primary">Save changes</button>
             </div>
           </div>
         </div>
